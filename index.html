@@ -490,7 +490,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   window.addEventListener('load',()=>{
     document.querySelectorAll('.hero-in h1,.hero-in p,.hero-in .btn-row,.page-hero .ph-in > *').forEach((el,i)=>{
       el.style.transitionDelay=(i*0.09)+'s';
-      requestAnimationFrame(()=>el.classList.add('in'));
+      setTimeout(()=>el.classList.add('in'),30);
     });
   });
 })();

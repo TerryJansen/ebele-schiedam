@@ -517,7 +517,8 @@ document.querySelectorAll('.chip').forEach(btn => {
     if (on) { panel.classList.remove('show'); return; }  // nogmaals klikken sluit
     btn.classList.add('on');
     const t = LAGERS[btn.dataset.t];
-    panel.innerHTML = '<div class="linfo-flex"><div><h3>'+t.n+'</h3><p>'+t.d+'</p><ul class="specs">'+t.s.map(x=>'<li>'+x+'</li>').join('')+'</ul><p style="margin:14px 0 0">Op zoek naar dit type? <a href="contact.html">Vraag een offerte aan</a> of bel 010 426 43 54.</p></div><div class="lviewer"><img src="'+t.img+'" alt="'+t.n+'" style="max-width:230px;width:100%;height:auto;border-radius:8px;background:#fff;padding:8px"></div></div>';
+    panel.innerHTML = '<div class="linfo-flex"><div><h3 class="anim">'+t.n+'</h3><p class="anim d1" style="font-size:.82rem;margin-bottom:8px">'+t.d+'</p><ul class="specs" style="clear:both">'+t.s.map((x,k)=>'<li class="anim d'+Math.min(k,3)+'" style="font-size:.78rem;padding:2px 0 2px 18px">'+x+'</li>').join('')+'</ul><p class="anim d3" style="margin:14px 0 0;font-size:.8rem">Op zoek naar dit type? <a href="contact.html" style="color:var(--cyan)">Vraag een offerte aan</a> of bel <a href="tel:+31104264354" style="color:var(--cyan)">010 426 43 54</a>.</p></div><div class="lviewer"><img class="anim" src="'+t.img+'" alt="'+t.n+'" style="max-width:230px;width:100%;height:auto;border-radius:8px;background:#fff;padding:8px"></div></div>';
+    setTimeout(()=>panel.querySelectorAll('.anim').forEach(el=>el.classList.add('in')),30);
     panel.classList.remove('show'); void panel.offsetWidth; panel.classList.add('show');
   });
 });
@@ -542,7 +543,7 @@ document.querySelectorAll('.chip').forEach(btn => {
   window.addEventListener('load',()=>{
     document.querySelectorAll('.hero-in h1,.hero-in p,.hero-in .btn-row,.page-hero .ph-in > *').forEach((el,i)=>{
       el.style.transitionDelay=(i*0.09)+'s';
-      requestAnimationFrame(()=>el.classList.add('in'));
+      setTimeout(()=>el.classList.add('in'),30);
     });
   });
 })();
