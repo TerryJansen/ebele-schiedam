@@ -167,6 +167,8 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 
 .pnum{display:block;font-size:.78rem;font-weight:600;color:var(--blue);letter-spacing:.08em;margin:14px 20px 0}
 .pcard .ph{border-radius:0}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr}}
 /* ——— Industrial look (Smulders-referentie, eigen kleuren) ——— */
 .pcard{border-radius:0;border:1px solid var(--line);box-shadow:none}
 .pcard:hover{transform:none;border-color:var(--blue);box-shadow:inset 4px 0 0 var(--blue)}
@@ -266,74 +268,37 @@ h2.title,h1{font-weight:700}
 
 <section id="producten">
   <div class="wrap">
-    <p class="kicker">Producten</p>
-    <h2 class="title">Acht productgroepen, één leverancier</h2>
-    <p class="lead">Acht productgroepen. Één adres in Schiedam. Al sinds 1994.</p>
-    <div class="grid">
+    <p class="kicker">Uitgelicht</p>
+    <h2 class="title">Uitgelichte producten</h2>
+    <p class="lead">De drie productgroepen die wij het vaakst leveren. Het volledige assortiment vindt u op de productenpagina.</p>
+    <div class="grid grid-3">
       <article class="pcard"><span class="pnum">01</span>
         <div class="ph"><img src="img/lagers.jpg" alt="" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>Lagers &amp; lagergereedschap</h3>
-          <p>Vrijwel alle lagertypes van FAG, SKF, INA, NTN, SNR, Timken, NSK en ZEN. Ook inductieverwarmers en montagesets van SKF, FAG, BETEX en KUKKO.</p>
+          <p>Vrijwel alle lagertypes van FAG, SKF, INA, NTN en meer — plus het gereedschap om ze te monteren.</p>
         </div>
-        <a class="stretched" href="product-lagers-en-lagergereedschap.html" aria-label="Meer informatie"></a>
-        </article>
+        <a class="stretched" href="product-lagers-en-lagergereedschap.html" aria-label="Meer over lagers"></a>
+      </article>
       <article class="pcard"><span class="pnum">02</span>
         <div class="ph"><img src="img/afdichtingen.jpg" alt="" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>Afdichtingstechniek</h3>
-          <p>O-ringen, oliekeerringen, V-ringen, manchetten en quad-ringen in NBR, VITON, EPDM, PTFE, ECONOL, KALREZ en silicone. Maatwerk met Seal Jet.</p>
+          <p>O-ringen, oliekeerringen en manchetten in alle materialen — ook maatwerk via Seal Jet.</p>
         </div>
-      <a class="stretched" href="product-afdichtingstechniek.html" aria-label="Meer informatie"></a>
-        </article>
+        <a class="stretched" href="product-afdichtingstechniek.html" aria-label="Meer over afdichtingen"></a>
+      </article>
       <article class="pcard"><span class="pnum">03</span>
-        <div class="ph"><img src="img/v-snaren.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>V-snaren &amp; V-snaarschijven</h3>
-          <p>Van Mitsuboshi, op basis van de prijs-kwaliteitverhouding. Ook Optibelt, Dunlop en Diamond leveren wij tegen goede condities.</p>
-        </div>
-      <a class="stretched" href="product-v-snaren-en-v-snaarschijven.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard"><span class="pnum">04</span>
-        <div class="ph"><img src="img/kettingen.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>Kettingen &amp; kettingwielen</h3>
-          <p>Verschillende industriële kettingen in de kwaliteit die u wenst, met bijpassende kettingwielen.</p>
-        </div>
-      <a class="stretched" href="product-kettingen-en-kettingwielen.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard"><span class="pnum">05</span>
         <div class="ph"><img src="img/gereedschap.jpg" alt="" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>Gereedschap</h3>
-          <p>Een uitgebreid pakket gereedschap van de merken BETA en KNIPEX voor technische bedrijven.</p>
+          <p>IJzersterk professioneel gereedschap van BETA en KNIPEX voor de technische werkplaats.</p>
         </div>
-      <a class="stretched" href="product-gereedschap.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard"><span class="pnum">06</span>
-        <div class="ph"><img src="img/loctite.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>Lijmen &amp; afdichtingsmiddelen</h3>
-          <p>Loctite voor verlijmen, afdichten en coaten — een ruim assortiment direct op voorraad.</p>
-        </div>
-      <a class="stretched" href="product-lijmen-en-afdichtingsmiddelen.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard"><span class="pnum">07</span>
-        <div class="ph"><img src="img/transportwielen.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>Transportwielen</h3>
-          <p>Standaard wielen en wielen voor zwaar transport, ook voor speciale situaties.</p>
-        </div>
-      <a class="stretched" href="product-transportwielen.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard"><span class="pnum">08</span>
-        <div class="ph"><img src="img/rema.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>Hijs- en hefwerktuigen</h3>
-          <p>Het assortiment van REMA voor tillen, hefen en trekken in de werkplaats en op locatie.</p>
-        </div>
-      <a class="stretched" href="product-hijs-en-hefwerktuigen.html" aria-label="Meer informatie"></a>
-        </article>
+        <a class="stretched" href="product-gereedschap.html" aria-label="Meer over gereedschap"></a>
+      </article>
+    </div>
+    <div class="btn-row" style="margin-top:32px">
+      <a class="btn btn-primary" href="producten.html">Bekijk alle producten</a>
     </div>
   </div>
 </section>
