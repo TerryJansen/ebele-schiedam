@@ -119,7 +119,8 @@ h2.title{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:800;letter-spacing:-.02e
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:6px 14px;font-size:.8rem;color:#dfe2f5}
 .assort-side{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:24px}
-#lsidewrap{height:420px;overflow-y:auto;position:sticky;top:90px}
+#lsidewrap{height:420px;overflow-y:auto;position:sticky;top:90px;scrollbar-width:none;-ms-overflow-style:none}
+#lsidewrap::-webkit-scrollbar{display:none}
 .assort-side h3{color:#fff;font-size:.95rem;margin-bottom:10px}
 .assort-side p{font-size:.87rem;margin:0}
 @media(max-width:760px){.assort{padding:30px 24px}.assort-grid{grid-template-columns:1fr}}
