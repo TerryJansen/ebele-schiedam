@@ -427,8 +427,13 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 // Fade-in-up bij scroll (zoals jgmobility)
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const targets = document.querySelectorAll('h1,h2,h3,p,.btn,.pcard,.bcard,.chip,.fact,.val,.crow,.step,.why-item,.lg-item,.hours-card,.cinfo,form,.detail,.story,.marquee,.assort,.assort-side,.side-card,.empty-state,.alert-box,.os-text,.os-img');
+  const targets = document.querySelectorAll('h1,h2,h3,h4,p,li,span,small,strong,em,label,td,blockquote,.btn,.pcard,.bcard,.chip,.fact,.val,.crow,.step,.why-item,.lg-item,.hours-card,.cinfo,form,.detail,.story,.assort,.assort-side,.side-card,.empty-state,.alert-box,.os-text,.os-img,.lead,.kicker,.chips,.btn-row,.body,.foot-col,.hours');
   targets.forEach(el=>el.classList.add('anim'));
+
+  // staggered delay binnen ouderblokken (JG-stijl): kinderen van hetzelfde blok volgen elkaar op
+  document.querySelectorAll('ul,ol,.grid,.foot-grid,.chips,.assort-grid,.contact-grid,.steps,.why,.usp-grid,.facts').forEach(parent=>{
+    [...parent.children].forEach((child,i)=>{ if(child.classList.contains('anim')) child.style.transitionDelay = Math.min(i*0.07,0.5)+'s'; });
+  });
   const io = new IntersectionObserver(es=>{
     es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
   },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
