@@ -34,9 +34,7 @@ h1,h2,h3{line-height:1.22;color:var(--navy)}
 /* ——— NAV ——— */
 .nav{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 1px 0 rgba(4,5,47,.08)}
 .nav-in{max-width:1120px;margin:0 auto;padding:0 20px;height:80px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
 .logo img{height:56px;width:auto;border-radius:0;padding:0}
-.logo b{font-size:.95rem;font-weight:600;color:var(--navy)}
 .nav-links{display:flex;gap:24px;align-items:center}
 .nav-links a{text-decoration:none;color:var(--navy);font-weight:500;font-size:.92rem;transition:color .15s}
 .nav-links a:hover,.nav-links a:focus-visible{color:var(--blue)}
@@ -345,8 +343,10 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 @media(prefers-reduced-motion:reduce){.anim{opacity:1;transform:none;transition:none}}
 
 /* Logo: roterend lagertje + statische tekst */
+.logo{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+.logo b{font-size:.95rem;font-weight:600;color:var(--navy)}
 .logo-mark{display:inline-flex;flex-direction:column;align-items:center;gap:0;margin-top:8px}
-.logo-bearing-spin{height:24px;width:auto;animation:logoSpin 72s linear infinite;will-change:transform;transform-origin:50% 50%}
+.logo-bearing-spin{height:24px;width:auto;animation:logoSpin 60s linear infinite;will-change:transform;transform-origin:50% 50%}
 @keyframes logoSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .logo-text{height:35px;width:auto}
 @media(prefers-reduced-motion:reduce){.logo-bearing-spin{animation:none}}
@@ -355,10 +355,10 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 <body>
 <nav class="nav" aria-label="Hoofdnavigatie">
   <div class="nav-in">
-    <a class="logo" href="index.html" aria-label="Ebele Schiedam — home">
+    <a class="logo" href="index.html" aria-label="Ebele Schiedam — naar boven">
       <span class="logo-mark">
-          <img class="logo-bearing-spin" src="img/logo-bearing.png" alt="" aria-hidden="true">
-          <img class="logo-text" src="img/logo-text.png" alt="Ebele Schiedam" style="height:35px;width:auto">
+          <img class="logo-bearing-spin" src="img/logo-bearing.png" alt="" aria-hidden="true" style="height:21px;width:auto">
+          <img class="logo-text" src="img/logo-text.png" alt="Ebele Schiedam" style="height:35px;width:auto">>
         </span>
     </a>
     <button class="burger" aria-label="Menu openen of sluiten" aria-expanded="false" onclick="var l=document.querySelector('.nav-links');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">
