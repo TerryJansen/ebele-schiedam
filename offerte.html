@@ -283,13 +283,23 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .anim.in{opacity:1;transform:none}
 .anim.d1{transition-delay:.08s}.anim.d2{transition-delay:.16s}.anim.d3{transition-delay:.24s}
 @media(prefers-reduced-motion:reduce){.anim{opacity:1;transform:none;transition:none}}
+
+/* Logo: roterend lagertje + statische tekst */
+.logo-mark{display:inline-flex;flex-direction:column;align-items:center;gap:2px}
+.logo-bearing-spin{width:30px;height:auto;animation:logoSpin 72s linear infinite;will-change:transform;transform-origin:50% 50%}
+@keyframes logoSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.logo-text{height:26px;width:auto}
+@media(prefers-reduced-motion:reduce){.logo-bearing-spin{animation:none}}
 </style>
 </head>
 <body>
 <nav class="nav" aria-label="Hoofdnavigatie">
   <div class="nav-in">
     <a class="logo" href="index.html" aria-label="Ebele Schiedam — home">
-      <img src="img/logo-ebele.png" alt="Logo Ebele Schiedam">
+      <span class="logo-mark">
+          <img class="logo-bearing-spin" src="img/logo-bearing.png" alt="" aria-hidden="true">
+          <img class="logo-text" src="img/logo-text.png" alt="Ebele Schiedam">
+        </span>
     </a>
     <button class="burger" aria-label="Menu openen of sluiten" aria-expanded="false" onclick="var l=document.querySelector('.nav-links');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
