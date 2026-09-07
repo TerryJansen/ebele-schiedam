@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Transportwielen — Ebele Schiedam</title>
-<meta name="description" content="Standaard wielen en wielen voor zwaar transport — ook voor speciale situaties.">
+<title>Vacatures — Ebele Schiedam</title>
+<meta name="description" content="Werken bij Ebele Schiedam in Schiedam. Momenteel geen open vacatures — meld je aan en ontvang een bericht zodra er een functie vrijkomt.">
+<html lang="nl">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -166,43 +167,15 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
   .frow{grid-template-columns:1fr}
 }
 
-
-/* Pagina-hero */
-.page-hero{background:var(--navy) url("img/hero-b.jpg") center/cover no-repeat;color:#fff;position:relative;overflow:hidden}
-.page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,47,.82),rgba(4,5,47,.88));z-index:0}
-.page-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(820px 340px at 80% 20%,rgba(0,183,243,.16),transparent 65%);pointer-events:none}
-.page-hero .ph-in{max-width:1120px;margin:0 auto;padding:88px 20px;position:relative;z-index:1}
-.page-hero h1{color:#fff;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-bottom:10px}
-.page-hero p{color:#a8aed2;max-width:40rem;font-size:1rem}
-.nav-links a{text-decoration:none}
-.nav-links a.active{color:var(--cyan)}
-.nav-links a.cta.active,.nav-links a.cta.active:hover{color:var(--navy)}
-/* Hover-animatie nav-kopjes */
-.nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
-.nav-links a:not(.cta):hover{transform:translateY(-2px)}
-.nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
-.nav-links a:not(.cta):hover::after{width:100%}
-/* Productdetail */
-.detail{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:start}
-.detail .photo{border-radius:16px;overflow:hidden;box-shadow:0 16px 36px rgba(4,5,47,.14)}
-.detail .photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
-.detail h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:12px}
-.detail p{color:var(--muted);margin-bottom:14px}
-.detail ul{margin:0 0 20px;padding-left:0;list-style:none}
-.detail li{padding:8px 0 8px 26px;position:relative;color:var(--text);font-size:.94rem;border-bottom:1px solid var(--line)}
-.detail li::before{content:"";position:absolute;left:2px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--cyan)}
-.side-card{background:var(--navy);border-radius:16px;padding:28px;color:#fff;margin-top:28px}
-.side-card h3{color:#fff;font-size:1rem;margin-bottom:8px}
-.side-card p{color:#a8aed2;font-size:.9rem;margin-bottom:16px}
-@media(max-width:820px){
-  .detail{grid-template-columns:1fr;gap:28px}
-  .detail .photo{max-width:480px}
-}
-
-
+.pnum{display:block;font-size:.78rem;font-weight:600;color:var(--blue);letter-spacing:.08em;margin:14px 20px 0}
+.pcard .ph{border-radius:0}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr}}
 /* ——— Industrial look (Smulders-referentie, eigen kleuren) ——— */
 .pcard{border-radius:0;border:1px solid var(--line);box-shadow:none}
 .pcard:hover{transform:none;border-color:var(--blue);box-shadow:inset 4px 0 0 var(--blue)}
+.pcard .body{padding:18px 20px 22px}
+.pcard h3{font-weight:600;letter-spacing:-.01em}
 .btn{border-radius:0;font-weight:500}
 .btn-primary{background:var(--navy);color:#fff}
 .btn-primary:hover{background:var(--blue);filter:none;transform:none}
@@ -236,6 +209,7 @@ h2.title,h1{font-weight:700}
   .dd-menu a:hover{background:transparent;color:#fff !important}
   .dd-menu a span{display:none}
 }
+
 /* ——— Speelse accenten ——— */
 .chip{transition:background .15s,border-color .15s,transform .2s cubic-bezier(.34,1.56,.64,1)}
 .chip:hover{transform:translateY(-3px) rotate(-1.5deg)}
@@ -255,6 +229,59 @@ h2.title,h1{font-weight:700}
 .fact:hover b span{transform:translateY(-3px) scale(1.15)}
 .bcard{transition:transform .2s cubic-bezier(.34,1.56,.64,1),border-color .2s}
 .bcard:hover{transform:translateY(-4px) rotate(-1deg);border-color:var(--cyan)}
+
+
+/* Pagina-hero */
+.page-hero{background:var(--navy) url("img/gebouw.jpg") center/cover no-repeat;color:#fff;position:relative;overflow:hidden}
+.page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,47,.82),rgba(4,5,47,.88));z-index:0}
+.page-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(820px 340px at 80% 20%,rgba(0,183,243,.14),transparent 65%);pointer-events:none;z-index:0}
+.page-hero .ph-in{max-width:1120px;margin:0 auto;padding:88px 20px;position:relative;z-index:1}
+.page-hero h1{color:#fff;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-bottom:10px}
+.page-hero p{color:#a8aed2;max-width:40rem;font-size:1rem}
+.nav-links a{text-decoration:none}
+.nav-links a.active{color:var(--cyan)}
+.nav-links a.cta.active,.nav-links a.cta.active:hover{color:var(--navy)}
+/* Hover-animatie nav-kopjes */
+.nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
+.nav-links a:not(.cta):hover{transform:translateY(-2px)}
+.nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
+.nav-links a:not(.cta):hover::after{width:100%}
+/* Dropdown */
+.nav-item-dd{position:relative}
+.dd-toggle{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.dd-toggle svg{width:12px;height:12px;stroke:currentColor;transition:transform .2s}
+.nav-item-dd:hover .dd-toggle svg,.nav-item-dd:focus-within .dd-toggle svg{transform:rotate(180deg)}
+.dd-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);border-radius:0;min-width:230px;padding:6px 0;opacity:0;visibility:hidden;transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 34px rgba(4,5,47,.18);z-index:120}
+.nav-item-dd:hover .dd-menu,.nav-item-dd:focus-within .dd-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dd-menu a{display:block;padding:7px 16px;color:var(--text) !important;font-size:.9rem;font-weight:500;border:none !important;transform:none !important;transition:background .12s,color .12s}
+.dd-menu a:hover{background:var(--bg);color:var(--blue) !important;transform:none !important}
+@media(max-width:820px){
+  .nav-item-dd{width:100%}
+  .dd-menu{position:static;transform:none;opacity:1;visibility:hidden;display:none;box-shadow:none;background:transparent;border:none;padding:0 0 8px 14px;min-width:0}
+  .nav-item-dd.open .dd-menu{display:block;visibility:visible;opacity:1}
+  .dd-menu a{color:#c3c7e2 !important;border-bottom:1px solid rgba(255,255,255,.08) !important;padding:10px 4px}
+  .dd-menu a:hover{background:transparent;color:#fff !important}
+}
+/* Vacatures */
+.empty-state{background:#fff;border:1px solid var(--line);border-radius:0;padding:56px 40px;text-align:center;position:relative;overflow:hidden}
+.empty-state::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--cyan),var(--blue))}
+.empty-state .icon{width:74px;height:74px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;border:1px solid var(--line)}
+.empty-state .icon svg{width:34px;height:34px;stroke:var(--blue)}
+.empty-state h2{font-size:clamp(1.3rem,2.6vw,1.65rem);margin-bottom:10px}
+.empty-state p{color:var(--muted);max-width:32rem;margin:0 auto 26px;font-size:.96rem}
+.alert-box{background:var(--navy);color:#fff;border-radius:0;padding:40px 36px;max-width:760px;margin:56px auto 0;position:relative;overflow:hidden}
+.alert-box::after{content:"";position:absolute;inset:0;background:radial-gradient(420px 200px at 85% 15%,rgba(0,183,243,.18),transparent 70%);pointer-events:none}
+.alert-box h3{color:#fff;font-size:1.15rem;margin-bottom:8px;position:relative}
+.alert-box p{color:#a8aed2;font-size:.92rem;margin-bottom:22px;position:relative}
+.alert-form{display:flex;gap:12px;flex-wrap:wrap;position:relative}
+.alert-form input{flex:1;min-width:230px;padding:13px 16px;border:1px solid rgba(255,255,255,.25);border-radius:0;background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:.9rem}
+.alert-form input::placeholder{color:#8d92bd}
+.alert-form input:focus{outline:2px solid var(--cyan);background:rgba(255,255,255,.12)}
+.alert-form button{background:var(--cyan);color:var(--navy);border:none;padding:13px 26px;border-radius:0;font:inherit;font-weight:600;cursor:pointer;transition:transform .2s cubic-bezier(.34,1.56,.64,1),filter .2s;position:relative;overflow:hidden}
+.alert-form button:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.alert-ok{display:none;color:var(--cyan);font-weight:600;font-size:.95rem;position:relative}
+@media(max-width:820px){.empty-state{padding:40px 22px}.alert-box{padding:30px 22px}}
+
 </style>
 </head>
 <body>
@@ -284,7 +311,7 @@ h2.title,h1{font-weight:700}
       </div>
       <a href="merken.html">Merken</a>
       <a href="over-ons.html">Over ons</a>
-      <a href="vacatures.html">Vacatures</a>
+      <a class="active" href="vacatures.html">Vacatures</a>
       <a href="contact.html">Contact</a>
       <a class="cta" href="offerte.html">Offerte aanvragen</a>
     </div>
@@ -293,38 +320,33 @@ h2.title,h1{font-weight:700}
 
 <header class="page-hero">
   <div class="ph-in">
-    <p class="kicker" style="color:var(--cyan)">Product · Transportwielen</p>
-    <h1>Transportwielen</h1>
-    <p>Standaard wielen en wielen voor zwaar transport — ook voor speciale situaties.</p>
+    <p class="kicker" style="color:var(--cyan)">Vacatures</p>
+    <h1>Werken bij Ebele Schiedam</h1>
+    <p>Een team van specialisten in lagers, afdichtingen en aandrijftechniek — persoonlijk, betrokken en met korte lijnen.</p>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <div class="detail">
-      <div>
-        <div class="photo"><img src="img/transportwielen.jpg" alt="Transportwielen en wielen" loading="lazy"></div>
-        <div class="side-card">
-          <h3>Ook speciale maten</h3>
-          <p>Heeft u een bijzondere ondergrond, temperatuur of belasting? Wij zoeken een wiel dat daar geschikt voor is — of laten het voor u maken.</p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="offerte.html">Offerte aanvragen</a>
-            <a class="btn btn-ghost" href="producten.html">Alle producten</a>
-          </div>
-        </div>
+    <div class="empty-state">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20M12 12v2"/></svg>
       </div>
-      <div>
-        <h2>Wielen voor elke ondergrond en belasting</h2>
-        <p>Standaard of zwaartransportwielen nodig? Ook voor speciale situaties kunt u bij ons terecht. Wij leveren wielen en complete wielen in diverse materialen en uitvoeringen.</p>
-      <p>Denk aan wielen voor rollcontainers, karren, kooien en machineverplaatsing — passend bij de ondergrond en het gewicht waarmee ze te maken krijgen.</p>
-        <ul>
-          <li>Standaard wielen en zwaartransportwielen</li>
-          <li>Vaste wielen en draaibare uitvoeringen met rem</li>
-          <li>Loopvlakken in rubber, polyurethaan, nylon en staal</li>
-          <li>Wielblokken en complete onderstellen</li>
-          <li>Advies bij hoge belasting of speciale ondergronden</li>
-        </ul>
+      <h2>Op dit moment zijn er geen vacatures</h2>
+      <p>Ons team is compleet. Mocht dat veranderen, dan lees je het hier als eerste — of ontvang direct een berichtje zodra er een plek vrijkomt.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-ghost" href="#melding" style="border-color:var(--line);color:var(--navy);background:var(--bg)">Houd mij op de hoogte</a>
       </div>
+    </div>
+
+    <div class="alert-box" id="melding">
+      <h3>Bericht zodra er een vacature vrijkomt</h3>
+      <p>Laat je e-mailadres achter. We mailen je één keer zodra er een nieuwe functie op de site staat — verder niets.</p>
+      <form class="alert-form" onsubmit="event.preventDefault();this.style.display='none';document.getElementById('alert-ok').style.display='block'">
+        <input type="email" required placeholder="jouw@email.nl" aria-label="E-mailadres">
+        <button type="submit">Houd mij op de hoogte</button>
+      </form>
+      <p class="alert-ok" id="alert-ok">Geregeld! Je ontvangt een bericht zodra er een vacature vrijkomt.</p>
     </div>
   </div>
 </section>
