@@ -235,130 +235,6 @@ h2.title,h1{font-weight:700}
 .bcard img{max-height:38px;max-width:100px;object-fit:contain}
 @media(max-width:820px){.marquee-track{animation-duration:26s}.bcard{min-height:60px;min-width:110px;padding:10px 20px}.bcard img{max-height:30px;max-width:84px}}
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}.marquee{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}}
-
-.assort{background:var(--navy);border-radius:20px;padding:48px 44px;color:#fff}
-.assort-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
-.chip{width:100%;text-align:center;justify-content:center;display:inline-flex;align-items:center;border-radius:0;padding:11px 8px;font-size:.84rem;font-weight:500;letter-spacing:.01em}
-.chips .chip{border-radius:10px}
-@media(max-width:820px){.chips{grid-template-columns:repeat(2,1fr)!important;gap:10px}.chip svg{width:22px;height:22px}.chip{padding:12px 8px}}
-.chip{border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:6px 14px;font-size:.8rem;color:#dfe2f5}
-.assort-side{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:24px}
-.assort-side h3{color:#fff;font-size:.95rem;margin-bottom:10px}
-.assort-side p{font-size:.87rem;margin:0}
-@media(max-width:760px){.assort{padding:30px 24px}.assort-grid{grid-template-columns:1fr}}
-.chips{gap:10px}
-.chip{cursor:pointer;user-select:none;transition:background .15s,border-color .15s,transform .15s;background:transparent}
-.linfo .specs,.specs{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;margin:0 0 4px;padding:0;list-style:none}
-.linfo .specs li,.specs li{color:#dfe2f5;font-size:.8rem;padding:2px 0 2px 18px;position:relative;border:none}
-.linfo .specs li::before,.specs li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--cyan)}
-@media(max-width:760px){.linfo .specs{grid-template-columns:1fr}}
-.chip{border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:6px 14px;font-size:.8rem;color:#dfe2f5}
-.assort-side{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:24px}
-.assort-side h3{color:#fff;font-size:.95rem;margin-bottom:10px}
-.assort-side p{font-size:.87rem;margin:0}
-@media(max-width:760px){.assort{padding:30px 24px}.assort-grid{grid-template-columns:1fr}}
-.chip{transition:background .15s,border-color .15s,transform .2s cubic-bezier(.34,1.56,.64,1)}
-
-/* Chips met iconen + flair */
-.chip svg{width:26px;height:26px;stroke:var(--cyan);flex-shrink:0;transition:stroke .2s,transform .25s cubic-bezier(.34,1.56,.64,1)}
-.chip:hover svg{transform:scale(1.15) rotate(-6deg)}
-.chip.on svg{stroke:var(--navy)}
-.chip.on{box-shadow:0 8px 22px rgba(0,183,243,.4)}
-.chip{flex-direction:row;gap:8px}
-/* infokaart flair: cyaan bovenrand + groot '24 uur' element */
-.assort-side{position:relative;overflow:hidden}
-.assort-side::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--cyan),transparent 80%)}
-
-.chips .chip svg{width:34px;height:34px;stroke-width:1.5}
-.chips .chip:hover svg{transform:scale(1.18) rotate(-6deg)}
-.chips .chip.on svg{transform:none}
-</style>
-</head>
-<body>
-<nav class="nav" aria-label="Hoofdnavigatie">
-  <div class="nav-in">
-    <a class="logo" href="index.html" aria-label="Ebele Schiedam — home">
-      <img src="img/logo-ebele.png" alt="Logo Ebele Schiedam">
-    </a>
-    <button class="burger" aria-label="Menu openen of sluiten" aria-expanded="false" onclick="var l=document.querySelector('.nav-links');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-    <div class="nav-links">
-      <div class="nav-item-dd">
-        <a class="dd-toggle" href="producten.html">Producten
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </a>
-        <div class="dd-menu" role="menu">
-        <a href="product-lagers-en-lagergereedschap.html">Lagers &amp; lagergereedschap</a>
-        <a href="product-afdichtingstechniek.html">Afdichtingstechniek</a>
-        <a href="product-v-snaren-en-v-snaarschijven.html">V-snaren &amp; -schijven</a>
-        <a href="product-kettingen-en-kettingwielen.html">Kettingen &amp; kettingwielen</a>
-        <a href="product-gereedschap.html">Gereedschap</a>
-        <a href="product-lijmen-en-afdichtingsmiddelen.html">Lijmen &amp; afdichten</a>
-        <a href="product-transportwielen.html">Transportwielen</a>
-        <a href="product-hijs-en-hefwerktuigen.html">Hijs- &amp; hefwerktuigen</a>
-        </div>
-      </div>
-      <a href="merken.html">Merken</a>
-      <a href="over-ons.html">Over ons</a>
-      <a href="vacatures.html">Vacatures</a>
-      <a href="contact.html">Contact</a>
-      <a class="cta" href="offerte.html">Offerte aanvragen</a>
-    </div>
-  </div>
-</nav>
-
-<header class="page-hero">
-  <div class="ph-in">
-    <p class="kicker" style="color:var(--cyan)">Product · Lagers</p>
-    <h1>Lagers &amp; lagergereedschap</h1>
-    <p>Vrijwel alle lagertypes uit voorraad — van standaard kogellagers tot speciale uitvoeringen, met het bijbehorende montagereedschap.</p>
-  
-  </div>
-  </div>
-</header>
-
-<section id="lagers" style="padding-top:0">
-  <div class="wrap">
-    <div class="assort">
-      <div class="assort-grid">
-        <div>
-          <p class="kicker">Lagers</p>
-          <h2 class="title">Ook voor niet-standaard lagers</h2>
-          <p>Lukt het niet uit eigen voorraad, dan putten wij uit de wereldwijde voorraden van onze fabrikanten en schakelen we zo nodig direct met hun technici. Ook moeilijke uitvoeringen leveren wij zo — tegen een scherpe, eerlijke prijs.</p>
-          <div class="chips">
-            <span class="chip">Kogellagers</span><span class="chip">Rollagers</span><span class="chip">Glijlagers</span>
-            <span class="chip">Kegellagers</span><span class="chip">Tonlagers</span><span class="chip">Cilinderlagers</span>
-            <span class="chip">Taatslagers</span><span class="chip">Wentellagers</span><span class="chip">Naaldlagers</span>
-            <span class="chip">RVS lagers</span><span class="chip">Lagerblokken</span>
-          </div>
-        </div>
-        <div class="assort-side">
-          <h3>Montage, onderhoud en preventie</h3>
-          <p>Voor het monteren en demonteren leveren wij inductieverwarmers en lagermontagesets. Met lagervet en monitorsystemen zoals de FAG SmartCheck voorkomt u onverwachte uitval en schade aan uw lagers.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-<footer>
-  <div class="foot-in">
-    <span><b>Ebele Schiedam bv</b> · Minervaweg 27, 3113 AP Schiedam</span>
-    <span>© 2026 · <a href="tel:+31104264354" style="color:#c3c7e2">010 426 43 54</a> · <a href="mailto:info@ebele-schiedam.nl" style="color:#c3c7e2">info@ebele-schiedam.nl</a></span>
-  </div>
-</footer>
-
-<script>
-// mobiel: dropdown openen bij tik
-if(innerWidth<=820){document.querySelectorAll('.dd-toggle').forEach(t=>t.addEventListener('click',e=>{if(location.pathname.split('/').pop()!=='producten.html'){return}}))}
-
-</body>
-</html>
 </style>
 </head>
 <body>
@@ -456,6 +332,30 @@ if(innerWidth<=820){document.querySelectorAll('.dd-toggle').forEach(t=>t.addEven
   </div>
 </section>
 
+<section id="lagers" style="padding-top:0">
+  <div class="wrap">
+    <div class="assort">
+      <div class="assort-grid">
+        <div>
+          <p class="kicker">Lagers</p>
+          <h2 class="title">Ook voor niet-standaard lagers</h2>
+          <p>Lukt het niet uit eigen voorraad, dan putten wij uit de wereldwijde voorraden van onze fabrikanten en schakelen we zo nodig direct met hun technici. Ook moeilijke uitvoeringen leveren wij zo — tegen een scherpe, eerlijke prijs.</p>
+          <div class="chips">
+            <span class="chip">Kogellagers</span><span class="chip">Rollagers</span><span class="chip">Glijlagers</span>
+            <span class="chip">Kegellagers</span><span class="chip">Tonlagers</span><span class="chip">Cilinderlagers</span>
+            <span class="chip">Taatslagers</span><span class="chip">Wentellagers</span><span class="chip">Naaldlagers</span>
+            <span class="chip">RVS lagers</span><span class="chip">Lagerblokken</span>
+          </div>
+        </div>
+        <div class="assort-side">
+          <h3>Montage, onderhoud en preventie</h3>
+          <p>Voor het monteren en demonteren leveren wij inductieverwarmers en lagermontagesets. Met lagervet en monitorsystemen zoals de FAG SmartCheck voorkomt u onverwachte uitval en schade aan uw lagers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="merken" style="padding-top:0">
   <div class="wrap">
     <p class="kicker">Merken</p>
@@ -516,4 +416,3 @@ if(innerWidth<=820){document.querySelectorAll('.dd-toggle').forEach(t=>t.addEven
 
 </body>
 </html>
-<!-- restore-final -->
