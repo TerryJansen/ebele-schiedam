@@ -410,12 +410,14 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.anim').forEach(el=>io.observe(el));
   // hero-elementen direct na load (staggered)
-  window.addEventListener('load',()=>{
+  const revealHero=()=>{
     document.querySelectorAll('.hero-in h1,.hero-in p,.hero-in .btn-row,.page-hero .ph-in > *').forEach((el,i)=>{
       el.style.transitionDelay=(i*0.09)+'s';
-      setTimeout(()=>el.classList.add('in'),30);
+      setTimeout(()=>el.classList.add('in'),30+i*90);
     });
-  });
+  };
+  if(document.readyState==='complete') revealHero();
+  else window.addEventListener('load',revealHero);
 })();
 </script>
 </body>
