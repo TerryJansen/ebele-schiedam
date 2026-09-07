@@ -257,6 +257,34 @@ h2.title,h1{font-weight:700}
 .fact:hover b span{transform:translateY(-3px) scale(1.15)}
 .bcard{transition:transform .2s cubic-bezier(.34,1.56,.64,1),border-color .2s}
 .bcard:hover{transform:translateY(-4px) rotate(-1deg);border-color:var(--cyan)}
+
+/* ——— Over-ons speelse laag ——— */
+.page-hero{transition:transform .01s}
+.ph-in .kicker{display:inline-flex;align-items:center;gap:10px}
+.ph-in .kicker::before{content:"";width:26px;height:2px;background:var(--cyan);animation:kslide 2.6s ease-in-out infinite}
+@keyframes kslide{0%,100%{width:22px;opacity:.7}50%{width:44px;opacity:1}}
+
+.story .photos .main{transition:transform 6s cubic-bezier(.2,.6,.2,1);will-change:transform}
+.story .photos:hover .main{transform:scale(1.045)}
+.story .photos .sub{transition:transform .35s cubic-bezier(.34,1.56,.64,1);box-shadow:0 12px 28px rgba(4,5,47,.22)}
+.story .photos:hover .sub{transform:translate(-6px,-10px) rotate(-3deg)}
+.story .photos::before{content:"1994";position:absolute;top:-14px;left:-14px;z-index:2;background:var(--cyan);color:var(--navy);font-weight:700;font-size:.82rem;padding:7px 14px;border-radius:8px;box-shadow:0 6px 16px rgba(0,183,243,.4);animation:badgefloat 4s ease-in-out infinite}
+@keyframes badgefloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-5px) rotate(1deg)}}
+
+.story p{transition:color .2s}
+.story div:hover p{color:var(--text)}
+
+.val{position:relative;overflow:hidden;transition:transform .25s cubic-bezier(.34,1.56,.64,1),border-color .25s,box-shadow .25s}
+.val::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--cyan),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.val:hover{transform:translateY(-6px) rotate(-.5deg);border-color:var(--cyan);box-shadow:0 16px 34px rgba(4,5,47,.12)}
+.val:hover::before{transform:scaleX(1)}
+.val h3 svg{transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.val:hover h3 svg{transform:translateY(-3px) scale(1.2) rotate(-6deg)}
+.val p{color:var(--muted)}
+
+/* tellers */
+.teller{display:inline-block;font-variant-numeric:tabular-nums}
+@media(prefers-reduced-motion:reduce){.ph-in .kicker::before,.story .photos::before{animation:none}.val:hover,.story .photos:hover .sub{transform:none}}
 </style>
 </head>
 <body>
@@ -307,7 +335,7 @@ h2.title,h1{font-weight:700}
         <img class="main" src="img/gebouw.jpg" alt="Het pand van Ebele Schiedam bv aan de Minervaweg" loading="lazy">
         <img class="sub" src="img/pand.jpg" alt="Het magazijn van Ebele Schiedam" loading="lazy">
       </div>
-      <div>
+      <div class="storytext">
         <h2>Uw vertrouwde adres voor kwaliteitsproducten</h2>
         <p>Al meer dan 30 jaar zijn wij het adres voor lagers, afdichtingen en aandrijftechniek. Onze klanten bevinden zich voornamelijk in de regio Rotterdam, Vlaardingen, Schiedam en de Drechtsteden — maar wij leveren door heel Nederland.</p>
         <p>Door onze jarenlange ervaring kunnen wij u de juiste technische ondersteuning bieden en desgewenst snel schakelen met de technici van de fabrikant. Hierdoor leveren wij vrijwel elk type lager snel: uit onze eigen voorraad of uit de wereldwijde voorraden van onze zorgvuldig gekozen leveranciers. Dit geldt ook voor niet-standaard lagers en uitvoeringen.</p>
@@ -338,5 +366,36 @@ h2.title,h1{font-weight:700}
     <span>© 2026 · <a href="tel:+31104264354" style="color:#c3c7e2">010 426 43 54</a> · <a href="mailto:info@ebele-schiedam.nl" style="color:#c3c7e2">info@ebele-schiedam.nl</a></span>
   </div>
 </footer>
+
+<script>
+// tellers bij scroll (alleen eerste keer)
+const counters = [
+  {el:null, to:1994, dur:900, prefix:"", suffix:""},
+  {el:null, to:80000, dur:1300, prefix:"", suffix:"+"},
+  {el:null, to:30, dur:900, prefix:"", suffix:"+"}
+];
+function fmt(n){ return n.toLocaleString('nl-NL').replace(/\u00a0/g,'.'); }
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(!en.isIntersecting) return;
+    const box = en.target; io.unobserve(box);
+    const facts = box.querySelectorAll('.fact b');
+    counters.forEach((c,i)=>{
+      const el = facts[i]; if(!el) return;
+      const span = el.querySelector('span'); const suffix = span?span.textContent:'';
+      const numOnly = el.textContent.replace(suffix,'').trim();
+      const target = parseInt(numOnly.replace(/\./g,''),10)||c.to;
+      const t0 = performance.now();
+      (function tick(t){
+        const p = Math.min(1,(t-t0)/c.dur);
+        const eased = 1-Math.pow(1-p,3);
+        el.innerHTML = '<span class="teller">'+fmt(Math.round(target*eased))+'</span>'+(suffix?'<span>'+suffix+'</span>':'');
+        if(p<1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  });
+},{threshold:.4});
+const factsBox = document.querySelector('.facts'); if(factsBox) io.observe(factsBox);
+</script>
 </body>
 </html>
