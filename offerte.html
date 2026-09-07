@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Merken — Ebele Schiedam</title>
-<meta name="description" content="Leverancier van SKF, FAG, INA, NTN-SNR, Timken, NSK, ZEN, Mitsuboshi, Loctite, BETA, KNIPEX, REMA, KUKKO, BETEX, Freudenberg, Optibelt, Dunlop en GMT.">
+<title>Offerte aanvragen — Ebele Schiedam</title>
+<meta name="description" content="Vraag een offerte aan bij Ebele Schiedam: in 99% van de gevallen binnen één werkdag een passende offerte voor lagers, afdichtingen en aandrijftechniek.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+
 :root{
   --navy:#04052f;
   --navy-soft:#10124a;
@@ -48,6 +49,13 @@ h1,h2,h3{line-height:1.22;color:var(--navy)}
   .nav-links a:last-child{border:none}
   .burger{display:block}
 }
+
+
+/* Hover-animatie nav-kopjes (subtiele lift) */
+.nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
+.nav-links a:not(.cta):hover{transform:translateY(-2px)}
+.nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
+.nav-links a:not(.cta):hover::after{width:100%}
 
 /* ——— HERO ——— */
 .hero{color:#fff;position:relative;overflow:hidden;background:var(--navy)}
@@ -157,22 +165,39 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
   .frow{grid-template-columns:1fr}
 }
 
-/* Pagina-hero (klein) */
-.page-hero{background:var(--navy) url("img/hero-b.jpg") center/cover no-repeat;color:#fff;position:relative;overflow:hidden}
+
+/* Pagina-hero met kantoor-foto */
+.page-hero{background:var(--navy) url("img/pand.jpg") center/cover no-repeat;color:#fff;position:relative;overflow:hidden}
 .page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,47,.82),rgba(4,5,47,.88));z-index:0}
-.page-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(820px 340px at 80% 20%,rgba(0,183,243,.16),transparent 65%);pointer-events:none}
+.page-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(820px 340px at 80% 20%,rgba(0,183,243,.14),transparent 65%);pointer-events:none;z-index:0}
 .page-hero .ph-in{max-width:1120px;margin:0 auto;padding:72px 20px;position:relative;z-index:1}
 .page-hero h1{color:#fff;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-bottom:10px}
 .page-hero p{color:#a8aed2;max-width:40rem;font-size:1rem}
 .nav-links a{text-decoration:none}
 .nav-links a.active{color:var(--cyan)}
-/* Hover-animatie nav-kopjes (subtiele lift) */
+/* Hover-animatie nav-kopjes */
 .nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
 .nav-links a:not(.cta):hover{transform:translateY(-2px)}
 .nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
 .nav-links a:not(.cta):hover::after{width:100%}
-
-.assort-grid{padding:0 20px}
+/* Offerte */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 22px;position:relative}
+.step .num{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.step h3{font-size:1rem;margin-bottom:6px}
+.step p{color:var(--muted);font-size:.88rem;margin:0}
+.form-wrap{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px;max-width:760px;box-shadow:0 10px 30px rgba(4,5,47,.07)}
+.form-wrap h2{font-size:1.3rem;margin-bottom:6px}
+.form-wrap>p{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{font-size:.8rem;font-weight:600;color:var(--navy);display:block;margin-bottom:6px}
+input,textarea,select{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;font:inherit;font-size:.9rem;background:#fafbfd}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--blue);background:#fff}
+textarea{resize:vertical;min-height:120px}
+.fsubmit{margin-top:16px;background:var(--blue);color:#fff;border:none;padding:13px 30px;border-radius:12px;font:inherit;font-weight:600;cursor:pointer;transition:transform .18s ease,filter .18s ease}
+.fsubmit:hover{filter:brightness(1.25);transform:scale(1.05)}
+.small-note{font-size:.78rem;color:var(--muted);margin-top:12px}
+@media(max-width:820px){.steps{grid-template-columns:1fr}.form-wrap{padding:24px}.frow{grid-template-columns:1fr}}
 
 </style>
 </head>
@@ -188,66 +213,75 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
     <div class="nav-links">
       <a href="producten.html">Producten</a>
       <a href="lagers.html">Lagers</a>
-      <a class="active" href="merken.html">Merken</a>
+      <a href="merken.html">Merken</a>
       <a href="over-ons.html">Over ons</a>
       <a href="contact.html">Contact</a>
-      <a class="cta" href="offerte.html">Offerte aanvragen</a>
+      <a class="cta active" href="offerte.html">Offerte aanvragen</a>
     </div>
   </div>
 </nav>
 
 <header class="page-hero">
   <div class="ph-in">
-    <p class="kicker" style="color:var(--cyan)">Merken</p>
-    <h1>Merken die wij leveren</h1>
-    <p>Wij werken met toonaangevende fabrikanten in lagers, afdichtingen en gereedschap. Kwaliteit die u kunt vertrouwen, rechtstreeks uit voorraad of via onze fabrikanten.</p>
+    <p class="kicker" style="color:var(--cyan)">Offerte</p>
+    <h1>Vraag uw offerte aan</h1>
+    <p>In 99% van de gevallen ontvangt u binnen één werkdag een passende offerte. Hoe compleeter uw aanvraag, hoe scherper wij kunnen inspelen op uw vraag.</p>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <div class="brands">
-      <div class="bcard"><img src="img/skf.png" alt="SKF" loading="lazy"></div>
-      <div class="bcard"><img src="img/fag.svg" alt="FAG" loading="lazy"></div>
-      <div class="bcard"><img src="img/ina.svg" alt="INA" loading="lazy"></div>
-      <div class="bcard"><img src="img/ntn-snr.png" alt="NTN SNR" loading="lazy"></div>
-      <div class="bcard"><img src="img/timken.webp" alt="Timken" loading="lazy"></div>
-      <div class="bcard"><img src="img/nsk.png" alt="NSK" loading="lazy"></div>
-      <div class="bcard"><img src="img/zen-logo.svg" alt="ZEN" loading="lazy"></div>
-      <div class="bcard"><img src="img/mitsuboshi.webp" alt="Mitsuboshi" loading="lazy"></div>
-      <div class="bcard"><img src="img/loctite-logo.png" alt="Loctite" loading="lazy"></div>
-      <div class="bcard"><img src="img/beta-tools.svg" alt="BETA Tools" loading="lazy"></div>
-      <div class="bcard"><img src="img/knipex.svg" alt="KNIPEX" loading="lazy"></div>
-      <div class="bcard"><img src="img/rema-logo.png" alt="REMA" loading="lazy"></div>
-      <div class="bcard"><img src="img/kukko.png" alt="KUKKO" loading="lazy"></div>
-      <div class="bcard"><img src="img/betex.jpg" alt="BETEX" loading="lazy"></div>
-      <div class="bcard"><img src="img/freudenberg.png" alt="Freudenberg" loading="lazy"></div>
-      <div class="bcard"><img src="img/optibelt.png" alt="Optibelt" loading="lazy"></div>
-      <div class="bcard"><img src="img/dunlop.svg" alt="Dunlop" loading="lazy"></div>
-      <div class="bcard"><img src="img/gmt.jpg" alt="GMT" loading="lazy"></div>
-    </div>
-  </div>
-
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="assort">
-      <div class="assort-grid">
-        <div>
-          <p class="kicker">Advies</p>
-          <h2 class="title">Welk merk past bij uw toepassing?</h2>
-          <p>Onze medewerkers adviseren u graag over het juiste merk en product voor uw situatie — van standaard kogellagers tot speciale afdichtingen en hoogwaardig gereedschap.</p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="offerte.html">Vraag advies of een offerte</a>
-          </div>
-        </div>
-        <div class="assort-side">
-          <h3>Direct uit voorraad</h3>
-          <p>De meeste producten van deze merken liggen in ons eigen magazijn aan de Minervaweg in Schiedam. Is iets niet op voorraad, dan halen wij het snel voor u binnen via de fabrikant.</p>
-        </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Wensen in kaart</h3>
+        <p>U omschrijft wat u zoekt: type, afmetingen en aantal. Twijfelt u? Omschrijf de toepassing, dan zoeken wij mee.</p>
       </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Selectie en prijs</h3>
+        <p>Wij selecteren het juiste product op kwaliteit, merk en specificatie en rekenen een eerlijke prijs uit.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Duidelijke offerte</h3>
+        <p>Prijzen, levertijd en voorwaarden staan helder op papier — met advies over gebruik en onderhoud erbij.</p>
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <h2>Offerteformulier</h2>
+      <p>Velden met * zijn verplicht. Herkomst van uw gegevens: wij gebruiken ze uitsluitend om uw aanvraag te beantwoorden.</p>
+      <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;padding:8px 0;font-weight:600;color:var(--blue)&quot;>Bedankt voor uw aanvraag. Wij sturen u binnen één werkdag een passende offerte.</p>'" aria-label="Offerteaanvraag">
+        <div class="frow">
+          <div><label for="o-naam">Naam *</label><input id="o-naam" required type="text" autocomplete="name"></div>
+          <div><label for="o-bedrijf">Bedrijf</label><input id="o-bedrijf" type="text" autocomplete="organization"></div>
+        </div>
+        <div class="frow" style="margin-top:14px">
+          <div><label for="o-mail">E-mail *</label><input id="o-mail" required type="email" autocomplete="email"></div>
+          <div><label for="o-tel">Telefoon *</label><input id="o-tel" required type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="frow" style="margin-top:14px">
+          <div><label for="o-type">Productgroep *</label>
+            <select id="o-type" required>
+              <option value="">Maak een keuze…</option>
+              <option>Lagers &amp; lagergereedschap</option>
+              <option>Afdichtingstechniek</option>
+              <option>V-snaren &amp; V-snaarschijven</option>
+              <option>Kettingen &amp; kettingwielen</option>
+              <option>Gereedschap (BETA / KNIPEX)</option>
+              <option>Lijmen &amp; afdichtingsmiddelen (Loctite)</option>
+              <option>Transportwielen</option>
+              <option>Hijs- en hefwerktuigen (REMA)</option>
+              <option>Anders / weet ik nog niet</option>
+            </select>
+          </div>
+          <div><label for="o-aantal">Aantal / frequentie</label><input id="o-aantal" type="text" placeholder="bijv. 10 stuks, maandelijks…"></div>
+        </div>
+        <div style="margin-top:14px"><label for="o-msg">Uw aanvraag *</label><textarea id="o-msg" required placeholder="Welk product zoekt u? Type, afmetingen, merkvoorkeur, gewenste levertijd…"></textarea></div>
+        <button class="fsubmit" type="submit">Offerte aanvragen</button>
+        <p class="small-note">Liever direct contact? Bel <a href="tel:+31104264354">010 426 43 54</a> of mail <a href="mailto:info@ebele-schiedam.nl">info@ebele-schiedam.nl</a>.</p>
+      </form>
     </div>
   </div>
 </section>
