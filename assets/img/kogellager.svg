@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <!-- Buitenring: geborsteld staal -->
+    <linearGradient id="staal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f6f8"/>
+      <stop offset="0.3" stop-color="#b8c0c9"/>
+      <stop offset="0.5" stop-color="#8d97a1"/>
+      <stop offset="0.7" stop-color="#c8cfd6"/>
+      <stop offset="1" stop-color="#6e7883"/>
+    </linearGradient>
+    <!-- Binnenring donkerder -->
+    <linearGradient id="staal2" x1="1" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#e9edf1"/>
+      <stop offset="0.45" stop-color="#9aa4ae"/>
+      <stop offset="0.75" stop-color="#6b7580"/>
+      <stop offset="1" stop-color="#3f4853"/>
+    </linearGradient>
+    <!-- Kogel: bolvormige highlight -->
+    <radialGradient id="kogel" cx="0.35" cy="0.3" r="0.85">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.25" stop-color="#dfe5ea"/>
+      <stop offset="0.6" stop-color="#93a0ab"/>
+      <stop offset="1" stop-color="#4a5560"/>
+    </radialGradient>
+    <!-- Groef (kogelbaan) -->
+    <radialGradient id="groef" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#232a33"/>
+      <stop offset="1" stop-color="#0c1116"/>
+    </radialGradient>
+    <!-- Kooi segment -->
+    <linearGradient id="kooi" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a4450"/>
+      <stop offset="1" stop-color="#171e26"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Buitenring -->
+  <g>
+    <circle cx="200" cy="200" r="180" fill="url(#staal)"/>
+    <circle cx="200" cy="200" r="180" fill="none" stroke="#4a545e" stroke-width="1.5"/>
+    <circle cx="200" cy="200" r="138" fill="url(#groef)"/>
+    <circle cx="200" cy="200" r="138" fill="none" stroke="#0a0e12" stroke-width="2"/>
+    <!-- bevestigingsgaten -->
+    <g fill="#3c4650">
+      <circle cx="200" cy="42" r="6"/>
+      <circle cx="341.3" cy="200" r="6"/>
+      <circle cx="200" cy="358" r="6"/>
+      <circle cx="58.7" cy="200" r="6"/>
+    </g>
+  </g>
+
+  <!-- Draaiende assemblage: kooi + kogels + binnenring -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="14s" repeatCount="indefinite"/>
+
+    <!-- Kooi (donkere segmenten tussen kogels) -->
+    <g fill="url(#kooi)" opacity="0.9">
+      <path d="M200 68 a132 132 0 0 1 132 132 l-24 0 a108 108 0 0 0 -108 -108 z" transform="rotate(20 200 200)"/>
+      <path d="M200 68 a132 132 0 0 1 132 132 l-24 0 a108 108 0 0 0 -108 -108 z" transform="rotate(60 200 200)"/>
+      <path d="M200 68 a132 132 0 0 1 132 132 l-24 0 a108 108 0 0 0 -108 -108 z" transform="rotate(100 200 200)"/>
+      <path d="M200 68 a132 132 0 0 1 132 132 l-24 0 a108 108 0 0 0 -108 -108 z" transform="rotate(140 200 200)"/>
+      <path d="M200 68 a132 132 0 0 1 132 132 l-24 0 a108 108 0 0 0 -108 -108 z" transform="rotate(180 200 200)"/>
+      <path d="M200 68 a132 132 0 0 1 132 132 l-24 0 a108 108 0 0 0 -108 -108 z" transform="rotate(220 200 200)"/>
+      <path d="M200 68 a132 132 0 0 1 132 132 l-24 0 a108 108 0 0 0 -108 -108 z" transform="rotate(260 200 200)"/>
+      <path d="M200 68 a132 132 0 0 1 132 132 l-24 0 a108 108 0 0 0 -108 -108 z" transform="rotate(300 200 200)"/>
+      <path d="M200 68 a132 132 0 0 1 132 132 l-24 0 a108 108 0 0 0 -108 -108 z" transform="rotate(340 200 200)"/>
+    </g>
+
+    <!-- Kogels op straal 110, 9 stuks -->
+    <g>
+      <circle cx="200" cy="90" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="192" cy="82" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 192 82)"/>
+      <circle cx="310" cy="145" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="302" cy="137" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 302 137)"/>
+      <circle cx="310" cy="255" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="302" cy="247" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 302 247)"/>
+      <circle cx="200" cy="310" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="192" cy="302" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 192 302)"/>
+      <circle cx="90" cy="255" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="82" cy="247" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 82 247)"/>
+      <circle cx="90" cy="145" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="82" cy="137" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 82 137)"/>
+      <circle cx="295.3" cy="200" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="287.3" cy="192" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 287.3 192)"/>
+      <circle cx="200" cy="200" r="0"/>
+      <circle cx="104.7" cy="200" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="96.7" cy="192" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 96.7 192)"/>
+      <circle cx="265.5" cy="95.5" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="257.5" cy="87.5" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 257.5 87.5)"/>
+      <circle cx="265.5" cy="304.5" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="257.5" cy="296.5" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 257.5 296.5)"/>
+      <circle cx="134.5" cy="304.5" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="126.5" cy="296.5" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 126.5 296.5)"/>
+      <circle cx="134.5" cy="95.5" r="21" fill="url(#kogel)" stroke="#2b333c" stroke-width="0.8"/>
+      <ellipse cx="126.5" cy="87.5" rx="7" ry="4.5" fill="#ffffff" opacity="0.85" transform="rotate(-25 126.5 87.5)"/>
+    </g>
+
+    <!-- Binnenring (draait mee, met asgat-markering) -->
+    <circle cx="200" cy="200" r="84" fill="url(#staal2)"/>
+    <circle cx="200" cy="200" r="84" fill="none" stroke="#39424c" stroke-width="1.5"/>
+    <circle cx="200" cy="200" r="48" fill="#1a212a"/>
+    <circle cx="200" cy="200" r="48" fill="none" stroke="#3d4650" stroke-width="2"/>
+    <circle cx="200" cy="200" r="40" fill="none" stroke="#4d5762" stroke-width="1" stroke-dasharray="6 5" opacity="0.6"/>
+    <!-- glans op binnenring -->
+    <path d="M138 155 a80 80 0 0 1 60 -33" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  </g>
+
+  <!-- Statische topglans over alles -->
+  <ellipse cx="200" cy="120" rx="150" ry="70" fill="#ffffff" opacity="0.07"/>
+</svg>
