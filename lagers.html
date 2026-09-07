@@ -215,6 +215,26 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 .fact{border-radius:0}
 .cinfo,form,.hours-card,.form-wrap,.side-card,.val{border-radius:0}
 h2.title,h1{font-weight:700}
+
+/* Dropdown menu Producten */
+.nav-item-dd{position:relative}
+.dd-toggle{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.dd-toggle svg{width:12px;height:12px;stroke:currentColor;transition:transform .2s}
+.nav-item-dd:hover .dd-toggle svg,.nav-item-dd:focus-within .dd-toggle svg{transform:rotate(180deg)}
+.dd-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);border-radius:0;min-width:230px;padding:6px 0;opacity:0;visibility:hidden;transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 34px rgba(4,5,47,.18);z-index:120}
+.nav-item-dd:hover .dd-menu,.nav-item-dd:focus-within .dd-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dd-menu a{display:block;padding:10px 18px;color:var(--text) !important;font-size:.9rem;font-weight:500;border:none !important;transform:none !important;transition:background .12s,color .12s}
+.dd-menu a::after{display:none !important}
+.dd-menu a:hover{background:var(--bg);color:var(--blue) !important;transform:none !important}
+.dd-menu a span{display:block;font-size:.75rem;color:var(--muted);font-weight:400;margin-top:1px}
+@media(max-width:820px){
+  .nav-item-dd{width:100%}
+  .dd-menu{position:static;transform:none;opacity:1;visibility:hidden;display:none;box-shadow:none;background:transparent;border:none;padding:0 0 8px 14px;min-width:0}
+  .nav-item-dd.open .dd-menu{display:block;visibility:visible;opacity:1}
+  .dd-menu a{color:#c3c7e2 !important;border-bottom:1px solid rgba(255,255,255,.08) !important;padding:10px 4px}
+  .dd-menu a:hover{background:transparent;color:#fff !important}
+  .dd-menu a span{color:#8d92bd}
+}
 </style>
 </head>
 <body>
@@ -227,7 +247,21 @@ h2.title,h1{font-weight:700}
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <div class="nav-links">
-      <a href="producten.html">Producten</a>
+      <div class="nav-item-dd">
+        <a class="dd-toggle" href="producten.html">Producten
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+        <div class="dd-menu" role="menu">
+        <a href="product-lagers-en-lagergereedschap.html">Lagers &amp; lagergereedschap<span>Kogellagers tot lagerblokken, montagereedschap</span></a>
+        <a href="product-afdichtingstechniek.html">Afdichtingstechniek<span>O-ringen, keerringen, maatwerk</span></a>
+        <a href="product-v-snaren-en-v-snaarschijven.html">V-snaren &amp; -schijven<span>Mitsuboshi, Optibelt, Dunlop</span></a>
+        <a href="product-kettingen-en-kettingwielen.html">Kettingen &amp; kettingwielen<span>Industriële kettingen in elke steek</span></a>
+        <a href="product-gereedschap.html">Gereedschap<span>BETA en KNIPEX</span></a>
+        <a href="product-lijmen-en-afdichtingsmiddelen.html">Lijmen &amp; afdichten<span>Loctite assortiment</span></a>
+        <a href="product-transportwielen.html">Transportwielen<span>Standaard tot zwaar transport</span></a>
+        <a href="product-hijs-en-hefwerktuigen.html">Hijs- &amp; hefwerktuigen<span>REMA krikken, kranen, hijstafels</span></a>
+        </div>
+      </div>
       <a href="merken.html">Merken</a>
       <a href="over-ons.html">Over ons</a>
       <a href="contact.html">Contact</a>
@@ -297,6 +331,8 @@ h2.title,h1{font-weight:700}
 </footer>
 
 <script>
+// mobiel: dropdown openen bij tik
+if(innerWidth<=820){document.querySelectorAll('.dd-toggle').forEach(t=>t.addEventListener('click',e=>{if(location.pathname.split('/').pop()!=='producten.html'){return}}))}
 const LAGERS = {
   kogel:{img:"img/lager-kogel.png",n:"Kogellagers",d:"Het meest gebruikte lagertype: neemt radiale en axiale belasting op en draait licht. Standaard uitvoeringen direct uit voorraad, ook afgedicht (2RS) of met stalen sluitplaat.",
     s:["Type 6200–6230 en 618/619-series","Uitvoeringen: open, Z, 2RS, E2 (energiebesparend)","Merken: SKF, FAG, INA, NTN, NSK, ZEN","Verkrijgbaar in RVS en met keramische kogels"]},
