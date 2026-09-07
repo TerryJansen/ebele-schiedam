@@ -119,7 +119,7 @@ h2.title{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:800;letter-spacing:-.02e
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:6px 14px;font-size:.8rem;color:#dfe2f5}
 .assort-side{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:24px}
-#lsidewrap{height:420px;overflow-y:auto;position:sticky;top:90px;scrollbar-width:none;-ms-overflow-style:none}
+#lsidewrap{height:400px;overflow-y:auto;position:sticky;top:90px;scrollbar-width:none;-ms-overflow-style:none}
 #lsidewrap::-webkit-scrollbar{display:none}
 .assort-side h3{color:#fff;font-size:.95rem;margin-bottom:10px}
 .assort-side p{font-size:.87rem;margin:0}
@@ -254,8 +254,8 @@ h2.title,h1{font-weight:700}
 @media(max-width:760px){.linfo-flex{grid-template-columns:1fr}.lviewer{max-width:280px;margin:0 auto}}
 .linfo p{color:#a8aed2;font-size:.9rem;margin-bottom:12px}
 .linfo .specs{display:grid;grid-template-columns:1fr;gap:4px 12px;margin:0 0 4px;padding:0;list-style:none}
-.linfo .specs li{color:#dfe2f5;font-size:.85rem;padding:4px 0 4px 22px;position:relative;border:none}
-.linfo .specs li::before{content:"";position:absolute;left:2px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--cyan)}
+.linfo .specs li{color:#dfe2f5;font-size:.8rem;padding:2px 0 2px 18px;position:relative;border:none}
+.linfo .specs li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--cyan)}
 .linfo a{color:var(--cyan)}
 @media(max-width:760px){.linfo .specs{grid-template-columns:1fr}}
 
@@ -323,7 +323,7 @@ h2.title,h1{font-weight:700}
             <button class="chip" data-t="rvs">RVS lagers</button><button class="chip" data-t="blok">Lagerblokken</button>
           </div>
         </div>
-        <div class="assort-side" id="lsidewrap" style="height:420px">
+        <div class="assort-side" id="lsidewrap" style="height:400px;padding:20px">
           <div id="lside-default">
             <h3>Alles uit voorraad</h3>
             <p>De gangbare maten liggen in ons magazijn aan de Minervaweg. Is een type niet op voorraad, dan halen wij het binnen via de fabrikant — vaak binnen 24 uur.</p>
@@ -408,7 +408,7 @@ document.querySelectorAll('.chip').forEach(btn => {
     if (on) { sd.style.display='block'; si.style.display='none'; return; }
     btn.classList.add('on');
     const t = LAGERS[btn.dataset.t];
-    si.innerHTML = '<div style="background:#fff;border-radius:8px;padding:10px;margin-bottom:14px;text-align:center"><img src="'+t.img+'" alt="'+t.n+'" style="max-width:100%;max-height:170px;object-fit:contain"></div><h3>'+t.n+'</h3><p style="font-size:.86rem">'+t.d+'</p><ul class="specs">'+t.s.map(x=>'<li>'+x+'</li>').join('')+'</ul><p style="margin-top:12px;font-size:.84rem"><a href="contact.html" style="color:var(--cyan)">Contact</a> · <a href="offerte.html" style="color:var(--cyan)">Offerte aanvragen</a></p>';
+    si.innerHTML = '<div style="float:right;width:44%;margin:0 0 8px 12px;background:#fff;border-radius:8px;padding:6px;text-align:center"><img src="'+t.img+'" alt="'+t.n+'" style="max-width:100%;max-height:110px;object-fit:contain"></div><h3 style="font-size:.98rem;margin-bottom:6px">'+t.n+'</h3><p style="font-size:.82rem;margin-bottom:8px">'+t.d+'</p><ul class="specs" style="clear:both">'+t.s.map(x=>'<li style="font-size:.78rem;padding:2px 0 2px 18px">'+x+'</li>').join('')+'</ul><p style="margin-top:8px;font-size:.8rem"><a href="contact.html" style="color:var(--cyan)">Contact</a> · <a href="offerte.html" style="color:var(--cyan)">Offerte</a></p>';
     sd.style.display='none'; si.style.display='block';
   });
 });
