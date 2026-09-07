@@ -50,9 +50,11 @@ h1,h2,h3{line-height:1.22;color:var(--navy)}
 }
 
 /* ——— HERO ——— */
-.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(820px 380px at 82% 12%,rgba(0,183,243,.16),transparent 65%);pointer-events:none}
-.hero-in{max-width:1120px;margin:0 auto;padding:72px 20px 96px;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative;z-index:1}
+.hero{color:#fff;position:relative;overflow:hidden;background:var(--navy)}
+.hero-bg{position:absolute;inset:0;background:url("img/hero-b.jpg") center/cover no-repeat}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,5,47,.94) 0%,rgba(4,5,47,.86) 42%,rgba(4,5,47,.55) 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(820px 380px at 82% 12%,rgba(0,183,243,.14),transparent 65%);pointer-events:none}
+.hero-in{max-width:1120px;margin:0 auto;padding:120px 20px 150px;display:grid;grid-template-columns:1fr;gap:0;align-items:center;position:relative;z-index:2}
 .hero-logo img{height:60px;width:auto;background:#fff;border-radius:8px;padding:5px 9px;margin-bottom:20px}
 .hero h1{color:#fff;font-size:clamp(1.85rem,4.4vw,2.75rem);font-weight:800;letter-spacing:-.03em;margin-bottom:14px}
 .hero h1 em{font-style:normal;color:var(--cyan)}
@@ -146,11 +148,11 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 
 /* ——— MOBIEL ——— */
 @media(max-width:820px){
-  .hero-in{grid-template-columns:1fr;gap:34px;padding:52px 20px 88px;text-align:center}
+  .hero-in{padding:88px 20px 110px;text-align:center;max-width:560px}
   .hero p{margin-left:auto;margin-right:auto}
   .hero-logo{text-align:center}
   .btn-row{justify-content:center}
-  .hero-photo{max-width:340px;margin:0 auto;justify-self:center}
+  .hero-bg::after{background:linear-gradient(180deg,rgba(4,5,47,.88) 0%,rgba(4,5,47,.78) 100%)}
   .facts{grid-template-columns:1fr;margin-top:-52px}
   .frow{grid-template-columns:1fr}
 }
@@ -177,6 +179,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 </nav>
 
 <header class="hero">
+  <div class="hero-bg" role="img" aria-label="Kogellagers uit de voorraad van Ebele Schiedam"></div>
   <div class="hero-in">
     <div>
       <div class="hero-logo"><img src="img/logo-ebele.png" alt="Logo Ebele Schiedam"></div>
@@ -190,10 +193,6 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
         </a>
       </div>
     </div>
-    <figure class="hero-photo">
-      <img src="img/hero-b.jpg" alt="Kogellagers uit de voorraad van Ebele Schiedam" width="2000" height="1250">
-      <figcaption>Vrijwel elk lager <span>binnen 24 uur</span> geleverd</figcaption>
-    </figure>
   </div>
 </header>
 
