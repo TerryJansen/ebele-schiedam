@@ -1,0 +1,28 @@
+/* Lagertype-knoppen + infopaneel */
+.chips{gap:10px}
+.chip{cursor:pointer;user-select:none;transition:background .15s,border-color .15s,transform .15s;background:transparent}
+.chip:hover{border-color:var(--cyan);color:#fff;transform:translateY(-1px)}
+.chip.on{background:var(--cyan);border-color:var(--cyan);color:var(--navy);font-weight:600}
+.linfo{display:none;margin-top:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:24px}
+.linfo.show{display:block;animation:lfade .25s ease}
+@keyframes lfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.linfo-flex{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start}
+.linfo h3{color:#fff;font-size:1.05rem;margin-bottom:8px}
+.lviewer{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px;text-align:center;position:relative}
+.lviewer img{display:block;margin:0 auto}
+
+@media(max-width:760px){.linfo-flex{grid-template-columns:1fr}.lviewer{max-width:280px;margin:0 auto}}
+.linfo p{color:#a8aed2;font-size:.9rem;margin-bottom:12px}
+.linfo .specs{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;margin:0 0 4px;padding:0;list-style:none}
+.linfo .specs li{color:#dfe2f5;font-size:.85rem;padding:4px 0 4px 22px;position:relative;border:none}
+.linfo .specs li::before{content:"";position:absolute;left:2px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--cyan)}
+.linfo a{color:var(--cyan)}
+@media(max-width:760px){.linfo .specs{grid-template-columns:1fr}}
+
+.chip{border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:6px 14px;font-size:.8rem;color:#dfe2f5}
+.assort-side{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:24px}
+.assort-side h3{color:#fff;font-size:.95rem;margin-bottom:10px}
+.assort-side p{font-size:.87rem;margin:0}
+@media(max-width:760px){.assort{padding:30px 24px}.assort-grid{grid-template-columns:1fr}}
+
+
