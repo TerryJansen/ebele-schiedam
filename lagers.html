@@ -241,11 +241,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
           </div>
           <div class="linfo" id="linfo" role="tabpanel"></div></div>
         </div>
-        <div class="assort-side" style="display:flex;flex-direction:column">
-          <div id="lside-img" style="border-radius:12px;overflow:hidden;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);margin-bottom:16px">
-            <img id="ltype-img" src="img/lager-kogel.png" alt="Kogellagers" style="width:100%;height:230px;object-fit:contain;background:#fff;display:block;padding:10px">
-            <div id="ltype-cap" style="text-align:center;font-size:.8rem;color:#dfe2f5;padding:8px 10px;border-top:1px solid rgba(255,255,255,.12)">Kogellagers</div>
-          </div>
+        <div class="assort-side">
           <h3>Montage, onderhoud en preventie</h3>
           <p>Voor het monteren en demonteren leveren wij inductieverwarmers en lagermontagesets van SKF, FAG, BETEX en KUKKO. Met lagervet en monitorsystemen zoals de FAG SmartCheck voorkomt u onverwachte uitval en schade aan uw lagers.</p>
         </div>
@@ -313,8 +309,6 @@ document.querySelectorAll('.chip').forEach(btn => {
     if (on) { panel.classList.remove('show'); return; }  // nogmaals klikken sluit
     btn.classList.add('on');
     const t = LAGERS[btn.dataset.t];
-    const im = document.getElementById('ltype-img'), cap = document.getElementById('ltype-cap');
-    if(im){ im.src = t.img; im.alt = t.n; cap.textContent = t.n; }
     panel.innerHTML = '<div class="linfo-flex"><div><h3>'+t.n+'</h3><p>'+t.d+'</p><ul class="specs">'+t.s.map(x=>'<li>'+x+'</li>').join('')+'</ul><p style="margin:14px 0 0">Op zoek naar dit type? <a href="contact.html">Vraag een offerte aan</a> of bel 010 426 43 54.</p></div><div class="lviewer"><img src="'+t.img+'" alt="'+t.n+'" style="max-width:230px;width:100%;height:auto;border-radius:8px;background:#fff;padding:8px"></div></div>';
     panel.classList.remove('show'); void panel.offsetWidth; panel.classList.add('show');
   });
