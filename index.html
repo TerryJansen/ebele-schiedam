@@ -61,12 +61,7 @@ h1,h2,h3{line-height:1.22;color:var(--navy)}
 
 /* ——— HERO ——— */
 .hero{color:#fff;position:relative;overflow:hidden;background:var(--navy)}
-.hero-bg{position:absolute;inset:-30%;background:url("img/hero-b.jpg") center/cover no-repeat;animation:heroSpin 90s linear infinite;transform-origin:50% 50%;will-change:transform}
-@keyframes heroSpin{
-  from{transform:rotate(0deg)}
-  to{transform:rotate(360deg)}
-}
-@media(prefers-reduced-motion:reduce){.hero-bg{animation:none;transform:none}}
+.hero-bg{position:absolute;inset:0;background:url("img/hero-b.jpg") center/cover no-repeat}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,5,47,.94) 0%,rgba(4,5,47,.86) 42%,rgba(4,5,47,.55) 100%)}
 .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(820px 380px at 82% 12%,rgba(0,183,243,.14),transparent 65%);pointer-events:none}
 .hero-in{max-width:1120px;margin:0 auto;padding:120px 20px 150px;display:grid;grid-template-columns:1fr;gap:0;align-items:center;position:relative;z-index:2}
@@ -263,6 +258,12 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .anim.in{opacity:1;transform:none}
 .anim.d1{transition-delay:.08s}.anim.d2{transition-delay:.16s}.anim.d3{transition-delay:.24s}
 @media(prefers-reduced-motion:reduce){.anim{opacity:1;transform:none;transition:none}}
+
+/* Draaiend lager rechts in de hero */
+.hero-bearing{position:absolute;right:-6%;top:50%;width:min(56vw,680px);transform:translateY(-50%);animation:bearingSpin 70s linear infinite;will-change:transform;pointer-events:none;opacity:.95;z-index:1}
+@keyframes bearingSpin{from{transform:translateY(-50%) rotate(0deg)}to{transform:translateY(-50%) rotate(360deg)}}
+@media(max-width:820px){.hero-bearing{width:120vw;right:-35vw;opacity:.6}}
+@media(prefers-reduced-motion:reduce){.hero-bearing{animation:none}}
 </style>
 </head>
 <body>
@@ -303,6 +304,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 
 <header class="hero">
   <div class="hero-bg" role="img" aria-label="Kogellagers uit de voorraad van Ebele Schiedam"></div>
+  <img class="hero-bearing" src="img/lager-cut.png" alt="" aria-hidden="true">
   <div class="hero-in">
     <div>
       <h1>Wij zorgen dat uw machines <em>draaien</em>.</h1>
