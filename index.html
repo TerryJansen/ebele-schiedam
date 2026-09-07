@@ -164,6 +164,27 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
   .facts{grid-template-columns:1fr;margin-top:-52px}
   .frow{grid-template-columns:1fr}
 }
+
+.pnum{display:block;font-size:.78rem;font-weight:600;color:var(--blue);letter-spacing:.08em;margin:14px 20px 0}
+.pcard .ph{border-radius:0}
+/* ——— Industrial look (Smulders-referentie, eigen kleuren) ——— */
+.pcard{border-radius:0;border:1px solid var(--line);box-shadow:none}
+.pcard:hover{transform:none;border-color:var(--blue);box-shadow:inset 4px 0 0 var(--blue)}
+.pcard .body{padding:18px 20px 22px}
+.pcard h3{font-weight:600;letter-spacing:-.01em}
+.btn{border-radius:0;font-weight:500}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--blue);filter:none;transform:none}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.4);border-radius:0}
+.btn-ghost:hover{background:rgba(255,255,255,.1);filter:none;transform:none}
+.fsubmit{border-radius:0}
+.fsubmit:hover{transform:none;filter:brightness(1.2)}
+.nav-links a.cta{border-radius:0;font-weight:500}
+.nav-links a.cta:hover{transform:none;filter:brightness(1.15)}
+.assort,.usp,.cta-band{border-radius:0}
+.fact{border-radius:0}
+.cinfo,form,.hours-card,.form-wrap,.side-card,.val{border-radius:0}
+h2.title,h1{font-weight:700}
 </style>
 </head>
 <body>
@@ -191,7 +212,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
   <div class="hero-bg" role="img" aria-label="Kogellagers uit de voorraad van Ebele Schiedam"></div>
   <div class="hero-in">
     <div>
-      <h1>Lagers, afdichtingen en <em>aandrijftechniek</em> uit voorraad</h1>
+      <h1>Wij zorgen dat uw machines <em>draaien</em>.</h1>
       <p>Technische groothandel in Schiedam, sinds 1994 gevestigd aan de Minervaweg. Wij leveren aan de industrie in de regio Rotterdam, Vlaardingen en de Drechtsteden — en door heel Nederland.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="offerte.html">Offerte aanvragen</a>
@@ -214,9 +235,9 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
   <div class="wrap">
     <p class="kicker">Producten</p>
     <h2 class="title">Acht productgroepen, één leverancier</h2>
-    <p class="lead">Van lagers tot hijs- en hefwerktuigen: wat u nodig heeft voor aandrijf- en afdichtingstechniek, voor zowel onderhoud (MRO) als inbouw bij fabrikanten (OEM).</p>
+    <p class="lead">Acht productgroepen. Één adres in Schiedam. Al sinds 1994.</p>
     <div class="grid">
-      <article class="pcard">
+      <article class="pcard"><span class="pnum">01</span>
         <div class="ph"><img src="img/lagers.jpg" alt="" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>Lagers &amp; lagergereedschap</h3>
@@ -224,7 +245,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
         </div>
         <a class="stretched" href="product-lagers-en-lagergereedschap.html" aria-label="Meer informatie"></a>
         </article>
-      <article class="pcard">
+      <article class="pcard"><span class="pnum">02</span>
         <div class="ph"><img src="img/afdichtingen.jpg" alt="" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>Afdichtingstechniek</h3>
@@ -232,7 +253,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
         </div>
       <a class="stretched" href="product-afdichtingstechniek.html" aria-label="Meer informatie"></a>
         </article>
-      <article class="pcard">
+      <article class="pcard"><span class="pnum">03</span>
         <div class="ph"><img src="img/v-snaren.jpg" alt="" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>V-snaren &amp; V-snaarschijven</h3>
@@ -240,7 +261,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
         </div>
       <a class="stretched" href="product-v-snaren-en-v-snaarschijven.html" aria-label="Meer informatie"></a>
         </article>
-      <article class="pcard">
+      <article class="pcard"><span class="pnum">04</span>
         <div class="ph"><img src="img/kettingen.jpg" alt="" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>Kettingen &amp; kettingwielen</h3>
@@ -248,7 +269,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
         </div>
       <a class="stretched" href="product-kettingen-en-kettingwielen.html" aria-label="Meer informatie"></a>
         </article>
-      <article class="pcard">
+      <article class="pcard"><span class="pnum">05</span>
         <div class="ph"><img src="img/gereedschap.jpg" alt="" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>Gereedschap</h3>
@@ -256,7 +277,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
         </div>
       <a class="stretched" href="product-gereedschap.html" aria-label="Meer informatie"></a>
         </article>
-      <article class="pcard">
+      <article class="pcard"><span class="pnum">06</span>
         <div class="ph"><img src="img/loctite.jpg" alt="" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>Lijmen &amp; afdichtingsmiddelen</h3>
@@ -264,7 +285,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
         </div>
       <a class="stretched" href="product-lijmen-en-afdichtingsmiddelen.html" aria-label="Meer informatie"></a>
         </article>
-      <article class="pcard">
+      <article class="pcard"><span class="pnum">07</span>
         <div class="ph"><img src="img/transportwielen.jpg" alt="" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>Transportwielen</h3>
@@ -272,7 +293,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
         </div>
       <a class="stretched" href="product-transportwielen.html" aria-label="Meer informatie"></a>
         </article>
-      <article class="pcard">
+      <article class="pcard"><span class="pnum">08</span>
         <div class="ph"><img src="img/rema.jpg" alt="" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>Hijs- en hefwerktuigen</h3>
