@@ -318,6 +318,25 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .anim.d1{transition-delay:.08s}.anim.d2{transition-delay:.16s}.anim.d3{transition-delay:.24s}
 @media(prefers-reduced-motion:reduce){.anim{opacity:1;transform:none;transition:none}}
 
+
+/* Service flair */
+.svc .sic{transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .3s,border-color .3s}
+.svc:hover .sic{background:var(--cyan);border-color:var(--cyan);transform:scale(1.1) rotate(-4deg)}
+.svc:hover .sic svg{stroke:var(--navy)}
+.svc h3{transition:color .2s}
+.svc:hover h3{color:var(--blue)}
+.svc::after{content:"";position:absolute;bottom:0;left:0;width:0;height:3px;background:var(--cyan);transition:width .35s ease}
+.svc:hover::after{width:100%}
+.svc .snr{position:absolute;top:14px;right:16px;font-size:1.6rem;font-weight:700;color:var(--bg);line-height:1;transition:color .3s}
+.svc:hover .snr{color:var(--cyan)}
+.lt-table tr{transition:background .18s}
+.lt-table tbody tr:hover{background:rgba(0,183,243,.08)}
+.lt-table tr.hl td{position:relative}
+.lt-table tr.hl td:last-child{color:var(--cyan)}
+.lt-note{display:flex;gap:9px;align-items:flex-start}
+.lt-note::before{content:"i";flex-shrink:0;width:17px;height:17px;border-radius:50%;background:var(--cyan);color:var(--navy);font-weight:700;font-size:.72rem;display:flex;align-items:center;justify-content:center;margin-top:2px;font-style:normal}
+.page-hero{transition:background-size 8s ease}
+.page-hero:hover{background-size:110%}
 </style>
 </head>
 <body>
@@ -369,17 +388,17 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     <h2 class="title">Wat u van ons mag verwachten</h2>
     <p class="lead">Geen offerte-gedoe achteraf, geen verrassingen op de factuur. Wel een expert aan de lijn en een levertijd waarop u kunt bouwen.</p>
     <div class="svc-grid">
-      <div class="svc">
+      <div class="svc"><span class="snr">01</span>
         <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         <h3>Voor 16:00 besteld, morgen in huis</h3>
         <p>Bestellingen die vóór 16:00 binnenkomen en op voorraad zijn, gaan dezelfde dag de deur uit — volgende werkdag bij u op de werkplaats.</p>
       </div>
-      <div class="svc">
+      <div class="svc"><span class="snr">02</span>
         <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 9h4l3 3v5h-7z"/><circle cx="6" cy="19" r="1.8"/><circle cx="18" cy="19" r="1.8"/></svg></div>
         <h3>Transport door heel Nederland</h3>
         <p>Eigen bezorging in regio Rotterdam, Vlaardingen en Drechtsteden. Daarbuiten leveren wij via betrouwbare transportpartners.</p>
       </div>
-      <div class="svc">
+      <div class="svc"><span class="snr">03</span>
         <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 2 3 7v6c0 5 4 8.5 9 9.5 5-1 9-4.5 9-9.5V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Ook voor niet-standaard werk</h3>
         <p>Speciale uitvoeringen of maatwerk? Wij schakelen direct met de technici van de fabrikant en houden u onderweg op de hoogte.</p>
@@ -389,27 +408,27 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     <div class="lt-wrap">
       <p class="kicker">Levertijden</p>
       <h2 class="title">Wat u kunt verwachten</h2>
-      <table class="lt-table">
+      <table class="lt-table"><tbody>
         <tr><td>Lagers &amp; afdichtingen uit eigen voorraad</td><td>vandaag besteld, morgen geleverd</td></tr>
         <tr><td>Niet op voorraad, wel bij fabrikant</td><td>1 – 2 werkdagen</td></tr>
         <tr><td>Niet-standaard uitvoeringen / maatwerk</td><td>in overleg — wij houden u op de hoogte</td></tr>
         <tr class="hl"><td>Bestelling vóór 16:00 (voorraadartikel)</td><td>volgende werkdag</td></tr>
-      </table>
+      </tbody></table>
       <p class="lt-note">Levertijden gelden voor werkdagen. Bestellingen op vrijdag na 16:00 gaan maandag de deur uit. Afhalen aan de Minervaweg kan altijd — wij leggen het klaar.</p>
     </div>
 
     <div class="svc-grid" style="margin-bottom:0">
-      <div class="svc">
+      <div class="svc"><span class="snr">04</span>
         <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
         <h3>Snelle respons</h3>
         <p>Vragen of advies nodig? U krijgt dezelfde werkdag antwoord van een specialist — geen ticket-systeem.</p>
       </div>
-      <div class="svc">
+      <div class="svc"><span class="snr">05</span>
         <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
         <h3>Geen verrassingen</h3>
         <p>Prijzen en levertijden staan vooraf duidelijk in de offerte. Geen verzend- of administratiekosten die er later bij komen.</p>
       </div>
-      <div class="svc">
+      <div class="svc"><span class="snr">06</span>
         <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.3a2 2 0 0 0 2-1.7l1.4-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></div>
         <h3>Retour met reden</h3>
         <p>Fout besteld of past niet? Neem contact op — wij denken mee in een passende oplossing.</p>
