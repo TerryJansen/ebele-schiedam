@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Merken — Ebele Schiedam</title>
-<meta name="description" content="Leverancier van SKF, FAG, INA, NTN-SNR, Timken, NSK, ZEN, Mitsuboshi, Loctite, BETA, KNIPEX, REMA, KUKKO, BETEX, Freudenberg, Optibelt, Dunlop en GMT.">
-  <link rel="icon" type="image/png" sizes="50x50" href="img/favicon-50.png">
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<title>Service &amp; leveringen — Ebele Schiedam</title>
+<meta name="description" content="Service en leveringen van Ebele Schiedam: vóór 16:00 besteld is morgen in huis, levering door heel Nederland, duidelijke levertijden zonder verrassingen.">
+<link rel="icon" type="image/png" sizes="50x50" href="img/favicon-50.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+
 :root{
   --navy:#04052f;
   --navy-soft:#10124a;
@@ -52,6 +53,13 @@ h1,h2,h3{line-height:1.22;color:var(--navy)}
   .burger{display:block}
 }
 
+
+/* Hover-animatie nav-kopjes (subtiele lift) */
+.nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
+.nav-links a:not(.cta):hover{transform:translateY(-2px)}
+.nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
+.nav-links a:not(.cta):hover::after{width:100%}
+
 /* ——— HERO ——— */
 .hero{color:#fff;position:relative;overflow:hidden;background:var(--navy)}
 .hero-bg{position:absolute;inset:0;background:url("img/hero-b.jpg") center/cover no-repeat}
@@ -79,7 +87,7 @@ h1,h2,h3{line-height:1.22;color:var(--navy)}
 .facts{max-width:1120px;margin:-40px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative;z-index:2}
 .fact{background:var(--navy-soft);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px 22px;color:#fff}
 .fact b{display:block;font-size:1.5rem;color:#fff;letter-spacing:-.02em}
-.fact b span{color:var(--cyan)}
+.fact b span{color:var(--cyan);display:inline-block;margin-left:2px}
 .fact small{color:#a8aed2;font-size:.83rem;display:block;margin-top:2px;line-height:1.5}
 
 /* ——— SECTIES ——— */
@@ -117,17 +125,7 @@ h2.title{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:800;letter-spacing:-.02e
 .assort-side p{font-size:.87rem;margin:0}
 @media(max-width:760px){.assort{padding:30px 24px}.assort-grid{grid-template-columns:1fr}}
 
-/* ——— MERKEN: lopende balk ——— */
-.marquee{overflow:hidden;position:relative;padding:10px 0;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee-track{display:flex;gap:14px;width:max-content;animation:scrollX 38s linear infinite}
-.marquee.rev .marquee-track{animation-direction:reverse}
-@keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.bcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 26px;display:flex;align-items:center;justify-content:center;min-height:72px;min-width:130px;flex-shrink:0}
-.bcard img{max-height:38px;max-width:100px;object-fit:contain}
-@media(max-width:820px){.marquee-track{animation-duration:26s}.bcard{min-height:60px;min-width:110px;padding:10px 20px}.bcard img{max-height:30px;max-width:84px}}
-@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}.marquee{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}}
+
 
 /* ——— CONTACT ——— */
 .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:36px}
@@ -165,28 +163,15 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
   .frow{grid-template-columns:1fr}
 }
 
-/* Pagina-hero (klein) */
-.page-hero{background:var(--navy) url("img/hero-b.jpg") center/cover no-repeat;color:#fff;position:relative;overflow:hidden}
-.page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,47,.82),rgba(4,5,47,.88));z-index:0}
-.page-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(820px 340px at 80% 20%,rgba(0,183,243,.16),transparent 65%);pointer-events:none}
-.page-hero .ph-in{max-width:1120px;margin:0 auto;padding:88px 20px;position:relative;z-index:1}
-.page-hero h1{color:#fff;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-bottom:10px}
-.page-hero p{color:#a8aed2;max-width:40rem;font-size:1rem}
-.nav-links a{text-decoration:none}
-.nav-links a.active{color:var(--cyan)}
-.nav-links a.cta.active,.nav-links a.cta.active:hover{color:var(--navy)}
-/* Hover-animatie nav-kopjes (subtiele lift) */
-.nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
-.nav-links a:not(.cta):hover{transform:translateY(-2px)}
-.nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
-.nav-links a:not(.cta):hover::after{width:100%}
-
-.assort-grid{padding:0 20px}
-
-
+.pnum{display:block;font-size:.78rem;font-weight:600;color:var(--blue);letter-spacing:.08em;margin:14px 20px 0}
+.pcard .ph{border-radius:0}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr}}
 /* ——— Industrial look (Smulders-referentie, eigen kleuren) ——— */
 .pcard{border-radius:0;border:1px solid var(--line);box-shadow:none}
 .pcard:hover{transform:none;border-color:var(--blue);box-shadow:inset 4px 0 0 var(--blue)}
+.pcard .body{padding:18px 20px 22px}
+.pcard h3{font-weight:600;letter-spacing:-.01em}
 .btn{border-radius:0;font-weight:500}
 .btn-primary{background:var(--navy);color:#fff}
 .btn-primary:hover{background:var(--blue);filter:none;transform:none}
@@ -220,6 +205,7 @@ h2.title,h1{font-weight:700}
   .dd-menu a:hover{background:transparent;color:#fff !important}
   .dd-menu a span{display:none}
 }
+
 /* ——— Speelse accenten ——— */
 .chip{transition:background .15s,border-color .15s,transform .2s cubic-bezier(.34,1.56,.64,1)}
 .chip:hover{transform:translateY(-3px) rotate(-1.5deg)}
@@ -239,6 +225,17 @@ h2.title,h1{font-weight:700}
 .fact:hover b span{transform:translateY(-3px) scale(1.15)}
 .bcard{transition:transform .2s cubic-bezier(.34,1.56,.64,1),border-color .2s}
 .bcard:hover{transform:translateY(-4px) rotate(-1deg);border-color:var(--cyan)}
+
+/* ——— Merken: lopende balk ——— */
+.marquee{overflow:hidden;position:relative;padding:10px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;gap:14px;width:max-content;animation:scrollX 38s linear infinite}
+.marquee.rev .marquee-track{animation-direction:reverse}
+@keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.bcard{background:#fff;border:1px solid var(--line);border-radius:0;padding:14px 26px;display:flex;align-items:center;justify-content:center;min-height:72px;min-width:130px;flex-shrink:0;transition:transform .2s cubic-bezier(.34,1.56,.64,1),border-color .2s}
+.bcard:hover{transform:translateY(-4px) rotate(-1deg);border-color:var(--cyan)}
+.bcard img{max-height:38px;max-width:100px;object-fit:contain}
+@media(max-width:820px){.marquee-track{animation-duration:26s}.bcard{min-height:60px;min-width:110px;padding:10px 20px}.bcard img{max-height:30px;max-width:84px}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}.marquee{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}}
 
 /* ——— Footer (info + kaart) ——— */
 footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
@@ -263,6 +260,64 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .anim.in{opacity:1;transform:none}
 .anim.d1{transition-delay:.08s}.anim.d2{transition-delay:.16s}.anim.d3{transition-delay:.24s}
 @media(prefers-reduced-motion:reduce){.anim{opacity:1;transform:none;transition:none}}
+
+
+/* Pagina-hero */
+.page-hero{background:var(--navy) url("img/lagers.jpg") center/cover no-repeat;color:#fff;position:relative;overflow:hidden}
+.page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,47,.82),rgba(4,5,47,.88));z-index:0}
+.page-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(820px 340px at 80% 20%,rgba(0,183,243,.14),transparent 65%);pointer-events:none;z-index:0}
+.page-hero .ph-in{max-width:1120px;margin:0 auto;padding:88px 20px;position:relative;z-index:1}
+.page-hero h1{color:#fff;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-bottom:10px}
+.page-hero p{color:#a8aed2;max-width:40rem;font-size:1rem}
+.nav-links a{text-decoration:none}
+.nav-links a.active{color:var(--cyan)}
+.nav-links a.cta.active,.nav-links a.cta.active:hover{color:var(--navy)}
+/* Hover-animatie nav-kopjes */
+.nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
+.nav-links a:not(.cta):hover{transform:translateY(-2px)}
+.nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
+.nav-links a:not(.cta):hover::after{width:100%}
+/* Dropdown */
+.nav-item-dd{position:relative}
+.dd-toggle{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.dd-toggle svg{width:12px;height:12px;stroke:currentColor;transition:transform .2s}
+.nav-item-dd:hover .dd-toggle svg,.nav-item-dd:focus-within .dd-toggle svg{transform:rotate(180deg)}
+.dd-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);min-width:230px;padding:6px 0;opacity:0;visibility:hidden;transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 34px rgba(4,5,47,.18);z-index:120}
+.nav-item-dd:hover .dd-menu,.nav-item-dd:focus-within .dd-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dd-menu a{display:block;padding:7px 16px;color:var(--text) !important;font-size:.9rem;font-weight:500;border:none !important;transform:none !important;transition:background .12s,color .12s}
+.dd-menu a:hover{background:var(--bg);color:var(--blue) !important;transform:none !important}
+@media(max-width:820px){
+  .nav-item-dd{width:100%}
+  .dd-menu{position:static;transform:none;opacity:1;visibility:hidden;display:none;box-shadow:none;background:transparent;border:none;padding:0 0 8px 14px;min-width:0}
+  .nav-item-dd.open .dd-menu{display:block;visibility:visible;opacity:1}
+  .dd-menu a{color:#c3c7e2 !important;border-bottom:1px solid rgba(255,255,255,.08) !important;padding:10px 4px}
+  .dd-menu a:hover{background:transparent;color:#fff !important}
+}
+/* Service: levertijden-tabel + services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:52px}
+.svc{background:#fff;border:1px solid var(--line);padding:26px 24px;position:relative;transition:transform .25s cubic-bezier(.34,1.56,.64,1),border-color .25s,box-shadow .25s}
+.svc:hover{transform:translateY(-5px);border-color:var(--cyan);box-shadow:0 14px 30px rgba(4,5,47,.1)}
+.svc .sic{width:48px;height:48px;background:var(--bg);display:flex;align-items:center;justify-content:center;margin-bottom:16px;border:1px solid var(--line)}
+.svc .sic svg{width:24px;height:24px;stroke:var(--blue)}
+.svc h3{font-size:1.02rem;margin-bottom:8px}
+.svc p{color:var(--muted);font-size:.9rem;margin:0}
+/* Levertijd-tabel */
+.lt-wrap{background:var(--navy);padding:48px 44px;color:#fff;margin-bottom:52px}
+.lt-wrap .kicker{color:var(--cyan)}
+.lt-wrap h2.title{color:#fff}
+.lt-table{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:8px}
+.lt-table td{padding:13px 8px;border-bottom:1px solid rgba(255,255,255,.14);color:#dfe2f5}
+.lt-table td:first-child{color:#a8aed2}
+.lt-table td:last-child{text-align:right;font-weight:600;color:#fff;font-variant-numeric:tabular-nums}
+.lt-table tr.hl td{color:var(--cyan);font-weight:600}
+.lt-note{color:#a8aed2;font-size:.84rem;margin-top:16px}
+@media(max-width:820px){.svc-grid{grid-template-columns:1fr}.lt-wrap{padding:30px 24px}}
+/* Scroll animaties */
+.anim{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.65,.3,1)}
+.anim.in{opacity:1;transform:none}
+.anim.d1{transition-delay:.08s}.anim.d2{transition-delay:.16s}.anim.d3{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.anim{opacity:1;transform:none;transition:none}}
+
 </style>
 </head>
 <body>
@@ -290,10 +345,10 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
         <a href="product-hijs-en-hefwerktuigen.html">Hijs- &amp; hefwerktuigen</a>
         </div>
       </div>
-      <a class="active" href="merken.html">Merken</a>
+      <a href="merken.html">Merken</a>
       <a href="over-ons.html">Over ons</a>
       <a href="vacatures.html">Vacatures</a>
-      <a href="service.html">Service</a>
+      <a class="active" href="service.html">Service</a>
       <a href="contact.html">Contact</a>
       <a class="cta" href="offerte.html">Offerte aanvragen</a>
     </div>
@@ -302,33 +357,62 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 
 <header class="page-hero">
   <div class="ph-in">
-    <p class="kicker" style="color:var(--cyan)">Merken</p>
-    <h1>Merken die wij leveren</h1>
-    <p>Wij werken met toonaangevende fabrikanten in lagers, afdichtingen en gereedschap. Kwaliteit die u kunt vertrouwen, rechtstreeks uit voorraad of via onze fabrikanten.</p>
+    <p class="kicker" style="color:var(--cyan)">Service &amp; leveringen</p>
+    <h1>Snel, betrouwbaar en duidelijk</h1>
+    <p>Stilstand kost geld. Daarom leveren wij snel uit eigen voorraad en houden wij onze afspraken — zo weet u altijd waar u aan toe bent.</p>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <div class="marquee" aria-label="Merken die wij leveren, rij 1"><div class="marquee-track" aria-hidden="false"><div class="bcard"><img src="img/skf.png" alt="SKF" loading="lazy"></div><div class="bcard"><img src="img/fag.svg" alt="FAG" loading="lazy"></div><div class="bcard"><img src="img/ina.svg" alt="INA" loading="lazy"></div><div class="bcard"><img src="img/ntn-snr.png" alt="NTN SNR" loading="lazy"></div><div class="bcard"><img src="img/timken.webp" alt="Timken" loading="lazy"></div><div class="bcard"><img src="img/nsk.png" alt="NSK" loading="lazy"></div><div class="bcard"><img src="img/zen-logo.svg" alt="ZEN" loading="lazy"></div><div class="bcard"><img src="img/mitsuboshi.webp" alt="Mitsuboshi" loading="lazy"></div><div class="bcard"><img src="img/loctite-logo.png" alt="Loctite" loading="lazy"></div><div class="bcard"><img src="img/skf.png" alt="SKF" loading="lazy"></div><div class="bcard"><img src="img/fag.svg" alt="FAG" loading="lazy"></div><div class="bcard"><img src="img/ina.svg" alt="INA" loading="lazy"></div><div class="bcard"><img src="img/ntn-snr.png" alt="NTN SNR" loading="lazy"></div><div class="bcard"><img src="img/timken.webp" alt="Timken" loading="lazy"></div><div class="bcard"><img src="img/nsk.png" alt="NSK" loading="lazy"></div><div class="bcard"><img src="img/zen-logo.svg" alt="ZEN" loading="lazy"></div><div class="bcard"><img src="img/mitsuboshi.webp" alt="Mitsuboshi" loading="lazy"></div><div class="bcard"><img src="img/loctite-logo.png" alt="Loctite" loading="lazy"></div></div></div>
-    <div class="marquee rev" aria-label="Merken rij 2" style="margin-top:14px"><div class="marquee-track" aria-hidden="false"><div class="bcard"><img src="img/beta-tools.svg" alt="BETA Tools" loading="lazy"></div><div class="bcard"><img src="img/knipex.svg" alt="KNIPEX" loading="lazy"></div><div class="bcard"><img src="img/rema-logo.png" alt="REMA" loading="lazy"></div><div class="bcard"><img src="img/kukko.png" alt="KUKKO" loading="lazy"></div><div class="bcard"><img src="img/betex.jpg" alt="BETEX" loading="lazy"></div><div class="bcard"><img src="img/freudenberg.png" alt="Freudenberg" loading="lazy"></div><div class="bcard"><img src="img/optibelt.png" alt="Optibelt" loading="lazy"></div><div class="bcard"><img src="img/dunlop.svg" alt="Dunlop" loading="lazy"></div><div class="bcard"><img src="img/gmt.jpg" alt="GMT" loading="lazy"></div><div class="bcard"><img src="img/beta-tools.svg" alt="BETA Tools" loading="lazy"></div><div class="bcard"><img src="img/knipex.svg" alt="KNIPEX" loading="lazy"></div><div class="bcard"><img src="img/rema-logo.png" alt="REMA" loading="lazy"></div><div class="bcard"><img src="img/kukko.png" alt="KUKKO" loading="lazy"></div><div class="bcard"><img src="img/betex.jpg" alt="BETEX" loading="lazy"></div><div class="bcard"><img src="img/freudenberg.png" alt="Freudenberg" loading="lazy"></div><div class="bcard"><img src="img/optibelt.png" alt="Optibelt" loading="lazy"></div><div class="bcard"><img src="img/dunlop.svg" alt="Dunlop" loading="lazy"></div><div class="bcard"><img src="img/gmt.jpg" alt="GMT" loading="lazy"></div></div></div>
+    <p class="kicker">Service</p>
+    <h2 class="title">Wat u van ons mag verwachten</h2>
+    <p class="lead">Geen offerte-gedoe achteraf, geen verrassingen op de factuur. Wel een expert aan de lijn en een levertijd waarop u kunt bouwen.</p>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <h3>Voor 16:00 besteld, morgen in huis</h3>
+        <p>Bestellingen die vóór 16:00 binnenkomen en op voorraad zijn, gaan dezelfde dag de deur uit — volgende werkdag bij u op de werkplaats.</p>
+      </div>
+      <div class="svc">
+        <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 9h4l3 3v5h-7z"/><circle cx="6" cy="19" r="1.8"/><circle cx="18" cy="19" r="1.8"/></svg></div>
+        <h3>Transport door heel Nederland</h3>
+        <p>Eigen bezorging in regio Rotterdam, Vlaardingen en Drechtsteden. Daarbuiten leveren wij via betrouwbare transportpartners.</p>
+      </div>
+      <div class="svc">
+        <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 2 3 7v6c0 5 4 8.5 9 9.5 5-1 9-4.5 9-9.5V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Ook voor niet-standaard werk</h3>
+        <p>Speciale uitvoeringen of maatwerk? Wij schakelen direct met de technici van de fabrikant en houden u onderweg op de hoogte.</p>
+      </div>
+    </div>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="assort">
-      <div class="assort-grid">
-        <div>
-          <p class="kicker">Advies</p>
-          <h2 class="title">Welk merk past bij uw toepassing?</h2>
-          <p>Onze medewerkers adviseren u graag over het juiste merk en product voor uw situatie — van standaard kogellagers tot speciale afdichtingen en hoogwaardig gereedschap.</p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="offerte.html">Vraag advies of een offerte</a>
-          </div>
-        </div>
-        <div class="assort-side">
-          <h3>Direct uit voorraad</h3>
-          <p>De meeste producten van deze merken liggen in ons eigen magazijn aan de Minervaweg in Schiedam. Is iets niet op voorraad, dan halen wij het snel voor u binnen via de fabrikant.</p>
-        </div>
+    <div class="lt-wrap">
+      <p class="kicker">Levertijden</p>
+      <h2 class="title">Wat u kunt verwachten</h2>
+      <table class="lt-table">
+        <tr><td>Lagers &amp; afdichtingen uit eigen voorraad</td><td>vandaag besteld, morgen geleverd</td></tr>
+        <tr><td>Niet op voorraad, wel bij fabrikant</td><td>1 – 2 werkdagen</td></tr>
+        <tr><td>Niet-standaard uitvoeringen / maatwerk</td><td>in overleg — wij houden u op de hoogte</td></tr>
+        <tr class="hl"><td>Bestelling vóór 16:00 (voorraadartikel)</td><td>volgende werkdag</td></tr>
+      </table>
+      <p class="lt-note">Levertijden gelden voor werkdagen. Bestellingen op vrijdag na 16:00 gaan maandag de deur uit. Afhalen aan de Minervaweg kan altijd — wij leggen het klaar.</p>
+    </div>
+
+    <div class="svc-grid" style="margin-bottom:0">
+      <div class="svc">
+        <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Snelle respons</h3>
+        <p>Vragen of advies nodig? U krijgt dezelfde werkdag antwoord van een specialist — geen ticket-systeem.</p>
+      </div>
+      <div class="svc">
+        <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <h3>Geen verrassingen</h3>
+        <p>Prijzen en levertijden staan vooraf duidelijk in de offerte. Geen verzend- of administratiekosten die er later bij komen.</p>
+      </div>
+      <div class="svc">
+        <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.3a2 2 0 0 0 2-1.7l1.4-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></div>
+        <h3>Retour met reden</h3>
+        <p>Fout besteld of past niet? Neem contact op — wij denken mee in een passende oplossing.</p>
       </div>
     </div>
   </div>
@@ -373,31 +457,19 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     <span><a href="tel:+31104264354" style="color:#c3c7e2">010 426 43 54</a> · <a href="mailto:info@ebele-schiedam.nl" style="color:#c3c7e2">info@ebele-schiedam.nl</a></span>
   </div>
 </footer>
-
 <script>
-// Fade-in-up bij scroll (zoals jgmobility)
+// Fade-in-up bij scroll
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const targets = document.querySelectorAll('h1,h2,h3,h4,p,li,span,small,strong,em,label,td,blockquote,.btn,.pcard,.bcard,.chip,.fact,.val,.crow,.step,.why-item,.lg-item,.hours-card,.cinfo,form,.detail,.story,.assort,.assort-side,.side-card,.empty-state,.alert-box,.os-text,.os-img,.lead,.kicker,.chips,.btn-row,.body,.foot-col,.hours');
+  const targets = document.querySelectorAll('h1,h2,h3,h4,p,li,.btn,.svc,.lt-wrap,.foot-col');
   targets.forEach(el=>el.classList.add('anim'));
-
-  // staggered delay binnen ouderblokken (JG-stijl): kinderen van hetzelfde blok volgen elkaar op
-  document.querySelectorAll('ul,ol,.grid,.foot-grid,.chips,.assort-grid,.contact-grid,.steps,.why,.usp-grid,.facts').forEach(parent=>{
+  document.querySelectorAll('ul,ol,.svc-grid,.foot-grid').forEach(parent=>{
     [...parent.children].forEach((child,i)=>{ if(child.classList.contains('anim')) child.style.transitionDelay = Math.min(i*0.07,0.5)+'s'; });
   });
-  const io = new IntersectionObserver(es=>{
-    es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  const io = new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.anim').forEach(el=>io.observe(el));
-  // hero-elementen direct na load (staggered)
-  const revealHero=()=>{
-    document.querySelectorAll('.hero-in h1,.hero-in p,.hero-in .btn-row,.page-hero .ph-in > *').forEach((el,i)=>{
-      el.style.transitionDelay=(i*0.09)+'s';
-      setTimeout(()=>el.classList.add('in'),30+i*90);
-    });
-  };
-  if(document.readyState==='complete') revealHero();
-  else window.addEventListener('load',revealHero);
+  const revealHero=()=>{ document.querySelectorAll('.page-hero .ph-in > *').forEach((el,i)=>{ el.style.transitionDelay=(i*0.09)+'s'; setTimeout(()=>el.classList.add('in'),30+i*90); }); };
+  if(document.readyState==='complete') revealHero(); else window.addEventListener('load',revealHero);
 })();
 </script>
 </body>
