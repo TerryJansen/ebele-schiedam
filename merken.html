@@ -165,6 +165,12 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 .page-hero p{color:#a8aed2;max-width:40rem;font-size:1rem}
 .nav-links a{text-decoration:none}
 .nav-links a.active{color:var(--cyan)}
+/* Hover-animatie nav-kopjes (subtiele lift) */
+.nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
+.nav-links a:not(.cta):hover{transform:translateY(-2px)}
+.nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
+.nav-links a:not(.cta):hover::after{width:100%}
+
 .assort-grid{padding:0 20px}
 
 </style>
