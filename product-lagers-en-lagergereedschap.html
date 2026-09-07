@@ -300,6 +300,19 @@ h2.title,h1{font-weight:700}
 .assort-exploded{background:var(--navy) url("img/exploded.png") center/cover no-repeat;position:relative;overflow:hidden}
 .assort-exploded::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,47,.84),rgba(4,5,47,.7));z-index:0}
 .assort-exploded>*{position:relative;z-index:1}
+
+/* Chips met iconen + flair */
+.chip svg{width:18px;height:18px;stroke:var(--cyan);flex-shrink:0;transition:stroke .2s,transform .25s cubic-bezier(.34,1.56,.64,1)}
+.chip:hover svg{transform:scale(1.25) rotate(-8deg)}
+.chip.on svg{stroke:var(--navy)}
+.chip.on{box-shadow:0 8px 22px rgba(0,183,243,.4)}
+.chip{flex-direction:row;gap:8px}
+/* infokaart flair: cyaan bovenrand + groot '24 uur' element */
+.assort-side{position:relative;overflow:hidden}
+.assort-side::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--cyan),transparent 80%)}
+.hours-big{font-size:2.6rem;font-weight:700;color:#fff;letter-spacing:-.03em;line-height:1;margin-bottom:4px}
+.hours-big span{color:var(--cyan)}
+.hours-big small{display:block;font-size:.78rem;font-weight:500;color:#a8aed2;letter-spacing:.08em;text-transform:uppercase;margin-top:6px}
 </style>
 </head>
 <body>
@@ -357,16 +370,16 @@ h2.title,h1{font-weight:700}
       <div class="assort-grid">
         <div>
           <div class="chips" role="tablist" aria-label="Lagertypes">
-            <button class="chip" data-t="kogel">Kogellagers</button><button class="chip" data-t="rol">Rollagers</button><button class="chip" data-t="glij">Glijlagers</button>
-            <button class="chip" data-t="kegel">Kegellagers</button><button class="chip" data-t="ton">Tonlagers</button><button class="chip" data-t="cilinder">Cilinderlagers</button>
-            <button class="chip" data-t="taats">Taatslagers</button><button class="chip" data-t="wentel">Wentellagers</button><button class="chip" data-t="naald">Naaldlagers</button>
-            <button class="chip" data-t="rvs">RVS lagers</button><button class="chip" data-t="blok">Lagerblokken</button>
+            <button class="chip" data-t="kogel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.4"/></svg>Kogellagers</button><button class="chip" data-t="rol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M8 12h8"/></svg>Rollagers</button><button class="chip" data-t="glij"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="8" width="16" height="8" rx="4"/><circle cx="12" cy="12" r="2"/></svg>Glijlagers</button>
+            <button class="chip" data-t="kegel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3 20 19H4z"/><circle cx="12" cy="14" r="2"/></svg>Kegellagers</button><button class="chip" data-t="ton"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="6"/><ellipse cx="12" cy="12" rx="4" ry="2.5"/></svg>Tonlagers</button><button class="chip" data-t="cilinder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="7" width="14" height="10" rx="2"/><path d="M9 7v10M15 7v10"/></svg>Cilinderlagers</button>
+            <button class="chip" data-t="taats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14"/><circle cx="12" cy="7" r="4"/><circle cx="12" cy="17" r="4"/></svg>Taatslagers</button><button class="chip" data-t="wentel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M6 9c3 2 9 2 12 0M6 15c3-2 9-2 12 0"/></svg>Wentellagers</button><button class="chip" data-t="naald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="9" width="16" height="6" rx="3"/><path d="M7 9v6M12 9v6M17 9v6"/></svg>Naaldlagers</button>
+            <button class="chip" data-t="rvs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M4 12h16" stroke-dasharray="2 2"/></svg>RVS lagers</button><button class="chip" data-t="blok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="10" width="16" height="9" rx="2"/><circle cx="12" cy="9" r="4"/><circle cx="12" cy="9" r="1.6"/></svg>Lagerblokken</button>
           </div>
         </div>
         <div class="assort-side" id="lsidewrap" style="height:400px;padding:20px">
           <div id="lside-default">
-            <h3>Alles uit voorraad</h3>
-            <p>De gangbare maten liggen in ons magazijn aan de Minervaweg. Is een type niet op voorraad, dan halen wij het binnen via de fabrikant — vaak binnen 24 uur.</p>
+            <div class="hours-big">24<span> uur</span><small>levertijd uit eigen voorraad</small></div>
+            <p style="margin-top:16px">De gangbare maten liggen in ons magazijn aan de Minervaweg. Is een type niet op voorraad, dan halen wij het binnen via de fabrikant.</p>
             <p style="margin-top:12px">Op zoek naar een specifiek lager? <a href="contact.html" style="color:var(--cyan)">Neem contact op</a> of vraag direct een <a href="offerte.html" style="color:var(--cyan)">offerte aan</a>.</p>
           </div>
           <div id="lside-info" style="display:none"></div>
