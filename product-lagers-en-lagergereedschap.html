@@ -322,10 +322,13 @@ h2.title,h1{font-weight:700}
           </div>
           <div class="linfo" id="linfo" role="tabpanel"></div>
         </div>
-        <div class="assort-side">
-          <h3>Alles uit voorraad</h3>
-          <p>De gangbare maten liggen in ons magazijn aan de Minervaweg. Is een type niet op voorraad, dan halen wij het binnen via de fabrikant — vaak binnen 24 uur.</p>
-          <p style="margin-top:12px">Op zoek naar een specifiek lager? <a href="contact.html" style="color:var(--cyan)">Neem contact op</a> of vraag direct een <a href="offerte.html" style="color:var(--cyan)">offerte aan</a>.</p>
+        <div class="assort-side" id="lsidewrap" style="min-height:340px">
+          <div id="lside-default">
+            <h3>Alles uit voorraad</h3>
+            <p>De gangbare maten liggen in ons magazijn aan de Minervaweg. Is een type niet op voorraad, dan halen wij het binnen via de fabrikant — vaak binnen 24 uur.</p>
+            <p style="margin-top:12px">Op zoek naar een specifiek lager? <a href="contact.html" style="color:var(--cyan)">Neem contact op</a> of vraag direct een <a href="offerte.html" style="color:var(--cyan)">offerte aan</a>.</p>
+          </div>
+          <div id="lside-info" style="display:none"></div>
         </div>
       </div>
     </div>
@@ -401,11 +404,13 @@ document.querySelectorAll('.chip').forEach(btn => {
   btn.addEventListener('click', () => {
     const on = btn.classList.contains('on');
     document.querySelectorAll('.chip').forEach(b => b.classList.remove('on'));
-    if (on) { panel.classList.remove('show'); return; }  // nogmaals klikken sluit
+    if (on) { panel.classList.remove('show'); const sd=document.getElementById('lside-default'), si=document.getElementById('lside-info'); if(sd){sd.style.display='block'; si.style.display='none';} return; }
     btn.classList.add('on');
     const t = LAGERS[btn.dataset.t];
     panel.innerHTML = '<div class="linfo-flex"><div><h3>'+t.n+'</h3><p>'+t.d+'</p><ul class="specs">'+t.s.map(x=>'<li>'+x+'</li>').join('')+'</ul><p style="margin:14px 0 0">Op zoek naar dit type? <a href="contact.html">Vraag een offerte aan</a> of bel 010 426 43 54.</p></div><div class="lviewer"><img src="'+t.img+'" alt="'+t.n+'" style="max-width:230px;width:100%;height:auto;border-radius:8px;background:#fff;padding:8px"></div></div>';
     panel.classList.remove('show'); void panel.offsetWidth; panel.classList.add('show');
+    const sideDefault=document.getElementById('lside-default'), sideInfo=document.getElementById('lside-info');
+    if(sideInfo){ sideInfo.innerHTML='<h3>'+t.n+'</h3><p>'+t.d+'</p><ul class="specs">'+t.s.map(x=>'<li>'+x+'</li>').join('')+'</ul><p style="margin-top:14px">Op zoek naar dit type? <a href="contact.html" style="color:var(--cyan)">Neem contact op</a> of vraag direct een <a href="offerte.html" style="color:var(--cyan)">offerte aan</a>.</p>'; sideInfo.style.display='block'; sideDefault.style.display='none'; }
   });
 });
 </script>
