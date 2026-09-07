@@ -115,12 +115,18 @@ h2.title{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:800;letter-spacing:-.02e
 .assort-side p{font-size:.87rem;margin:0}
 @media(max-width:760px){.assort{padding:30px 24px}.assort-grid{grid-template-columns:1fr}}
 
-/* ——— MERKEN ——— */
-.brands{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.bcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:center;min-height:64px}
-.bcard img{max-height:34px;max-width:80%;object-fit:contain}
-@media(max-width:900px){.brands{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:520px){.brands{grid-template-columns:repeat(2,1fr)}}
+/* ——— MERKEN: lopende balk ——— */
+.marquee{overflow:hidden;position:relative;padding:10px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;gap:14px;width:max-content;animation:scrollX 38s linear infinite}
+.marquee.rev .marquee-track{animation-direction:reverse}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.bcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 26px;display:flex;align-items:center;justify-content:center;min-height:72px;min-width:130px;flex-shrink:0}
+.bcard img{max-height:38px;max-width:100px;object-fit:contain}
+@media(max-width:820px){.marquee-track{animation-duration:26s}.bcard{min-height:60px;min-width:110px;padding:10px 20px}.bcard img{max-height:30px;max-width:84px}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}.marquee{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}}
 
 /* ——— CONTACT ——— */
 .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:36px}
@@ -208,30 +214,8 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 
 <section>
   <div class="wrap">
-    <div class="brands">
-      <div class="bcard"><img src="img/skf.png" alt="SKF" loading="lazy"></div>
-      <div class="bcard"><img src="img/fag.svg" alt="FAG" loading="lazy"></div>
-      <div class="bcard"><img src="img/ina.svg" alt="INA" loading="lazy"></div>
-      <div class="bcard"><img src="img/ntn-snr.png" alt="NTN SNR" loading="lazy"></div>
-      <div class="bcard"><img src="img/timken.webp" alt="Timken" loading="lazy"></div>
-      <div class="bcard"><img src="img/nsk.png" alt="NSK" loading="lazy"></div>
-      <div class="bcard"><img src="img/zen-logo.svg" alt="ZEN" loading="lazy"></div>
-      <div class="bcard"><img src="img/mitsuboshi.webp" alt="Mitsuboshi" loading="lazy"></div>
-      <div class="bcard"><img src="img/loctite-logo.png" alt="Loctite" loading="lazy"></div>
-      <div class="bcard"><img src="img/beta-tools.svg" alt="BETA Tools" loading="lazy"></div>
-      <div class="bcard"><img src="img/knipex.svg" alt="KNIPEX" loading="lazy"></div>
-      <div class="bcard"><img src="img/rema-logo.png" alt="REMA" loading="lazy"></div>
-      <div class="bcard"><img src="img/kukko.png" alt="KUKKO" loading="lazy"></div>
-      <div class="bcard"><img src="img/betex.jpg" alt="BETEX" loading="lazy"></div>
-      <div class="bcard"><img src="img/freudenberg.png" alt="Freudenberg" loading="lazy"></div>
-      <div class="bcard"><img src="img/optibelt.png" alt="Optibelt" loading="lazy"></div>
-      <div class="bcard"><img src="img/dunlop.svg" alt="Dunlop" loading="lazy"></div>
-      <div class="bcard"><img src="img/gmt.jpg" alt="GMT" loading="lazy"></div>
-    </div>
-  </div>
-
-  </div>
-</section>
+    <div class="marquee" aria-label="Merken die wij leveren, rij 1"><div class="marquee-track" aria-hidden="false"><div class="bcard"><img src="img/skf.png" alt="SKF" loading="lazy"></div><div class="bcard"><img src="img/fag.svg" alt="FAG" loading="lazy"></div><div class="bcard"><img src="img/ina.svg" alt="INA" loading="lazy"></div><div class="bcard"><img src="img/ntn-snr.png" alt="NTN SNR" loading="lazy"></div><div class="bcard"><img src="img/timken.webp" alt="Timken" loading="lazy"></div><div class="bcard"><img src="img/nsk.png" alt="NSK" loading="lazy"></div><div class="bcard"><img src="img/zen-logo.svg" alt="ZEN" loading="lazy"></div><div class="bcard"><img src="img/mitsuboshi.webp" alt="Mitsuboshi" loading="lazy"></div><div class="bcard"><img src="img/loctite-logo.png" alt="Loctite" loading="lazy"></div><div class="bcard"><img src="img/skf.png" alt="SKF" loading="lazy"></div><div class="bcard"><img src="img/fag.svg" alt="FAG" loading="lazy"></div><div class="bcard"><img src="img/ina.svg" alt="INA" loading="lazy"></div><div class="bcard"><img src="img/ntn-snr.png" alt="NTN SNR" loading="lazy"></div><div class="bcard"><img src="img/timken.webp" alt="Timken" loading="lazy"></div><div class="bcard"><img src="img/nsk.png" alt="NSK" loading="lazy"></div><div class="bcard"><img src="img/zen-logo.svg" alt="ZEN" loading="lazy"></div><div class="bcard"><img src="img/mitsuboshi.webp" alt="Mitsuboshi" loading="lazy"></div><div class="bcard"><img src="img/loctite-logo.png" alt="Loctite" loading="lazy"></div></div></div>
+    <div class="marquee rev" aria-label="Merken rij 2" style="margin-top:14px"><div class="marquee-track" aria-hidden="false"><div class="bcard"><img src="img/beta-tools.svg" alt="BETA Tools" loading="lazy"></div><div class="bcard"><img src="img/knipex.svg" alt="KNIPEX" loading="lazy"></div><div class="bcard"><img src="img/rema-logo.png" alt="REMA" loading="lazy"></div><div class="bcard"><img src="img/kukko.png" alt="KUKKO" loading="lazy"></div><div class="bcard"><img src="img/betex.jpg" alt="BETEX" loading="lazy"></div><div class="bcard"><img src="img/freudenberg.png" alt="Freudenberg" loading="lazy"></div><div class="bcard"><img src="img/optibelt.png" alt="Optibelt" loading="lazy"></div><div class="bcard"><img src="img/dunlop.svg" alt="Dunlop" loading="lazy"></div><div class="bcard"><img src="img/gmt.jpg" alt="GMT" loading="lazy"></div><div class="bcard"><img src="img/beta-tools.svg" alt="BETA Tools" loading="lazy"></div><div class="bcard"><img src="img/knipex.svg" alt="KNIPEX" loading="lazy"></div><div class="bcard"><img src="img/rema-logo.png" alt="REMA" loading="lazy"></div><div class="bcard"><img src="img/kukko.png" alt="KUKKO" loading="lazy"></div><div class="bcard"><img src="img/betex.jpg" alt="BETEX" loading="lazy"></div><div class="bcard"><img src="img/freudenberg.png" alt="Freudenberg" loading="lazy"></div><div class="bcard"><img src="img/optibelt.png" alt="Optibelt" loading="lazy"></div><div class="bcard"><img src="img/dunlop.svg" alt="Dunlop" loading="lazy"></div><div class="bcard"><img src="img/gmt.jpg" alt="GMT" loading="lazy"></div></div></div>
 
 <section style="padding-top:0">
   <div class="wrap">
