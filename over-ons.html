@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>V-snaren & V-snaarschijven — Ebele Schiedam</title>
-<meta name="description" content="Krachtoverdracht die betrouwbaar moet blijven draaien: V-snaren en schijven van topmerken.">
+<title>Over ons — Ebele Schiedam</title>
+<meta name="description" content="Ebele Schiedam is sinds 1994 een technische groothandel in aandrijf- en afdichtingstechniek in Schiedam. Meer dan 80.000 artikelen op voorraad, levering binnen 24 uur.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -179,21 +179,23 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 .nav-links a:not(.cta):hover{transform:translateY(-2px)}
 .nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
 .nav-links a:not(.cta):hover::after{width:100%}
-/* Productdetail */
-.detail{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:start}
-.detail .photo{border-radius:16px;overflow:hidden;box-shadow:0 16px 36px rgba(4,5,47,.14)}
-.detail .photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
-.detail h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:12px}
-.detail p{color:var(--muted);margin-bottom:14px}
-.detail ul{margin:0 0 20px;padding-left:0;list-style:none}
-.detail li{padding:8px 0 8px 26px;position:relative;color:var(--text);font-size:.94rem;border-bottom:1px solid var(--line)}
-.detail li::before{content:"";position:absolute;left:2px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--cyan)}
-.side-card{background:var(--navy);border-radius:16px;padding:28px;color:#fff;margin-top:28px}
-.side-card h3{color:#fff;font-size:1rem;margin-bottom:8px}
-.side-card p{color:#a8aed2;font-size:.9rem;margin-bottom:16px}
+/* Over ons */
+.story{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.story .photos{position:relative}
+.story .photos .main{border-radius:16px;box-shadow:0 18px 40px rgba(4,5,47,.16);width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.story .photos .sub{border-radius:12px;box-shadow:0 12px 28px rgba(4,5,47,.18);width:44%;position:absolute;right:-14px;bottom:-30px;border:4px solid var(--bg)}
+.story h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:12px}
+.story p{color:var(--muted);margin-bottom:14px;font-size:.96rem}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
+.val{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+.val h3{font-size:.98rem;margin-bottom:6px;display:flex;gap:9px;align-items:center}
+.val h3 svg{width:20px;height:20px;stroke:var(--blue);flex-shrink:0}
+.val p{color:var(--muted);font-size:.86rem;margin:0}
 @media(max-width:820px){
-  .detail{grid-template-columns:1fr;gap:28px}
-  .detail .photo{max-width:480px}
+  .story{grid-template-columns:1fr;gap:40px}
+  .story .photos{max-width:480px;margin:0 auto}
+  .story .photos .sub{bottom:-24px;right:-8px}
+  .vals{grid-template-columns:1fr}
 }
 
 </style>
@@ -211,7 +213,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
       <a href="producten.html">Producten</a>
       <a href="lagers.html">Lagers</a>
       <a href="merken.html">Merken</a>
-      <a href="over-ons.html">Over ons</a>
+      <a href="over-ons.html" class="active">Over ons</a>
       <a href="contact.html">Contact</a>
       <a class="cta" href="contact.html">Offerte aanvragen</a>
     </div>
@@ -220,37 +222,39 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 
 <header class="page-hero">
   <div class="ph-in">
-    <p class="kicker" style="color:var(--cyan)">Product · Aandrijftechniek</p>
-    <h1>V-snaren &amp; V-snaarschijven</h1>
-    <p>Krachtoverdracht die betrouwbaar moet blijven draaien: V-snaren en schijven van topmerken.</p>
+    <p class="kicker" style="color:var(--cyan)">Over ons</p>
+    <h1>Groothandel voor techniek, sinds 1994</h1>
+    <p>Ebele Schiedam is een technische groothandel in aandrijf- en afdichtingstechniek, gevestigd aan de Minervaweg in Schiedam.</p>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <div class="detail">
-      <div>
-        <div class="photo"><img src="img/v-snaren.jpg" alt="V-snaren" loading="lazy"></div>
-        <div class="side-card">
-          <h3>Wissel op tijd</h3>
-          <p>Vervangt u een V-snaar? Wissel dan de hele set tegelijk — oudere snaren zijn uitgerekt en laten nieuwe snaren sneller doorslippen.</p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="contact.html">Offerte aanvragen</a>
-            <a class="btn btn-ghost" href="producten.html">Alle producten</a>
-          </div>
-        </div>
+    <div class="story">
+      <div class="photos">
+        <img class="main" src="img/pand.jpg" alt="Het magazijn van Ebele Schiedam aan de Minervaweg" loading="lazy">
+        <img class="sub" src="img/gebouw.jpg" alt="Pand van Ebele Schiedam bv" loading="lazy">
       </div>
       <div>
-        <h2>V-snaren en schijven in alle profielen</h2>
-        <p>V-snaren en V-snaarschijven leveren wij van Mitsuboshi, een merk dat zich onderscheidt door een uitstekende prijs-kwaliteitverhouding. Ook andere merken zoals Optibelt, Dunlop en Diamond leveren wij tegen goede condities.</p>
-      <p>Welk profiel of welke lengte u ook zoekt: wij helpen u het juiste setje samen te stellen, passend bij uw machine en belasting.</p>
-        <ul>
-          <li>Classieke V-snaren en versnellings-V-snaren in alle gangbare profielen</li>
-          <li>Gekoppelde snaren en snarensetjes voor meervoudige aandrijvingen</li>
-          <li>V-snaarschijven in gietijzer en staal</li>
-          <li>Merken: Mitsuboshi, Optibelt, Dunlop en Diamond</li>
-          <li>Advies over spanning en vervanging van snarensets</li>
-        </ul>
+        <h2>Uw vertrouwde adres voor kwaliteitsproducten</h2>
+        <p>Al meer dan 30 jaar zijn wij het adres voor lagers, afdichtingen en aandrijftechniek. Onze klanten bevinden zich voornamelijk in de regio Rotterdam, Vlaardingen, Schiedam en de Drechtsteden — maar wij leveren door heel Nederland.</p>
+        <p>Door onze jarenlange ervaring kunnen wij u de juiste technische ondersteuning bieden en desgewenst snel schakelen met de technici van de fabrikant. Hierdoor leveren wij vrijwel elk type lager snel: uit onze eigen voorraad of uit de wereldwijde voorraden van onze zorgvuldig gekozen leveranciers. Dit geldt ook voor niet-standaard lagers en uitvoeringen.</p>
+        <p>Naast lagers leveren wij O-ringen, V-ringen, manchetten, oliekeerringen, V-snaren, kettingen en kettingwielen, Loctite, gereedschap en transportwielen. Goede en snelle service staat bij ons en onze klanten hoog in het vaandel: door uitgekiende voorraden en flexibele leveranciers voorzien wij u snel van de juiste adviezen en producten, zonder extra logistieke of administratiekosten.</p>
+      </div>
+    </div>
+
+    <div class="vals">
+      <div class="val">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="7" width="18" height="12" rx="2"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M2 13h18"/></svg> Uitgebreid aanbod</h3>
+        <p>Meer dan 80.000 artikelen op voorraad. Alle merken lagers en afdichtingen binnen 24 uur geleverd.</p>
+      </div>
+      <div class="val">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2 3 7v6c0 5 4 8.5 9 9.5 5-1 9-4.5 9-9.5V7z"/><path d="M9 12l2 2 4-4"/></svg> Professioneel advies</h3>
+        <p>Meer dan 30 jaar ervaring in lagers, afdichtingen en aandrijftechniek staat direct tot uw beschikking.</p>
+      </div>
+      <div class="val">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> Korte lijnen</h3>
+        <p>U heeft altijd een professional aan de lijn. Snelle responstijd en snelle levering.</p>
       </div>
     </div>
   </div>
