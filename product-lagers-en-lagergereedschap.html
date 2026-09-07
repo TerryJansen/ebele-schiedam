@@ -265,6 +265,26 @@ h2.title,h1{font-weight:700}
 .assort-side p{font-size:.87rem;margin:0}
 @media(max-width:760px){.assort{padding:30px 24px}.assort-grid{grid-template-columns:1fr}}
 
+
+/* ——— Speelse accenten ——— */
+.chip{transition:background .15s,border-color .15s,transform .2s cubic-bezier(.34,1.56,.64,1)}
+.chip:hover{transform:translateY(-3px) rotate(-1.5deg)}
+.chip.on{transform:translateY(-1px) scale(1.04);box-shadow:0 6px 18px rgba(0,183,243,.35)}
+.pcard .ph img{transition:transform .45s cubic-bezier(.2,.7,.3,1)}
+.pcard:hover .ph img{transform:scale(1.06) rotate(.6deg)}
+.pcard:hover{border-color:var(--blue);box-shadow:inset 4px 0 0 var(--blue), 0 10px 26px rgba(4,5,47,.10)}
+.pnum{transition:color .2s,letter-spacing .25s}
+.pcard:hover .pnum{letter-spacing:.22em}
+.btn-primary{position:relative;overflow:hidden;transition:transform .2s cubic-bezier(.34,1.56,.64,1),background .2s}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-primary::after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .5s ease}
+.btn-primary:hover::after{left:130%}
+.hero-bg{transform:scale(1.02);transition:transform 8s ease-out}
+.hero:hover .hero-bg{transform:scale(1.07)}
+.fact b span{display:inline-block;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.fact:hover b span{transform:translateY(-3px) scale(1.15)}
+.bcard{transition:transform .2s cubic-bezier(.34,1.56,.64,1),border-color .2s}
+.bcard:hover{transform:translateY(-4px) rotate(-1deg);border-color:var(--cyan)}
 </style>
 </head>
 <body>
