@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Producten — Ebele Schiedam</title>
-<meta name="description" content="Acht productgroepen voor aandrijf- en afdichtingstechniek: lagers, afdichtingen, V-snaren, kettingen, gereedschap, Loctite, transportwielen en hijs- en hefwerken.">
+<title>Hijs- en hefwerktuigen — Ebele Schiedam</title>
+<meta name="description" content="Hijs- en hefwerktuigen van REMA voor tillen, hefen en trekken — in de werkplaats en op locatie.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+
 :root{
   --navy:#04052f;
   --navy-soft:#10124a;
@@ -48,6 +49,13 @@ h1,h2,h3{line-height:1.22;color:var(--navy)}
   .nav-links a:last-child{border:none}
   .burger{display:block}
 }
+
+
+/* Hover-animatie nav-kopjes (subtiele lift) */
+.nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
+.nav-links a:not(.cta):hover{transform:translateY(-2px)}
+.nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
+.nav-links a:not(.cta):hover::after{width:100%}
 
 /* ——— HERO ——— */
 .hero{color:#fff;position:relative;overflow:hidden;background:var(--navy)}
@@ -157,7 +165,8 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
   .frow{grid-template-columns:1fr}
 }
 
-/* Pagina-hero (klein) */
+
+/* Pagina-hero */
 .page-hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
 .page-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(820px 340px at 80% 20%,rgba(0,183,243,.16),transparent 65%);pointer-events:none}
 .page-hero .ph-in{max-width:1120px;margin:0 auto;padding:56px 20px;position:relative;z-index:1}
@@ -165,13 +174,27 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 .page-hero p{color:#a8aed2;max-width:40rem;font-size:1rem}
 .nav-links a{text-decoration:none}
 .nav-links a.active{color:var(--cyan)}
-/* Hover-animatie nav-kopjes (subtiele lift) */
+/* Hover-animatie nav-kopjes */
 .nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
 .nav-links a:not(.cta):hover{transform:translateY(-2px)}
 .nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
 .nav-links a:not(.cta):hover::after{width:100%}
-
-.assort-grid{padding:0 20px}
+/* Productdetail */
+.detail{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:start}
+.detail .photo{border-radius:16px;overflow:hidden;box-shadow:0 16px 36px rgba(4,5,47,.14)}
+.detail .photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.detail h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:12px}
+.detail p{color:var(--muted);margin-bottom:14px}
+.detail ul{margin:0 0 20px;padding-left:0;list-style:none}
+.detail li{padding:8px 0 8px 26px;position:relative;color:var(--text);font-size:.94rem;border-bottom:1px solid var(--line)}
+.detail li::before{content:"";position:absolute;left:2px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--cyan)}
+.side-card{background:var(--navy);border-radius:16px;padding:28px;color:#fff;margin-top:28px}
+.side-card h3{color:#fff;font-size:1rem;margin-bottom:8px}
+.side-card p{color:#a8aed2;font-size:.9rem;margin-bottom:16px}
+@media(max-width:820px){
+  .detail{grid-template-columns:1fr;gap:28px}
+  .detail .photo{max-width:480px}
+}
 
 </style>
 </head>
@@ -185,7 +208,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <div class="nav-links">
-      <a class="active" href="producten.html">Producten</a>
+      <a href="producten.html">Producten</a>
       <a href="lagers.html">Lagers</a>
       <a href="merken.html">Merken</a>
       <a href="contact.html">Contact</a>
@@ -196,100 +219,37 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 
 <header class="page-hero">
   <div class="ph-in">
-    <p class="kicker" style="color:var(--cyan)">Producten</p>
-    <h1>Ons assortiment</h1>
-    <p>Van lagers tot hijs- en hefwerktuigen: wat u nodig heeft voor aandrijf- en afdichtingstechniek, voor zowel onderhoud (MRO) als inbouw bij fabrikanten (OEM).</p>
+    <p class="kicker" style="color:var(--cyan)">Product · REMA</p>
+    <h1>Hijs- en hefwerktuigen</h1>
+    <p>Hijs- en hefwerktuigen van REMA voor tillen, hefen en trekken — in de werkplaats en op locatie.</p>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <div class="grid">
-      <article class="pcard">
-        <div class="ph"><img src="img/lagers.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>Lagers &amp; lagergereedschap</h3>
-          <p>Vrijwel alle lagertypes van FAG, SKF, INA, NTN, SNR, Timken, NSK en ZEN. Ook inductieverwarmers en montagesets van SKF, FAG, BETEX en KUKKO.</p>
-        </div>
-        <a class="stretched" href="product-lagers-en-lagergereedschap.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard">
-        <div class="ph"><img src="img/afdichtingen.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>Afdichtingstechniek</h3>
-          <p>O-ringen, oliekeerringen, V-ringen, manchetten en quad-ringen in NBR, VITON, EPDM, PTFE, ECONOL, KALREZ en silicone. Maatwerk met Seal Jet.</p>
-        </div>
-      <a class="stretched" href="product-afdichtingstechniek.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard">
-        <div class="ph"><img src="img/v-snaren.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>V-snaren &amp; V-snaarschijven</h3>
-          <p>Van Mitsuboshi, op basis van de prijs-kwaliteitverhouding. Ook Optibelt, Dunlop en Diamond leveren wij tegen goede condities.</p>
-        </div>
-      <a class="stretched" href="product-v-snaren-en-v-snaarschijven.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard">
-        <div class="ph"><img src="img/kettingen.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>Kettingen &amp; kettingwielen</h3>
-          <p>Verschillende industriële kettingen in de kwaliteit die u wenst, met bijpassende kettingwielen.</p>
-        </div>
-      <a class="stretched" href="product-kettingen-en-kettingwielen.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard">
-        <div class="ph"><img src="img/gereedschap.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>Gereedschap</h3>
-          <p>Een uitgebreid pakket gereedschap van de merken BETA en KNIPEX voor technische bedrijven.</p>
-        </div>
-      <a class="stretched" href="product-gereedschap.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard">
-        <div class="ph"><img src="img/loctite.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>Lijmen &amp; afdichtingsmiddelen</h3>
-          <p>Loctite voor verlijmen, afdichten en coaten — een ruim assortiment direct op voorraad.</p>
-        </div>
-      <a class="stretched" href="product-lijmen-en-afdichtingsmiddelen.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard">
-        <div class="ph"><img src="img/transportwielen.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>Transportwielen</h3>
-          <p>Standaard wielen en wielen voor zwaar transport, ook voor speciale situaties.</p>
-        </div>
-      <a class="stretched" href="product-transportwielen.html" aria-label="Meer informatie"></a>
-        </article>
-      <article class="pcard">
-        <div class="ph"><img src="img/rema.jpg" alt="" loading="lazy" width="400" height="300"></div>
-        <div class="body">
-          <h3>Hijs- en hefwerktuigen</h3>
-          <p>Het assortiment van REMA voor tillen, hefen en trekken in de werkplaats en op locatie.</p>
-        </div>
-      <a class="stretched" href="product-hijs-en-hefwerktuigen.html" aria-label="Meer informatie"></a>
-        </article>
-    </div>
-  </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="assort">
-      <div class="assort-grid">
-        <div>
-          <p class="kicker">Advies</p>
-          <h2 class="title">Niet gevonden wat u zocht?</h2>
-          <p>Weet u niet precies welk product of welke uitvoering u nodig heeft? Neem gerust contact op — wij helpen u graag vrijblijvend met advies, ook voor niet-standaard producten.</p>
+    <div class="detail">
+      <div>
+        <div class="photo"><img src="img/rema.jpg" alt="Hijs- en hefwerktuigen van REMA" loading="lazy"></div>
+        <div class="side-card">
+          <h3>Veiligheid eerst</h3>
+          <p>Bij hijsgereedschap telt elke kilo. Wij helpen u het juiste apparaat met de juiste capaciteit te kiezen, zodat u veilig kunt tillen.</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href="contact.html">Contact opnemen</a>
+            <a class="btn btn-primary" href="contact.html">Offerte aanvragen</a>
+            <a class="btn btn-ghost" href="producten.html">Alle producten</a>
           </div>
         </div>
-        <div class="assort-side">
-          <h3>Snel geleverd</h3>
-          <p>Door uitgekiende voorraden en korte lijnen met onze fabrikanten leveren wij vrijwel alles binnen één werkdag — zonder extra logistieke of administratiekosten.</p>
-        </div>
+      </div>
+      <div>
+        <h2>Veilig tillen met gereedschap van REMA</h2>
+        <p>Wij leveren hijs- en hefwerktuigen van het merk REMA: een Duitse fabrikant met een breed programma aan krikken, kranen, hijsklauwen en heftafels.</p>
+      <p>Voor elke til- of heftaak in de werkplaats of op locatie is er een passend apparaat. Wij adviseren over capaciteit en uitvoering, rekening houdend met de veiligheidsvoorschriften die daarbij horen.</p>
+        <ul>
+          <li>Wagenkrikken, ladingskrikken en transmissiekrikken</li>
+          <li>Werkplaatskranen en motorkranen</li>
+          <li>Hijstafels en schaarliften</li>
+          <li>Hijsgereedschap zoals hijsschalen en hijsklauwen</li>
+          <li>Advies over capaciteit en veilig gebruik</li>
+        </ul>
       </div>
     </div>
   </div>
