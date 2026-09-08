@@ -267,24 +267,17 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .logo-text{height:35px;width:auto}
 @media(prefers-reduced-motion:reduce){.logo-bearing-spin{animation:none}}
 
-/* ——— Brochure popup ——— */
-.brochure-overlay{position:fixed;inset:0;background:rgba(4,5,47,.75);backdrop-filter:blur(4px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
-.brochure-overlay.open{display:flex;animation:boFade .3s ease}
-@keyframes boFade{from{opacity:0}to{opacity:1}}
-.brochure-card{background:#fff;border-radius:14px;max-width:480px;width:100%;padding:40px 36px 32px;text-align:center;position:relative;animation:boPop .35s cubic-bezier(.34,1.56,.64,1)}
-@keyframes boPop{from{opacity:0;transform:scale(.9) translateY(16px)}to{opacity:1;transform:none}}
-.brochure-card .bc-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.5rem;color:var(--muted);cursor:pointer;line-height:1;padding:6px}
-.brochure-card .bc-close:hover{color:var(--navy)}
-.brochure-card .bc-icon{width:64px;height:64px;background:var(--bg);border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
-.brochure-card .bc-icon svg{width:30px;height:30px;stroke:var(--blue)}
-.brochure-card h3{color:var(--navy);font-size:1.25rem;margin-bottom:10px}
-.brochure-card p{color:var(--muted);font-size:.92rem;line-height:1.55;margin-bottom:22px}
-.brochure-card .bc-actions{display:flex;flex-direction:column;gap:10px}
-.brochure-card .bc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:0;text-decoration:none;font-weight:600;font-size:.92rem;transition:transform .18s ease,filter .18s ease}
-.brochure-card .bc-btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
-.brochure-card .bc-primary{background:var(--blue);color:#fff}
-.brochure-card .bc-secondary{background:transparent;color:var(--navy);border:1px solid var(--line)}
-@media(max-width:820px){.brochure-card{padding:30px 22px}}
+/* ——— Brochure popup (klein, rechtsonder) ——— */
+.brochure-popup{position:fixed;right:20px;bottom:20px;z-index:1000;width:320px;background:#fff;border-radius:12px;box-shadow:0 18px 44px rgba(4,5,47,.28);padding:22px 22px 18px;display:none;animation:bpIn .4s cubic-bezier(.34,1.56,.64,1);border-top:3px solid var(--cyan)}
+.brochure-popup.open{display:block}
+@keyframes bpIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.brochure-popup .bc-close{position:absolute;top:8px;right:10px;background:none;border:none;font-size:1.3rem;color:var(--muted);cursor:pointer;line-height:1;padding:4px}
+.brochure-popup .bc-close:hover{color:var(--navy)}
+.brochure-popup h3{color:var(--navy);font-size:1.02rem;margin-bottom:6px}
+.brochure-popup p{color:var(--muted);font-size:.84rem;line-height:1.5;margin-bottom:14px}
+.brochure-popup .bc-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:0;text-decoration:none;font-weight:600;font-size:.85rem;background:var(--blue);color:#fff;transition:transform .18s ease,filter .18s ease}
+.brochure-popup .bc-btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+@media(max-width:480px){.brochure-popup{right:12px;bottom:12px;left:12px;width:auto}}
 </style>
 </head>
 <body>
@@ -530,20 +523,16 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 </script>
 
 <!-- Brochure popup -->
-<div class="brochure-overlay" id="brochureOverlay" role="dialog" aria-modal="true" aria-label="Onze brochure">
-  <div class="brochure-card">
+<div class="brochure-popup" id="brochureOverlay" role="dialog" aria-label="Onze brochure">
+  <div>
     <button class="bc-close" onclick="closeBrochure()" aria-label="Sluiten">&times;</button>
-    <div class="bc-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
-    </div>
     <h3>Onze brochure</h3>
-    <p>Benieuwd wat Ebele Schiedam voor u kan betekenen? Bekijk onze brochure met het complete assortiment, onze werkwijze en de merken die wij leveren.</p>
-    <div class="bc-actions">
+    <p>Benieuwd wat Ebele Schiedam voor u kan betekenen? Bekijk onze brochure met het assortiment, onze werkwijze en de merken die wij leveren.</p>
+    <div>
       <a class="bc-btn bc-primary" href="brochure.pdf" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
         Brochure bekijken
       </a>
-      <button class="bc-btn bc-secondary" onclick="closeBrochure()" style="border:1px solid var(--line);cursor:pointer;font-family:inherit">Sluiten</button>
     </div>
   </div>
 </div>
