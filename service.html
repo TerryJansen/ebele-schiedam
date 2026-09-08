@@ -261,7 +261,39 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .foot-in{max-width:1120px;margin:0 auto;padding:18px 20px 26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .foot-in b{color:#fff}
 @media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}.footer-main{padding-top:44px}.foot-map{margin:0}}
-@media(max-width:560px){.foot-grid{grid-template-columns:1fr}}</style>
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr}}/* Service flair */
+.svc .sic{transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .3s,border-color .3s}
+.svc:hover .sic{background:var(--cyan);border-color:var(--cyan);transform:scale(1.1) rotate(-4deg)}
+.svc:hover .sic svg{stroke:var(--navy)}
+.svc h3{transition:color .2s}
+.svc:hover h3{color:var(--blue)}
+.svc::after{content:"";position:absolute;bottom:0;left:0;width:0;height:3px;background:var(--cyan);transition:width .35s ease}
+.svc:hover::after{width:100%}
+.svc .snr{position:absolute;top:14px;right:16px;font-size:1.6rem;font-weight:700;color:var(--bg);line-height:1;transition:color .3s}
+.svc:hover .snr{color:var(--cyan)}
+.lt-table tr{transition:background .18s}
+.lt-table tbody tr:hover{background:rgba(0,183,243,.08)}
+.lt-table tr.hl td{position:relative}
+.lt-table tr.hl td:last-child{color:var(--cyan)}
+.lt-note{display:flex;gap:9px;align-items:flex-start}
+.lt-note::before{content:"i";flex-shrink:0;width:17px;height:17px;border-radius:50%;background:var(--cyan);color:var(--navy);font-weight:700;font-size:.72rem;display:flex;align-items:center;justify-content:center;margin-top:2px;font-style:normal}
+.page-hero{transition:background-size 8s ease}
+.page-hero:hover{background-size:110%}
+
+/* Logo: roterend lagertje + statische tekst */
+.logo{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+.logo b{font-size:.95rem;font-weight:600;color:var(--navy)}
+.logo-mark{display:inline-flex;flex-direction:column;align-items:center;gap:0;margin-top:8px}
+.logo-bearing-spin{height:24px;width:auto;animation:logoSpin 60s linear infinite;will-change:transform;transform-origin:50% 50%}
+@keyframes logoSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.logo-text{height:35px;width:auto}
+@media(prefers-reduced-motion:reduce){.logo-bearing-spin{animation:none}}
+/* ——— Scroll-animaties (fade-in-up) ——— */
+.anim{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.65,.3,1)}
+.anim.in{opacity:1;transform:none}
+.anim.d1{transition-delay:.08s}.anim.d2{transition-delay:.16s}.anim.d3{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.anim{opacity:1;transform:none;transition:none}}
+</style>
 </head>
 <body>
 <nav class="nav" aria-label="Hoofdnavigatie">
