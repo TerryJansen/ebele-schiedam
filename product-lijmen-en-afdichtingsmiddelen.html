@@ -258,31 +258,38 @@ h2.title,h1{font-weight:700}
 
 /* ——— Footer (info + kaart) ——— */
 footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
-.footer-main{max-width:1120px;margin:0 auto;padding:64px 20px 0}
-.foot-grid{display:grid;grid-template-columns:1.25fr .75fr 1fr 1.05fr;gap:44px;padding-bottom:52px}
-.foot-logo-row{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.foot-logo{height:58px;width:auto}
-.foot-brandline{width:100%;height:1px;background:rgba(0,183,243,.25);margin:0 0 18px;position:relative}
-.foot-brandline::before{content:"";position:absolute;left:0;top:-1px;width:52px;height:3px;background:var(--cyan)}
-.foot-about{color:#a8aed2;line-height:1.7;margin:0;font-size:.88rem}
-.foot-col h4{color:#fff;font-size:.76rem;text-transform:uppercase;letter-spacing:.16em;margin-bottom:18px;font-weight:700;position:relative;padding-bottom:10px}
-.foot-col h4::after{content:"";position:absolute;left:0;bottom:0;width:26px;height:2px;background:var(--cyan)}
-.foot-col a,.foot-col p{display:flex;align-items:flex-start;gap:10px;color:#a8aed2;text-decoration:none;margin:0 0 12px;line-height:1.5;font-size:.88rem;transition:color .18s ease,transform .18s ease}
-.foot-col a:hover{color:var(--cyan);transform:translateX(3px)}
-.fi{flex-shrink:0;width:17px;height:17px;margin-top:2px}
-.fi svg{width:17px;height:17px;stroke:var(--cyan)}
-.foot-hours{border-top:1px solid rgba(255,255,255,.08);margin-top:6px;padding-top:6px}
-.foot-hours p{color:#8d92bd;font-size:.85rem;margin-bottom:8px}
-.foot-hours .closed{color:#6a6f8e;font-style:italic}
-.foot-hours .dag{color:#c3c7e2;font-weight:500;min-width:78px}
-.foot-map{margin:0 -20px;position:relative;border-top:1px solid rgba(0,183,243,.2)}
-.foot-map iframe{filter:grayscale(.6) invert(.9) contrast(.85) brightness(.9);display:block}
-.foot-map .map-label{position:absolute;top:14px;left:14px;background:var(--navy);border:1px solid rgba(0,183,243,.4);color:#fff;font-size:.78rem;font-weight:600;padding:8px 14px;display:flex;align-items:center;gap:8px;pointer-events:none}
-.foot-map .map-label svg{width:14px;height:14px;stroke:var(--cyan)}
+.footer-main{max-width:1120px;margin:0 auto;padding:52px 20px 0}
+.foot-grid{display:grid;grid-template-columns:1.3fr .8fr 1fr 1fr;gap:36px;padding-bottom:44px}
+.foot-logo{height:54px;width:auto;background:#fff;border-radius:8px;padding:4px 8px;margin-bottom:16px}
+.foot-about{color:#a8aed2;line-height:1.6;margin:0}
+.foot-col h4{color:#fff;font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;margin-bottom:14px;font-weight:700}
+.foot-col a,.foot-col p{display:flex;align-items:flex-start;gap:9px;color:#a8aed2;text-decoration:none;margin:0 0 10px;line-height:1.5}
+.foot-col a:hover{color:var(--cyan)}
+.fi{flex-shrink:0;width:16px;height:16px;margin-top:2px}
+.fi svg{width:16px;height:16px;stroke:var(--cyan)}
+.foot-map{margin:0 -20px}
+.foot-map iframe{filter:grayscale(1) invert(.92) contrast(.9)}
 .foot-in{max-width:1120px;margin:0 auto;padding:18px 20px 26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .foot-in b{color:#fff}
-@media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}.footer-main{padding-top:44px}.foot-map{margin:0}}
-@media(max-width:560px){.foot-grid{grid-template-columns:1fr}}</style>
+@media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr;gap:28px}.footer-main{padding-top:40px}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+
+/* ——— Scroll-animaties (fade-in-up) ——— */
+.anim{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.65,.3,1)}
+.anim.in{opacity:1;transform:none}
+.anim.d1{transition-delay:.08s}.anim.d2{transition-delay:.16s}.anim.d3{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.anim{opacity:1;transform:none;transition:none}}
+
+/* Logo: roterend lagertje + statische tekst */
+.logo{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+.logo b{font-size:.95rem;font-weight:600;color:var(--navy)}
+.logo-mark{display:inline-flex;flex-direction:column;align-items:center;gap:0;margin-top:8px}
+.logo-bearing-spin{height:24px;width:auto;animation:logoSpin 60s linear infinite;will-change:transform;transform-origin:50% 50%}
+@keyframes logoSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.logo-text{height:35px;width:auto}
+@media(prefers-reduced-motion:reduce){.logo-bearing-spin{animation:none}}
+.dd-menu a:not(:last-child){border-bottom:1px solid var(--bg) !important;border-radius:0 !important}
+</style>
 </head>
 <body>
 <nav class="nav" aria-label="Hoofdnavigatie">
@@ -364,10 +371,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   <div class="footer-main">
     <div class="foot-grid">
       <div class="foot-col">
-        <div class="foot-logo-row">
-          <img class="foot-logo" src="img/logo-white.png" alt="Logo Ebele Schiedam">
-        </div>
-        <div class="foot-brandline"></div>
+        <img class="foot-logo" src="img/logo-ebele.png" alt="Logo Ebele Schiedam">
         <p class="foot-about">Technische groothandel in lagers, afdichtingen en aandrijftechniek. Persoonlijk, snel en betrouwbaar — vanuit Schiedam, sinds 1994.</p>
       </div>
       <div class="foot-col">
@@ -377,25 +381,24 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
         <a href="merken.html">Merken</a>
         <a href="over-ons.html">Over ons</a>
         <a href="vacatures.html">Vacatures</a>
-        <a href="service.html">Service &amp; leveringen</a>
+        <a href="service.html">Service</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="foot-col">
         <h4>Contact</h4>
-        <p><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>Minervaweg 27<br>3113 AP Schiedam</span></p>
+        <p><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Minervaweg 27<br>3113 AP Schiedam</p>
         <p><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span><a href="mailto:info@ebele-schiedam.nl">info@ebele-schiedam.nl</a></p>
         <p><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><a href="tel:+31104264354">010 426 43 54</a></p>
       </div>
       <div class="foot-col">
         <h4>Openingstijden</h4>
-        <p><span class="dag">Ma t/m do</span> 07.30 – 17.00</p>
-        <p><span class="dag">Vrijdag</span> 07.30 – 16.00</p>
-        <p class="foot-hours"><span class="dag closed">Za – zo</span> <span class="closed">Gesloten</span></p>
+        <p><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>Ma t/m do&nbsp; 07.30 – 17.00</p>
+        <p style="padding-left:30px">Vrijdag&nbsp; 07.30 – 16.00</p>
+        <p style="padding-left:30px;color:#8d92bd">Weekend gesloten</p>
       </div>
     </div>
     <div class="foot-map">
-      <div class="map-label"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Minervaweg 27, Schiedam</div>
-      <iframe src="https://www.google.com/maps?q=Minervaweg+27,+3113+AP+Schiedam&output=embed" width="100%" height="240" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Locatie Ebele Schiedam op Google Maps"></iframe>
+      <iframe src="https://www.google.com/maps?q=Minervaweg+27,+3113+AP+Schiedam&output=embed" width="100%" height="260" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Locatie Ebele Schiedam op Google Maps"></iframe>
     </div>
   </div>
   <div class="foot-in" style="border-top:1px solid rgba(255,255,255,.1)">
