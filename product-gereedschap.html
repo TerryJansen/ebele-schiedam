@@ -33,9 +33,9 @@ h1,h2,h3{line-height:1.22;color:var(--navy)}
 
 /* ——— NAV ——— */
 .nav{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 1px 0 rgba(4,5,47,.08)}
-.nav-in{max-width:1120px;margin:0 auto;padding:0 20px;height:80px;display:flex;align-items:center;justify-content:space-between}
+.nav-in{max-width:1180px;margin:0 auto;padding:0 24px;height:80px;display:flex;align-items:center;justify-content:space-between}
 .logo img{height:56px;width:auto;border-radius:0;padding:0}
-.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{text-decoration:none;color:var(--navy);font-weight:500;font-size:.92rem;transition:color .15s}
 .nav-links a:hover,.nav-links a:focus-visible{color:var(--blue)}
 .nav-links a.cta{background:var(--cyan);color:var(--navy);padding:9px 18px;border-radius:10px;font-weight:600;transition:transform .18s ease,filter .18s ease}
@@ -53,7 +53,7 @@ h1,h2,h3{line-height:1.22;color:var(--navy)}
 
 
 /* Hover-animatie nav-kopjes (subtiele lift) */
-.nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
+.nav-links a:not(.cta){position:relative;font-size:.95rem;transition:color .15s,transform .18s ease}
 .nav-links a:not(.cta):hover{transform:translateY(-2px)}
 .nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
 .nav-links a:not(.cta):hover::after{width:100%}
@@ -178,7 +178,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 .nav-links a.active{color:var(--cyan)}
 .nav-links a.cta.active,.nav-links a.cta.active:hover{color:var(--navy)}
 /* Hover-animatie nav-kopjes */
-.nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
+.nav-links a:not(.cta){position:relative;font-size:.95rem;transition:color .15s,transform .18s ease}
 .nav-links a:not(.cta):hover{transform:translateY(-2px)}
 .nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
 .nav-links a:not(.cta):hover::after{width:100%}
@@ -288,6 +288,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 @keyframes logoSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .logo-text{height:35px;width:auto}
 @media(prefers-reduced-motion:reduce){.logo-bearing-spin{animation:none}}
+.dd-menu a:not(:last-child){border-bottom:1px solid var(--bg) !important;border-radius:0 !important}
 </style>
 </head>
 <body>

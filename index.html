@@ -32,11 +32,11 @@ h1,h2,h3{line-height:1.22;color:var(--navy)}
 
 /* ——— NAV ——— */
 .nav{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 1px 0 rgba(4,5,47,.08)}
-.nav-in{max-width:1120px;margin:0 auto;padding:0 20px;height:80px;display:flex;align-items:center;justify-content:space-between}
+.nav-in{max-width:1180px;margin:0 auto;padding:0 24px;height:80px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
 .logo img{height:56px;width:auto;border-radius:0;padding:0}
 .logo b{font-size:.95rem;font-weight:600;color:var(--navy)}
-.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{text-decoration:none;color:var(--navy);font-weight:500;font-size:.92rem;transition:color .15s}
 .nav-links a:hover,.nav-links a:focus-visible{color:var(--blue)}
 .nav-links a.cta{background:var(--cyan);color:var(--navy);padding:9px 18px;border-radius:10px;font-weight:600;transition:transform .18s ease,filter .18s ease}
@@ -54,7 +54,7 @@ h1,h2,h3{line-height:1.22;color:var(--navy)}
 
 
 /* Hover-animatie nav-kopjes (subtiele lift) */
-.nav-links a:not(.cta){position:relative;transition:color .15s,transform .18s ease}
+.nav-links a:not(.cta){position:relative;font-size:.95rem;transition:color .15s,transform .18s ease}
 .nav-links a:not(.cta):hover{transform:translateY(-2px)}
 .nav-links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;border-radius:2px;background:var(--cyan);transition:width .22s ease}
 .nav-links a:not(.cta):hover::after{width:100%}
@@ -282,7 +282,8 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .bp-body .bc-btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
 .bp-body .bc-btn svg{width:13px;height:13px}
 .bp-tag{position:absolute;top:10px;right:36px;background:var(--cyan);color:var(--navy);font-size:.62rem;font-weight:700;padding:3px 8px;border-radius:99px;letter-spacing:.04em}
-@media(max-width:480px){.brochure-popup{right:10px;bottom:10px;left:10px;width:auto}}}
+@media(max-width:480px){.brochure-popup{right:10px;bottom:10px;left:10px;width:auto}}
+.dd-menu a:not(:last-child){border-bottom:1px solid var(--bg) !important;border-radius:0 !important}
 </style>
 </head>
 <body>
