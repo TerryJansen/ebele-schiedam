@@ -267,17 +267,22 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .logo-text{height:35px;width:auto}
 @media(prefers-reduced-motion:reduce){.logo-bearing-spin{animation:none}}
 
-/* ——— Brochure popup (klein, rechtsonder) ——— */
-.brochure-popup{position:fixed;right:20px;bottom:20px;z-index:1000;width:320px;background:#fff;border-radius:12px;box-shadow:0 18px 44px rgba(4,5,47,.28);padding:22px 22px 18px;display:none;animation:bpIn .4s cubic-bezier(.34,1.56,.64,1);border-top:3px solid var(--cyan)}
+/* ——— Brochure popup (compact, rechtsonder) ——— */
+.brochure-popup{position:fixed;right:16px;bottom:16px;z-index:1000;width:290px;background:#fff;border-radius:12px;box-shadow:0 14px 38px rgba(4,5,47,.3);display:none;overflow:hidden;animation:bpIn .45s cubic-bezier(.34,1.56,.64,1);border:1px solid var(--line)}
 .brochure-popup.open{display:block}
-@keyframes bpIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-.brochure-popup .bc-close{position:absolute;top:8px;right:10px;background:none;border:none;font-size:1.3rem;color:var(--muted);cursor:pointer;line-height:1;padding:4px}
-.brochure-popup .bc-close:hover{color:var(--navy)}
-.brochure-popup h3{color:var(--navy);font-size:1.02rem;margin-bottom:6px}
-.brochure-popup p{color:var(--muted);font-size:.84rem;line-height:1.5;margin-bottom:14px}
-.brochure-popup .bc-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:0;text-decoration:none;font-weight:600;font-size:.85rem;background:var(--blue);color:#fff;transition:transform .18s ease,filter .18s ease}
-.brochure-popup .bc-btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
-@media(max-width:480px){.brochure-popup{right:12px;bottom:12px;left:12px;width:auto}}
+@keyframes bpIn{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:none}}
+.bp-head{background:var(--navy);color:#fff;padding:10px 36px 10px 14px;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:8px;position:relative}
+.bp-head svg{width:15px;height:15px;stroke:var(--cyan);flex-shrink:0}
+.brochure-popup .bc-close{position:absolute;top:6px;right:8px;background:none;border:none;font-size:1.2rem;color:#8d92bd;cursor:pointer;line-height:1;padding:3px}
+.brochure-popup .bc-close:hover{color:#fff}
+.bp-body{padding:14px}
+.bp-body h3{color:var(--navy);font-size:.95rem;margin-bottom:5px}
+.bp-body p{color:var(--muted);font-size:.8rem;line-height:1.45;margin-bottom:12px}
+.bp-body .bc-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:0;text-decoration:none;font-weight:600;font-size:.8rem;background:var(--blue);color:#fff;transition:transform .18s ease,filter .18s ease}
+.bp-body .bc-btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
+.bp-body .bc-btn svg{width:13px;height:13px}
+.bp-tag{position:absolute;top:10px;right:36px;background:var(--cyan);color:var(--navy);font-size:.62rem;font-weight:700;padding:3px 8px;border-radius:99px;letter-spacing:.04em}
+@media(max-width:480px){.brochure-popup{right:10px;bottom:10px;left:10px;width:auto}}}
 </style>
 </head>
 <body>
@@ -524,25 +529,26 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 
 <!-- Brochure popup -->
 <div class="brochure-popup" id="brochureOverlay" role="dialog" aria-label="Onze brochure">
-  <div>
-    <button class="bc-close" onclick="closeBrochure()" aria-label="Sluiten">&times;</button>
-    <h3>Onze brochure</h3>
-    <p>Benieuwd wat Ebele Schiedam voor u kan betekenen? Bekijk onze brochure met het assortiment, onze werkwijze en de merken die wij leveren.</p>
-    <div>
-      <a class="bc-btn bc-primary" href="brochure.pdf" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-        Brochure bekijken
-      </a>
-    </div>
+  <span class="bp-tag">NIEUW</span>
+  <button class="bc-close" onclick="closeBrochure()" aria-label="Sluiten">&times;</button>
+  <div class="bp-head">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
+    Ebele Schiedam
+  </div>
+  <div class="bp-body">
+    <h3>Ontdek onze brochure</h3>
+    <p>Het complete assortiment, onze werkwijze en alle merken — in één document.</p>
+    <a class="bc-btn" href="brochure.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      Bekijk de brochure
+    </a>
   </div>
 </div>
 <script>
-// popup na 2.5 sec tonen, 1x per bezoek (sessionStorage)
+// popup na 2.5 sec tonen — elke keer bij bezoek van de homepagina
 (function(){
-  if(sessionStorage.getItem('brochureZien')) return;
   setTimeout(function(){
     document.getElementById('brochureOverlay').classList.add('open');
-    sessionStorage.setItem('brochureZien','1');
   }, 2500);
   window.closeBrochure = function(){
     document.getElementById('brochureOverlay').classList.remove('open');
