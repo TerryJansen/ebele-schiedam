@@ -291,6 +291,10 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 /* Klikbare brochurekaart + popup */
 .brochure-highlight{width:100%;margin-top:30px;padding:24px 26px;background:linear-gradient(135deg,#04052f 0%,#071b55 100%);border:1px solid rgba(0,183,243,.38);border-radius:0;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden;box-shadow:0 14px 34px rgba(4,5,47,.14);text-align:left;cursor:pointer;font:inherit}.brochure-highlight:after{content:"";position:absolute;width:180px;height:180px;right:-55px;top:-70px;border:1px solid rgba(0,183,243,.22);border-radius:50%;box-shadow:0 0 0 18px rgba(0,183,243,.05),0 0 0 36px rgba(0,183,243,.035);pointer-events:none}.bh-copy{position:relative;z-index:1;display:block;max-width:560px}.bh-label{display:block;margin:0 0 6px;color:#00b7f3;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.bh-title{display:block;margin:0 0 7px;color:#fff;font-size:1.18rem;font-weight:700}.bh-text{display:block;color:#c8d2f0;font-size:.9rem;line-height:1.55}.bh-btn{position:relative;z-index:1;flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;padding:12px 17px;border-radius:10px;background:#00b7f3;color:#04052f;font-weight:700;font-size:.88rem;transition:transform .18s ease,filter .18s ease}.brochure-highlight:hover .bh-btn{transform:scale(1.06);filter:brightness(1.16)}.bh-btn svg{width:17px;height:17px}.brochure-modal{display:none;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;padding:20px}.brochure-modal.is-open{display:flex}.brochure-modal-backdrop{position:absolute;inset:0;background:rgba(4,5,47,.72)}.brochure-modal-card{position:relative;z-index:1;max-width:500px;width:100%;padding:34px;background:#fff;color:#04052f;box-shadow:0 22px 70px rgba(4,5,47,.32);border:1px solid rgba(0,183,243,.35)}.brochure-modal-card h2{margin:0 0 10px;color:#04052f}.brochure-modal-card p:not(.bh-label){color:#4e5578;line-height:1.6}.brochure-modal-close{position:absolute;right:13px;top:8px;border:0;background:none;color:#04052f;font-size:30px;line-height:1;cursor:pointer}.modal-open{overflow:hidden}@media(max-width:650px){.brochure-highlight{align-items:flex-start;flex-direction:column;padding:21px}.bh-btn{width:100%;justify-content:center}.brochure-modal-card{padding:30px 22px}}
 
+
+/* Compacte brochure-trigger; de brochure opent uitsluitend als popup */
+.brochure-trigger{width:100%;margin-top:30px;padding:16px 18px;display:flex;align-items:center;gap:13px;text-align:left;border:1px solid rgba(0,183,243,.45);border-radius:10px;background:#fff;color:var(--navy);cursor:pointer;font:inherit;box-shadow:0 8px 22px rgba(4,5,47,.08);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.brochure-trigger:hover{transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 12px 28px rgba(4,5,47,.13)}.brochure-trigger>svg{width:25px;height:25px;flex:0 0 auto;color:var(--blue)}.brochure-trigger span:nth-child(2){display:flex;flex-direction:column;gap:2px}.brochure-trigger strong{font-size:.93rem;color:var(--navy)}.brochure-trigger small{font-size:.78rem;color:var(--muted);line-height:1.35}.brochure-trigger-arrow{margin-left:auto;color:var(--blue);font-size:1.25rem;transition:transform .18s ease}.brochure-trigger:hover .brochure-trigger-arrow{transform:translate(2px,-2px)}
+
 </style>
 </head>
 <body>
@@ -345,13 +349,10 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     <div class="detail">
       <div>
         <div class="photo"><img src="img/afdichtingen.jpg" alt="Afdichtingen en ringen" loading="lazy"></div>
-        <button class="brochure-highlight" type="button" data-brochure-open aria-label="Open de afdichtingenbrochure">
-          <span class="bh-copy">
-            <span class="bh-label">Praktische productinformatie</span>
-            <span class="bh-title">Bekijk de afdichtingenbrochure</span>
-            <span class="bh-text">Ontdek de verschillende O-ringen, oliekeerringen, V-ringen en materialen in één overzichtelijke brochure.</span>
-          </span>
-          <span class="bh-btn">Brochure bekijken <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3h7v7"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></span>
+        <button class="brochure-trigger" type="button" data-brochure-open aria-label="Open de afdichtingenbrochure">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6"/></svg>
+          <span><strong>Afdichtingenbrochure</strong><small>Bekijk de verschillende O-ringen en materialen</small></span>
+          <span class="brochure-trigger-arrow" aria-hidden="true">↗</span>
         </button>
       </div>
       <div>
