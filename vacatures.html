@@ -433,11 +433,14 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     <div class="alert-box" id="melding">
       <h3>Bericht zodra er een vacature vrijkomt</h3>
       <p>Laat je e-mailadres achter. We mailen je één keer zodra er een nieuwe functie op de site staat — verder niets.</p>
-      <form class="alert-form" onsubmit="event.preventDefault();this.style.display='none';document.getElementById('alert-ok').style.display='block'">
-        <input type="email" required placeholder="jouw@email.nl" aria-label="E-mailadres">
+      <form class="alert-form" action="https://formsubmit.co/info@ebele-schiedam.nl" method="POST">
+        <input type="hidden" name="_subject" value="Aanmelden vacature-alert">
+        <input type="hidden" name="_autoresponse" value="Bedankt voor je aanmelding bij Ebele Schiedam. We houden je op de hoogte zodra er een vacature vrijkomt.">
+        <input type="hidden" name="_template" value="table">
+        <input type="email" name="email" required placeholder="jouw@email.nl" aria-label="E-mailadres">
         <button type="submit">Houd mij op de hoogte</button>
       </form>
-      <p class="alert-ok" id="alert-ok">Geregeld! Je ontvangt een bericht zodra er een vacature vrijkomt.</p>
+      <p class="alert-ok" id="alert-ok">Je e-mailprogramma wordt geopend. Verstuur de e-mail om je aanmelding naar info@ebele-schiedam.nl te sturen.</p>
     </div>
   </div>
 </section>
