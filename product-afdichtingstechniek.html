@@ -397,15 +397,15 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   <div class="brochure-modal-backdrop" data-brochure-close></div>
   <div class="brochure-modal-card">
     <button class="brochure-modal-close" type="button" data-brochure-close aria-label="Sluit brochure">×</button>
-    <p class="bh-label">Ebele documentatie</p>
-    <h2 id="brochure-modal-title">O-ring brochure</h2>
-    <p>Bekijk de verschillende O-ringmaten, materialen en toepassingen in de officiële brochure.</p>
-    <a class="btn btn-primary" href="https://www.ebele-schiedam.nl/wp-content/uploads/2019/12/Brochure-Ebele-Afdichtingen.pdf" target="_blank" rel="noopener">Bekijk O-ring brochure <span aria-hidden="true">↗</span></a>
+    <p class="bh-label">Ebele afdichtingen</p>
+    <h2 id="brochure-modal-title">Afdichtingen brochure</h2>
+    <p>Bekijk de verschillende afdichtingen, maten en materialen in de officiële brochure.</p>
+    <a class="btn btn-primary" href="https://www.ebele-schiedam.nl/wp-content/uploads/2019/12/Brochure-Ebele-Afdichtingen.pdf" target="_blank" rel="noopener">Bekijk Afdichtingen brochure <span aria-hidden="true">↗</span></a>
   </div>
 </div>
 <script>
 (function(){
- const modal=document.querySelector('[data-brochure-modal]'), open=document.querySelector('[data-brochure-open]');
+ const modal=document.querySelector('[data-brochure-modal]'), open=document.querySelector('[data-afdichting-brochure-open]');
  if(!modal||!open)return;
  const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');};
  
@@ -415,19 +415,19 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 </script>
 
 <!-- Brochure popup -->
-<div class="brochure-popup" id="oRingBrochureOverlay" role="dialog" aria-label="O-ring brochure">
+<div class="brochure-popup" id="afdichtingBrochureOverlay" role="dialog" aria-label="Afdichtingen brochure">
   <span class="bp-tag">NIEUW</span>
-  <button class="bc-close" onclick="closeORingBrochure()" aria-label="Sluiten">&times;</button>
+  <button class="bc-close" onclick="closeAfdichtingBrochure()" aria-label="Sluiten">&times;</button>
   <div class="bp-head">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
     Ebele afdichtingen
   </div>
   <div class="bp-body">
-    <h3>Bekijk de O-ring brochure</h3>
-    <p>De verschillende O-ringmaten, materialen en toepassingen — in één brochure.</p>
+    <h3>Bekijk de Afdichtingen brochure</h3>
+    <p>De verschillende afdichtingen, materialen en toepassingen — in één brochure.</p>
     <a class="bc-btn" href="https://www.ebele-schiedam.nl/wp-content/uploads/2019/12/Brochure-Ebele-Afdichtingen.pdf" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-      Bekijk O-ring brochure
+      Bekijk Afdichtingen brochure
     </a>
   </div>
 </div>
@@ -435,7 +435,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 // popup na 2.5 sec tonen — elke keer bij bezoek van de homepagina
 (function(){
   setTimeout(function(){
-    document.getElementById('oRingBrochureOverlay').classList.add('open');
+    document.getElementById('afdichtingBrochureOverlay').classList.add('open');
   }, 2500);
   window.closeBrochure = function(){
     document.getElementById('oRingBrochureOverlay').classList.remove('open');
