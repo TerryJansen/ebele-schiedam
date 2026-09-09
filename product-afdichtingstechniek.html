@@ -386,11 +386,6 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
           <li>Assortimentsdozen voor de meest voorkomende maten</li>
           <li>Maatwerk via Seal Jet, ook in kleine aantallen</li>
         </ul>
-        <button class="brochure-trigger" type="button" data-brochure-open aria-label="Open de afdichtingenbrochure">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6"/></svg>
-          <span><strong>O-ring brochure</strong><small>Bekijk de verschillende O-ringmaten en materialen</small></span>
-          <span class="brochure-trigger-arrow" aria-hidden="true">↗</span>
-        </button>
         
 
       </div>
@@ -413,7 +408,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
  const modal=document.querySelector('[data-brochure-modal]'), open=document.querySelector('[data-brochure-open]');
  if(!modal||!open)return;
  const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');};
- open.addEventListener('click',()=>{document.getElementById('oRingBrochureOverlay').classList.add('open');});
+ 
  modal.querySelectorAll('[data-brochure-close]').forEach(el=>el.addEventListener('click',close));
  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
 })();
@@ -451,6 +446,15 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeORingBrochure(); });
 })();
 </script>
+<script>
+(function(){
+  setTimeout(function(){
+    var popup=document.getElementById('oRingBrochureOverlay');
+    if(popup) popup.classList.add('open');
+  },2500);
+})();
+</script>
+
 <footer>
   <div class="footer-main">
     <div class="foot-grid">
