@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.ebele-schiedam.nl/sitemap.xml
+Sitemap: https://terryjansen.github.io/ebele-schiedam/sitemap.xml
