@@ -371,6 +371,8 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 /* Leidende lagermerken */
 .lead-bearing-brands{margin:34px 0 42px;padding:24px 28px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(4,5,47,.08);position:relative;overflow:hidden}.lead-bearing-brands:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--cyan)}.lead-bearing-brands .kicker{margin-bottom:6px}.lead-bearing-brands h2{margin-bottom:8px;font-size:clamp(1.35rem,2.5vw,1.8rem)}.lead-bearing-brands .lead-brand-intro{margin:0 0 20px;color:var(--muted);font-size:.92rem}.lead-brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.lead-brand-card{min-height:128px;padding:18px 20px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.lead-brand-card:hover{transform:translateY(-3px);border-color:var(--cyan);box-shadow:0 10px 24px rgba(4,5,47,.1)}.lead-brand-card img{display:block;max-width:100%;height:76px;object-fit:contain}.lead-brand-card.schaeffler img{max-width:230px}.lead-brand-card.skf img{max-width:190px;height:68px}@media(max-width:600px){.lead-bearing-brands{padding:21px 18px}.lead-brand-grid{grid-template-columns:1fr}.lead-brand-card{min-height:108px}}
 
+
+.lead-brand-card{cursor:default}.lead-brand-card:hover{transform:none;border-color:var(--line);box-shadow:none}
 </style>
 </head>
 <body>
@@ -458,12 +460,12 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     <h2 id="leidende-merken">Lagers van Schaeffler en SKF</h2>
     <p class="lead-brand-intro">Voor betrouwbare lageroplossingen werken wij onder andere met deze twee leidende fabrikanten.</p>
     <div class="lead-brand-grid">
-      <a class="lead-brand-card schaeffler" href="merken.html" aria-label="Meer over Schaeffler, INA en FAG">
+      <div class="lead-brand-card schaeffler">
         <img src="img/schaeffler.jpg" alt="Schaeffler met INA en FAG">
-      </a>
-      <a class="lead-brand-card skf" href="merken.html" aria-label="Meer over SKF">
+      </div>
+      <div class="lead-brand-card skf">
         <img src="img/skf.png" alt="SKF">
-      </a>
+      </div>
     </div>
   </div>
 </section>
