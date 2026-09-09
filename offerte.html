@@ -194,6 +194,11 @@ label{font-size:.8rem;font-weight:600;color:var(--navy);display:block;margin-bot
 input,textarea,select{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;font:inherit;font-size:.9rem;background:#fafbfd}
 input:focus,textarea:focus,select:focus{outline:2px solid var(--blue);background:#fff}
 textarea{resize:vertical;min-height:120px}
+.product-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
+.product-option{display:flex;align-items:center;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#fafbfd;font-size:.82rem;cursor:pointer}
+.product-option:hover{border-color:var(--cyan);background:#f1fcff}
+.product-option input{width:auto;margin:0;accent-color:var(--blue)}
+@media(max-width:520px){.product-options{grid-template-columns:1fr}}
 .fsubmit{margin-top:16px;background:var(--blue);color:#fff;border:none;padding:13px 30px;border-radius:12px;font:inherit;font-weight:600;cursor:pointer;transition:transform .18s ease,filter .18s ease}
 .fsubmit:hover{filter:brightness(1.25);transform:scale(1.05)}
 .small-note{font-size:.78rem;color:var(--muted);margin-top:12px}
@@ -377,19 +382,18 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
           <div><label for="o-tel">Telefoon *</label><input id="o-tel" name="telefoon" required type="tel" autocomplete="tel"></div>
         </div>
         <div class="frow" style="margin-top:14px">
-          <div><label for="o-type">Productgroep *</label>
-            <select id="o-type" name="productgroep" required>
-              <option value="">Maak een keuze…</option>
-              <option>Lagers &amp; lagergereedschap</option>
-              <option>Afdichtingstechniek</option>
-              <option>V-snaren &amp; V-snaarschijven</option>
-              <option>Kettingen &amp; kettingwielen</option>
-              <option>Gereedschap (BETA / KNIPEX)</option>
-              <option>Lijmen &amp; afdichtingsmiddelen (Loctite)</option>
-              <option>Transportwielen</option>
-              <option>Hijs- en hefwerktuigen (REMA)</option>
-              <option>Anders / weet ik nog niet</option>
-            </select>
+          <div style="grid-column:1/-1"><label>Productgroepen * <small>(meerdere keuzes mogelijk)</small></label>
+            <div class="product-options" role="group" aria-label="Productgroepen">
+              <label class="product-option"><input type="checkbox" name="productgroepen" value="Lagers &amp; lagergereedschap"> Lagers &amp; lagergereedschap</label>
+              <label class="product-option"><input type="checkbox" name="productgroepen" value="Afdichtingstechniek"> Afdichtingstechniek</label>
+              <label class="product-option"><input type="checkbox" name="productgroepen" value="V-snaren &amp; V-snaarschijven"> V-snaren &amp; V-snaarschijven</label>
+              <label class="product-option"><input type="checkbox" name="productgroepen" value="Kettingen &amp; kettingwielen"> Kettingen &amp; kettingwielen</label>
+              <label class="product-option"><input type="checkbox" name="productgroepen" value="Gereedschap (BETA / KNIPEX)"> Gereedschap (BETA / KNIPEX)</label>
+              <label class="product-option"><input type="checkbox" name="productgroepen" value="Lijmen &amp; afdichtingsmiddelen (Loctite)"> Lijmen &amp; afdichtingsmiddelen</label>
+              <label class="product-option"><input type="checkbox" name="productgroepen" value="Transportwielen"> Transportwielen</label>
+              <label class="product-option"><input type="checkbox" name="productgroepen" value="Hijs- en hefwerktuigen (REMA)"> Hijs- en hefwerktuigen</label>
+              <label class="product-option"><input type="checkbox" name="productgroepen" value="Anders / weet ik nog niet"> Anders / nog niet bekend</label>
+            </div>
           </div>
           <div><label for="o-aantal">Aantal / frequentie</label><input id="o-aantal" name="aantal_of_frequentie" type="text" placeholder="bijv. 10 stuks, maandelijks…"></div>
         </div>
@@ -402,6 +406,13 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 </section>
 <script>
 (function(){
+  const productChecks=[...document.querySelectorAll('input[name="productgroepen"]')];
+  const updateProductValidity=()=>{
+    const message=productChecks.some(c=>c.checked)?'':'Kies minimaal één productgroep.';
+    productChecks.forEach(c=>c.setCustomValidity(message));
+  };
+  productChecks.forEach(c=>c.addEventListener('change',updateProductValidity));
+  updateProductValidity();
   const input=document.getElementById('order-number');
   if(input){
     const now=new Date();
