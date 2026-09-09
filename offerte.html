@@ -198,7 +198,7 @@ textarea{resize:vertical;min-height:120px}
 .product-option{display:flex;align-items:center;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#fafbfd;font-size:.82rem;cursor:pointer}
 .product-option:hover{border-color:var(--cyan);background:#f1fcff}
 .product-option input{width:auto;margin:0;accent-color:var(--blue)}
-@media(max-width:520px){.product-options{grid-template-columns:1fr}}
+.product-details{display:grid;gap:8px;margin-top:8px}.product-detail{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(100px,.7fr) minmax(150px,1fr);gap:8px;align-items:center;padding:9px 10px;border:1px solid var(--line);border-radius:9px;background:#fafbfd}.product-detail strong{font-size:.82rem;color:var(--navy)}.product-detail input,.product-detail select{padding:9px 10px;font-size:.82rem}.details-hint{font-size:.8rem;color:var(--muted);padding:4px 0}@media(max-width:520px){.product-options{grid-template-columns:1fr}.product-detail{grid-template-columns:1fr 1fr}.product-detail strong{grid-column:1/-1}}
 .fsubmit{margin-top:16px;background:var(--blue);color:#fff;border:none;padding:13px 30px;border-radius:12px;font:inherit;font-weight:600;cursor:pointer;transition:transform .18s ease,filter .18s ease}
 .fsubmit:hover{filter:brightness(1.25);transform:scale(1.05)}
 .small-note{font-size:.78rem;color:var(--muted);margin-top:12px}
@@ -395,7 +395,9 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
               <label class="product-option"><input type="checkbox" name="productgroepen" value="Anders / weet ik nog niet"> Anders / nog niet bekend</label>
             </div>
           </div>
-          <div><label for="o-aantal">Aantal / frequentie</label><input id="o-aantal" name="aantal_of_frequentie" type="text" placeholder="bijv. 10 stuks, maandelijks…"></div>
+          <div style="grid-column:1/-1"><label>Aantal en frequentie per productgroep</label>
+            <div id="product-details" class="product-details"><p class="details-hint">Selecteer hierboven één of meer productgroepen. Daarna kunt u per groep het aantal en de frequentie invullen.</p></div>
+          </div>
         </div>
         <div style="margin-top:14px"><label for="o-msg">Uw aanvraag *</label><textarea id="o-msg" name="aanvraag" required placeholder="Welk product zoekt u? Type, afmetingen, merkvoorkeur, gewenste levertijd…"></textarea></div>
         <button class="fsubmit" type="submit">Offerte aanvragen</button>
@@ -407,9 +409,15 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 <script>
 (function(){
   const productChecks=[...document.querySelectorAll('input[name="productgroepen"]')];
+  const details=document.getElementById('product-details');
+  const updateProductDetails=()=>{
+    const selected=productChecks.filter(c=>c.checked);
+    details.innerHTML=selected.length?selected.map((c,i)=>`<div class="product-detail"><strong>${c.value}</strong><input name="aantal_${i+1}" type="text" placeholder="Aantal"><select name="frequentie_${i+1}"><option value="Eenmalig">Eenmalig</option><option value="Wekelijks">Wekelijks</option><option value="Maandelijks">Maandelijks</option><option value="Per kwartaal">Per kwartaal</option><option value="Jaarlijks">Jaarlijks</option></select><input type="hidden" name="product_detail_${i+1}" value="${c.value}"></div>`).join(''): '<p class="details-hint">Selecteer hierboven één of meer productgroepen. Daarna kunt u per groep het aantal en de frequentie invullen.</p>';
+  };
   const updateProductValidity=()=>{
     const message=productChecks.some(c=>c.checked)?'':'Kies minimaal één productgroep.';
     productChecks.forEach(c=>c.setCustomValidity(message));
+    updateProductDetails();
   };
   productChecks.forEach(c=>c.addEventListener('change',updateProductValidity));
   updateProductValidity();
