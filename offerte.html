@@ -361,9 +361,12 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
       <h2>Offerteformulier</h2>
       <p>Velden met * zijn verplicht. Herkomst van uw gegevens: wij gebruiken ze uitsluitend om uw aanvraag te beantwoorden.</p>
       <form action="https://formsubmit.co/info@ebele-schiedam.nl" method="POST" aria-label="Offerteaanvraag">
-        <input type="hidden" name="_subject" value="Offerteaanvraag via website">
+        <input type="hidden" name="_subject" value="Nieuwe offerteaanvraag via Ebele Schiedam">
         <input type="hidden" name="_autoresponse" value="Bedankt voor je offerteaanvraag aan Ebele Schiedam. We hebben je aanvraag ontvangen en nemen zo snel mogelijk contact met je op.">
+        <input type="hidden" name="_next" value="https://terryjansen.github.io/ebele-schiedam/bedankt.html">
+        <input type="hidden" name="_captcha" value="true">
         <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_url" value="https://terryjansen.github.io/ebele-schiedam/offerte.html">
         <div class="frow">
           <div><label for="o-naam">Naam *</label><input id="o-naam" name="naam" required type="text" autocomplete="name"></div>
           <div><label for="o-bedrijf">Bedrijf</label><input id="o-bedrijf" name="bedrijf" type="text" autocomplete="organization"></div>
@@ -387,7 +390,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
               <option>Anders / weet ik nog niet</option>
             </select>
           </div>
-          <div><label for="o-aantal">Aantal / frequentie</label><input id="o-aantal" name="aantal" type="text" placeholder="bijv. 10 stuks, maandelijks…"></div>
+          <div><label for="o-aantal">Aantal / frequentie</label><input id="o-aantal" name="aantal_of_frequentie" type="text" placeholder="bijv. 10 stuks, maandelijks…"></div>
         </div>
         <div style="margin-top:14px"><label for="o-msg">Uw aanvraag *</label><textarea id="o-msg" name="aanvraag" required placeholder="Welk product zoekt u? Type, afmetingen, merkvoorkeur, gewenste levertijd…"></textarea></div>
         <button class="fsubmit" type="submit">Offerte aanvragen</button>

@@ -339,6 +339,11 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .logo-text{height:35px;width:auto}
 @media(prefers-reduced-motion:reduce){.logo-bearing-spin{animation:none}}
 .dd-menu a:not(:last-child){border-bottom:1px solid var(--bg) !important;border-radius:0 !important}
+
+/* E-mailadres goed leesbaar tijdens typen */
+.alert-form input[type="email"]{background:#fff!important;color:#282c47!important;-webkit-text-fill-color:#282c47!important;caret-color:#282c47!important;opacity:1!important;font-size:1rem}
+.alert-form input[type="email"]::placeholder{color:#7a7f99;opacity:1}
+
 </style>
 </head>
 <body>
@@ -436,11 +441,14 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
       <form class="alert-form" action="https://formsubmit.co/info@ebele-schiedam.nl" method="POST">
         <input type="hidden" name="_subject" value="Aanmelden vacature-alert">
         <input type="hidden" name="_autoresponse" value="Bedankt voor je aanmelding bij Ebele Schiedam. We houden je op de hoogte zodra er een vacature vrijkomt.">
+        <input type="hidden" name="_next" value="https://terryjansen.github.io/ebele-schiedam/bedankt.html">
+        <input type="hidden" name="_captcha" value="true">
         <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_url" value="https://terryjansen.github.io/ebele-schiedam/vacatures.html">
         <input type="email" name="email" required placeholder="jouw@email.nl" aria-label="E-mailadres">
         <button type="submit">Houd mij op de hoogte</button>
       </form>
-      <p class="alert-ok" id="alert-ok">Je e-mailprogramma wordt geopend. Verstuur de e-mail om je aanmelding naar info@ebele-schiedam.nl te sturen.</p>
+      <p class="alert-ok" id="alert-ok">Je wordt doorgestuurd naar de bevestigingspagina.</p>
     </div>
   </div>
 </section>

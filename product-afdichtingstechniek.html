@@ -286,6 +286,33 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .logo-text{height:35px;width:auto}
 @media(prefers-reduced-motion:reduce){.logo-bearing-spin{animation:none}}
 .dd-menu a:not(:last-child){border-bottom:1px solid var(--bg) !important;border-radius:0 !important}
+
+
+/* Klikbare brochurekaart + popup */
+.brochure-highlight{width:100%;margin-top:30px;padding:24px 26px;background:linear-gradient(135deg,#04052f 0%,#071b55 100%);border:1px solid rgba(0,183,243,.38);border-radius:0;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden;box-shadow:0 14px 34px rgba(4,5,47,.14);text-align:left;cursor:pointer;font:inherit}.brochure-highlight:after{content:"";position:absolute;width:180px;height:180px;right:-55px;top:-70px;border:1px solid rgba(0,183,243,.22);border-radius:50%;box-shadow:0 0 0 18px rgba(0,183,243,.05),0 0 0 36px rgba(0,183,243,.035);pointer-events:none}.bh-copy{position:relative;z-index:1;display:block;max-width:560px}.bh-label{display:block;margin:0 0 6px;color:#00b7f3;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.bh-title{display:block;margin:0 0 7px;color:#fff;font-size:1.18rem;font-weight:700}.bh-text{display:block;color:#c8d2f0;font-size:.9rem;line-height:1.55}.bh-btn{position:relative;z-index:1;flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;padding:12px 17px;border-radius:10px;background:#00b7f3;color:#04052f;font-weight:700;font-size:.88rem;transition:transform .18s ease,filter .18s ease}.brochure-highlight:hover .bh-btn{transform:scale(1.06);filter:brightness(1.16)}.bh-btn svg{width:17px;height:17px}.brochure-modal{display:none!important;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;padding:20px}.brochure-modal.is-open{display:flex}.brochure-modal-backdrop{position:absolute;inset:0;background:rgba(4,5,47,.72)}.brochure-modal-card{position:relative;z-index:1;max-width:500px;width:100%;padding:34px;background:#fff;color:#04052f;box-shadow:0 22px 70px rgba(4,5,47,.32);border:1px solid rgba(0,183,243,.35)}.brochure-modal-card h2{margin:0 0 10px;color:#04052f}.brochure-modal-card p:not(.bh-label){color:#4e5578;line-height:1.6}.brochure-modal-close{position:absolute;right:13px;top:8px;border:0;background:none;color:#04052f;font-size:30px;line-height:1;cursor:pointer}.modal-open{overflow:hidden}@media(max-width:650px){.brochure-highlight{align-items:flex-start;flex-direction:column;padding:21px}.bh-btn{width:100%;justify-content:center}.brochure-modal-card{padding:30px 22px}}
+
+
+/* Compacte brochure-trigger; de brochure opent uitsluitend als popup */
+.brochure-trigger{width:100%;margin-top:30px;padding:16px 18px;display:flex;align-items:center;gap:13px;text-align:left;border:1px solid rgba(0,183,243,.45);border-radius:10px;background:#fff;color:var(--navy);cursor:pointer;font:inherit;box-shadow:0 8px 22px rgba(4,5,47,.08);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.brochure-trigger:hover{transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 12px 28px rgba(4,5,47,.13)}.brochure-trigger>svg{width:25px;height:25px;flex:0 0 auto;color:var(--blue)}.brochure-trigger span:nth-child(2){display:flex;flex-direction:column;gap:2px}.brochure-trigger strong{font-size:.93rem;color:var(--navy)}.brochure-trigger small{font-size:.78rem;color:var(--muted);line-height:1.35}.brochure-trigger-arrow{margin-left:auto;color:var(--blue);font-size:1.25rem;transition:transform .18s ease}.brochure-trigger:hover .brochure-trigger-arrow{transform:translate(2px,-2px)}
+
+/* ——— Brochure popup (compact, rechtsonder) ——— */
+.brochure-popup{position:fixed;right:16px;bottom:16px;z-index:1000;width:290px;background:#fff;border-radius:12px;box-shadow:0 14px 38px rgba(4,5,47,.3);display:none;overflow:hidden;animation:bpIn .45s cubic-bezier(.34,1.56,.64,1);border:1px solid var(--line)}
+.brochure-popup.open{display:block}
+@keyframes bpIn{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:none}}
+.bp-head{background:var(--navy);color:#fff;padding:10px 36px 10px 14px;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:8px;position:relative}
+.bp-head svg{width:15px;height:15px;stroke:var(--cyan);flex-shrink:0}
+.brochure-popup .bc-close{position:absolute;top:5px;right:8px;background:none;border:none;font-size:1.35rem;color:#fff;cursor:pointer;line-height:1;padding:3px;z-index:2}
+.brochure-popup .bc-close:hover{color:#fff}
+.bp-body{padding:14px}
+.bp-body h3{color:var(--navy);font-size:.95rem;margin-bottom:5px}
+.bp-body p{color:var(--muted);font-size:.8rem;line-height:1.45;margin-bottom:12px}
+.bp-body .bc-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:0;text-decoration:none;font-weight:600;font-size:.8rem;background:var(--blue);color:#fff;transition:transform .18s ease,filter .18s ease}
+.bp-body .bc-btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
+.bp-body .bc-btn svg{width:13px;height:13px}
+.bp-tag{position:absolute;top:10px;right:36px;background:var(--cyan);color:var(--navy);font-size:.62rem;font-weight:700;padding:3px 8px;border-radius:99px;letter-spacing:.04em}
+@media(max-width:480px){.brochure-popup{right:10px;bottom:10px;left:10px;width:auto}}
+.dd-menu a:not(:last-child){border-bottom:1px solid var(--bg) !important;border-radius:0 !important}
+
 </style>
 </head>
 <body>
@@ -339,8 +366,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   <div class="wrap">
     <div class="detail">
       <div>
-        <div class="photo"><img src="img/afdichtingen.jpg" alt="Afdichtingen en ringen" loading="lazy"></div>
-        <div class="side-card">
+        <div class="photo"><img src="img/afdichtingen.jpg" alt="Afdichtingen en ringen" loading="lazy"></div><div class="side-card">
           <h3>Advies over druk en temperatuur</h3>
           <p>Bij afdichtingen boven 100 bar adviseren wij een back-upring om wegpersen te voorkomen. Wij denken graag mee over materiaalkeuze.</p>
           <div class="btn-row">
@@ -360,10 +386,74 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
           <li>Assortimentsdozen voor de meest voorkomende maten</li>
           <li>Maatwerk via Seal Jet, ook in kleine aantallen</li>
         </ul>
+
+
       </div>
     </div>
   </div>
 </section>
+
+<div class="brochure-modal" data-brochure-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="brochure-modal-title">
+  <div class="brochure-modal-backdrop" data-brochure-close></div>
+  <div class="brochure-modal-card">
+    <button class="brochure-modal-close" type="button" data-brochure-close aria-label="Sluit brochure">×</button>
+    <p class="bh-label">Ebele afdichtingen</p>
+    <h2 id="brochure-modal-title">Brochure bekijken</h2>
+    <p>Bekijk de verschillende afdichtingen, maten en materialen in de officiële brochure.</p>
+    <a class="btn btn-primary" href="https://www.ebele-schiedam.nl/wp-content/uploads/2019/12/Brochure-Ebele-Afdichtingen.pdf" target="_blank" rel="noopener">Brochure bekijken <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+<script>
+(function(){
+ const modal=document.querySelector('[data-brochure-modal]'), open=document.querySelector('[data-afdichting-brochure-open]');
+ if(!modal||!open)return;
+ const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');};
+
+ modal.querySelectorAll('[data-brochure-close]').forEach(el=>el.addEventListener('click',close));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+</script>
+
+<!-- Brochure popup -->
+<div class="brochure-popup" id="afdichtingBrochureOverlay" role="dialog" aria-label="Afdichtingen brochure">
+  <span class="bp-tag">NIEUW</span>
+  <button class="bc-close" onclick="closeAfdichtingBrochure()" aria-label="Sluiten">&times;</button>
+  <div class="bp-head">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
+    Ebele afdichtingen
+  </div>
+  <div class="bp-body">
+    <h3>Ontdek onze brochure</h3>
+    <p>De verschillende afdichtingen, materialen en toepassingen — in één brochure.</p>
+    <a class="bc-btn" href="https://www.ebele-schiedam.nl/wp-content/uploads/2019/12/Brochure-Ebele-Afdichtingen.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      Brochure bekijken
+    </a>
+  </div>
+</div>
+<script>
+// popup na 2.5 sec tonen — elke keer bij bezoek van de homepagina
+(function(){
+  setTimeout(function(){
+    document.getElementById('afdichtingBrochureOverlay').classList.add('open');
+  }, 2500);
+  window.closeBrochure = function(){
+    document.getElementById('oRingBrochureOverlay').classList.remove('open');
+  };
+  document.getElementById('oRingBrochureOverlay').addEventListener('click', function(e){
+    if(e.target === this) closeORingBrochure();
+  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeORingBrochure(); });
+})();
+</script>
+<script>
+(function(){
+  setTimeout(function(){
+    var popup=document.getElementById('oRingBrochureOverlay');
+    if(popup) popup.classList.add('open');
+  },2500);
+})();
+</script>
 
 <footer>
   <div class="footer-main">

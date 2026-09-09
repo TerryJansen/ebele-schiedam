@@ -283,7 +283,6 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 @media(max-width:480px){.brochure-popup{right:10px;bottom:10px;left:10px;width:auto}}
 .dd-menu a:not(:last-child){border-bottom:1px solid var(--bg) !important;border-radius:0 !important}
 
-
 /* Pagina-hero */
 .page-hero{background:var(--navy) url("img/lagers.jpg") center/cover no-repeat;color:#fff;position:relative;overflow:hidden}
 .page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,47,.82),rgba(4,5,47,.88));z-index:0}
@@ -325,18 +324,20 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .doc-card .doc-ic{width:52px;height:52px;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s}
 .doc-card:hover .doc-ic{background:var(--cyan)}
 .doc-card .doc-ic svg{width:26px;height:26px;stroke:var(--blue);transition:stroke .25s}
-.doc-card:hover .doc-ic svg{stroke:var(--navy)}
+.doc-card .doc-ic img{max-width:80%;max-height:34px;object-fit:contain;transition:transform .25s}
+.doc-card:hover .doc-ic img{transform:scale(1.08)}
 .doc-card h3{font-size:1rem;margin-bottom:5px;color:var(--navy)}
 .doc-card p{color:var(--muted);font-size:.86rem;margin:0}
 .doc-card .ext{font-size:.72rem;color:var(--blue);margin-top:4px;display:block}
 /* Brochure uitgelicht */
-.doc-feature{background:var(--navy);padding:44px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:52px;color:#fff}
+.doc-feature{background:var(--navy);padding:44px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;margin-bottom:52px;color:#fff}
 .doc-feature h2{color:#fff;font-size:clamp(1.4rem,2.8vw,1.9rem);margin-bottom:12px}
+.doc-feature > div{display:flex;flex-direction:column;height:100%}
+.doc-feature > div .btn-row{margin-top:auto}
 .doc-feature p{color:#a8aed2;font-size:.94rem;margin-bottom:22px;line-height:1.6}
 .doc-feature .btn-row{position:relative}
 .doc-feature .bc-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--cyan);color:var(--navy);font-weight:600;font-size:.92rem;text-decoration:none;transition:transform .18s ease,filter .18s ease}
 .doc-feature .bc-btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
-.doc-feature .bc-note{font-size:.78rem;color:#8d92bd;margin-top:12px}
 @media(max-width:820px){.doc-grid{grid-template-columns:1fr}.doc-feature{grid-template-columns:1fr;padding:30px 24px}}
 /* Scroll animaties */
 .anim{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.65,.3,1)}
@@ -405,7 +406,6 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
             Brochure bekijken
           </a>
         </div>
-        <p class="bc-note">PDF · 36 pagina's · 10,4 MB</p>
       </div>
       <div>
         <h2 style="font-size:clamp(1.2rem,2.4vw,1.5rem)">Afdichtingen brochure</h2>
@@ -413,10 +413,9 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
         <div class="btn-row">
           <a class="bc-btn" href="https://www.ebele-schiedam.nl/wp-content/uploads/2019/12/Brochure-Ebele-Afdichtingen.pdf" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-            Bekijken
+            Brochure bekijken
           </a>
         </div>
-        <p class="bc-note">PDF · via ebele-schiedam.nl</p>
       </div>
     </div>
 
@@ -424,27 +423,27 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     <h2 class="title">Nuttige externe links</h2>
     <div class="doc-grid">
       <a class="doc-card" href="https://medias.schaeffler.de/medias/en!hp/" target="_blank" rel="noopener">
-        <div class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.2"/></svg></div>
+        <div class="doc-ic"><img src="img/fag.svg" alt="FAG" style="max-width:80%;max-height:34px;object-fit:contain"></div>
         <div><h3>FAG Lagers — Schaeffler MEDIAS</h3><p>Online catalogus met alle technische gegevens van FAG en INA lagers.</p><span class="ext">medias.schaeffler.de →</span></div>
       </a>
-      <a class="doc-card" href="https://www.fag-smartcheck.com/" target="_blank" rel="noopener">
-        <div class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+      <a class="doc-card" href="https://medias.schaeffler.de/en/monitor/smartcheck" target="_blank" rel="noopener">
+        <div class="doc-ic"><img src="img/fag.svg" alt="FAG SmartCheck" style="max-width:80%;max-height:34px;object-fit:contain"></div>
         <div><h3>Lagermonitoring — FAG SmartCheck</h3><p>Monitorsystemen om onverwachte lageruitval en schade te voorkomen.</p><span class="ext">fag-smartcheck.com →</span></div>
       </a>
       <a class="doc-card" href="https://www.loctite.nl/" target="_blank" rel="noopener">
-        <div class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.3a2 2 0 0 0 2-1.7l1.4-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></div>
+        <div class="doc-ic"><img src="img/loctite-logo.png" alt="Loctite" style="max-width:80%;max-height:34px;object-fit:contain"></div>
         <div><h3>Industriële lijmen &amp; afdichtingen — Loctite</h3><p>Productinformatie en technische data van Loctite verlijmings- en afdichtingsproducten.</p><span class="ext">loctite.nl →</span></div>
       </a>
       <a class="doc-card" href="https://www.rema.eu/" target="_blank" rel="noopener">
-        <div class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M5 17h14M5 17a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h1l3-5h8a2 2 0 0 1 2 2v10"/></svg></div>
+        <div class="doc-ic"><img src="img/rema-logo.png" alt="REMA" style="max-width:80%;max-height:34px;object-fit:contain"></div>
         <div><h3>Hijs- en hefwerken — REMA</h3><p>Het volledige REMA assortiment krikken, kranen en hefwerktuigen.</p><span class="ext">rema.eu →</span></div>
       </a>
       <a class="doc-card" href="https://www.kukko.com/pdf/katalog/catalogue_nl_01.pdf" target="_blank" rel="noopener">
-        <div class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M14 7 9 2M9 2v6h6M9 2H4a1 1 0 0 0-1 1v18h12"/><path d="M14 7l5 5v10h-6"/></svg></div>
+        <div class="doc-ic"><img src="img/kukko.png" alt="KUKKO" style="max-width:80%;max-height:34px;object-fit:contain"></div>
         <div><h3>Lagertrekkers — KUKKO catalogus</h3><p>De complete KUKKO catalogus met lagertrekkers en montagewerkzeug (PDF).</p><span class="ext">kukko.com →</span></div>
       </a>
       <a class="doc-card" href="https://www.beta-tools.com/catalog/families/view/__lang_en/__catlang_nl/__catalog_beta/__filters_" target="_blank" rel="noopener">
-        <div class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.3-2.3z"/></svg></div>
+        <div class="doc-ic"><img src="img/beta-tools.svg" alt="BETA Tools" style="max-width:80%;max-height:34px;object-fit:contain"></div>
         <div><h3>Gereedschap — BETA Tools catalogus</h3><p>De volledige BETA gereedschapscatalogus, in het Nederlands.</p><span class="ext">beta-tools.com →</span></div>
       </a>
     </div>
@@ -455,10 +454,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   <div class="footer-main">
     <div class="foot-grid">
       <div class="foot-col">
-        <div class="foot-logo-row">
-          <img class="foot-logo" src="img/logo-white.png" alt="Logo Ebele Schiedam">
-        </div>
-        <div class="foot-brandline"></div>
+        <img class="foot-logo" src="img/logo-ebele.png" alt="Logo Ebele Schiedam">
         <p class="foot-about">Technische groothandel in lagers, afdichtingen en aandrijftechniek. Persoonlijk, snel en betrouwbaar — vanuit Schiedam, sinds 1994.</p>
       </div>
       <div class="foot-col">
@@ -468,30 +464,30 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
         <a href="merken.html">Merken</a>
         <a href="over-ons.html">Over ons</a>
         <a href="vacatures.html">Vacatures</a>
-        <a href="service.html">Service &amp; leveringen</a>
+        <a href="service.html">Service & leveringen</a>
         <a href="documentatie.html">Documentatie</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="foot-col">
         <h4>Contact</h4>
-        <p><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>Minervaweg 27<br>3113 AP Schiedam</span></p>
+        <p><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Minervaweg 27<br>3113 AP Schiedam</p>
         <p><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span><a href="mailto:info@ebele-schiedam.nl">info@ebele-schiedam.nl</a></p>
-        <p><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><a href="tel:+31104264354">010 426 43 54</a></p>
+        <p><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><a href="tel:+311****4354">010 426 43 54</a></p>
       </div>
       <div class="foot-col">
         <h4>Openingstijden</h4>
-        <p><span class="dag">Ma t/m vr</span> 08.00 – 17.00</p>
-        <p style="padding-left:27px;color:#6a6f8e">Weekend gesloten</p>
+        <p><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>Ma t/m vr&nbsp; 08.00 – 17.00</p>
+        <p style="padding-left:30px"></p>
+        <p style="padding-left:30px;color:#8d92bd"></p>
       </div>
     </div>
     <div class="foot-map">
-      <div class="map-label"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Minervaweg 27, Schiedam</div>
-      <iframe src="https://www.google.com/maps?q=Minervaweg+27,+3113+AP+Schiedam&output=embed" width="100%" height="240" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Locatie Ebele Schiedam op Google Maps"></iframe>
+      <iframe src="https://www.google.com/maps?q=Minervaweg+27,+3113+AP+Schiedam&output=embed" width="100%" height="260" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Locatie Ebele Schiedam op Google Maps"></iframe>
     </div>
   </div>
   <div class="foot-in" style="border-top:1px solid rgba(255,255,255,.1)">
     <span>© 2026 <b>Ebele Schiedam bv</b> · KVK 24249833</span>
-    <span><a href="tel:+31104264354" style="color:#c3c7e2">010 426 43 54</a> · <a href="mailto:info@ebele-schiedam.nl" style="color:#c3c7e2">info@ebele-schiedam.nl</a></span>
+    <span><a href="tel:+311****4354" style="color:#c3c7e2">010 426 43 54</a> · <a href="mailto:info@ebele-schiedam.nl" style="color:#c3c7e2">info@ebele-schiedam.nl</a></span>
   </div>
 </footer>
 <script>
