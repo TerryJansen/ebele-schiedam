@@ -330,8 +330,10 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .doc-card p{color:var(--muted);font-size:.86rem;margin:0}
 .doc-card .ext{font-size:.72rem;color:var(--blue);margin-top:4px;display:block}
 /* Brochure uitgelicht */
-.doc-feature{background:var(--navy);padding:44px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:52px;color:#fff}
+.doc-feature{background:var(--navy);padding:44px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;margin-bottom:52px;color:#fff}
 .doc-feature h2{color:#fff;font-size:clamp(1.4rem,2.8vw,1.9rem);margin-bottom:12px}
+.doc-feature > div{display:flex;flex-direction:column;height:100%}
+.doc-feature > div .btn-row{margin-top:auto}
 .doc-feature p{color:#a8aed2;font-size:.94rem;margin-bottom:22px;line-height:1.6}
 .doc-feature .btn-row{position:relative}
 .doc-feature .bc-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--cyan);color:var(--navy);font-weight:600;font-size:.92rem;text-decoration:none;transition:transform .18s ease,filter .18s ease}
