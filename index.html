@@ -441,17 +441,20 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
           <span>KVK 24249833<small>BTW NL8030 418 09 B01</small></span>
         </div>
       </div>
-      <form onsubmit="event.preventDefault();this.innerHTML='<p style=\'padding:8px 0;font-weight:600;color:var(--blue)\'>Bedankt. Wij nemen zo snel mogelijk contact met u op.</p>'" aria-label="Offerte- of contactaanvraag">
+      <form action="https://formsubmit.co/info@ebele-schiedam.nl" method="POST" aria-label="Offerte- of contactaanvraag">
+        <input type="hidden" name="_subject" value="Nieuwe aanvraag via Ebele Schiedam">
+        <input type="hidden" name="_next" value="https://terryjansen.github.io/ebele-schiedam/bedankt.html">
+        <input type="hidden" name="_captcha" value="true">
         <div class="frow">
-          <div><label for="f-naam">Naam *</label><input id="f-naam" required type="text" autocomplete="name"></div>
-          <div><label for="f-tel">Telefoon *</label><input id="f-tel" required type="tel" autocomplete="tel"></div>
+          <div><label for="f-naam">Naam *</label><input id="f-naam" name="naam" required type="text" autocomplete="name"></div>
+          <div><label for="f-tel">Telefoon *</label><input id="f-tel" name="telefoon" required type="tel" autocomplete="tel"></div>
         </div>
         <div class="frow" style="margin-top:14px">
-          <div><label for="f-pc">Postcode *</label><input id="f-pc" required type="text" autocomplete="postal-code"></div>
-          <div><label for="f-wp">Woonplaats *</label><input id="f-wp" required type="text" autocomplete="address-level2"></div>
+          <div><label for="f-pc">Postcode *</label><input id="f-pc" name="postcode" required type="text" autocomplete="postal-code"></div>
+          <div><label for="f-wp">Woonplaats *</label><input id="f-wp" name="woonplaats" required type="text" autocomplete="address-level2"></div>
         </div>
-        <div style="margin-top:14px"><label for="f-mail">E-mail *</label><input id="f-mail" required type="email" autocomplete="email"></div>
-        <div style="margin-top:14px"><label for="f-msg">Opmerkingen of aanvraag</label><textarea id="f-msg" placeholder="Welke producten zoekt u? Type, afmetingen, aantal…"></textarea></div>
+        <div style="margin-top:14px"><label for="f-mail">E-mail *</label><input id="f-mail" name="email" required type="email" autocomplete="email"></div>
+        <div style="margin-top:14px"><label for="f-msg">Opmerkingen of aanvraag</label><textarea id="f-msg" name="aanvraag" placeholder="Welke producten zoekt u? Type, afmetingen, aantal…"></textarea></div>
         <button class="fsubmit" type="submit">Verstuur aanvraag</button>
       </form>
     </div>

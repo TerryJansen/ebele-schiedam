@@ -360,18 +360,21 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     <div class="form-wrap">
       <h2>Offerteformulier</h2>
       <p>Velden met * zijn verplicht. Herkomst van uw gegevens: wij gebruiken ze uitsluitend om uw aanvraag te beantwoorden.</p>
-      <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;padding:8px 0;font-weight:600;color:var(--blue)&quot;>Bedankt voor uw aanvraag. Wij sturen u binnen één werkdag een passende offerte.</p>'" aria-label="Offerteaanvraag">
+      <form action="https://formsubmit.co/info@ebele-schiedam.nl" method="POST" aria-label="Offerteaanvraag">
+        <input type="hidden" name="_subject" value="Nieuwe offerteaanvraag via Ebele Schiedam">
+        <input type="hidden" name="_next" value="https://terryjansen.github.io/ebele-schiedam/bedankt.html">
+        <input type="hidden" name="_captcha" value="true">
         <div class="frow">
-          <div><label for="o-naam">Naam *</label><input id="o-naam" required type="text" autocomplete="name"></div>
-          <div><label for="o-bedrijf">Bedrijf</label><input id="o-bedrijf" type="text" autocomplete="organization"></div>
+          <div><label for="o-naam">Naam *</label><input id="o-naam" name="naam" required type="text" autocomplete="name"></div>
+          <div><label for="o-bedrijf">Bedrijf</label><input id="o-bedrijf" name="bedrijf" type="text" autocomplete="organization"></div>
         </div>
         <div class="frow" style="margin-top:14px">
-          <div><label for="o-mail">E-mail *</label><input id="o-mail" required type="email" autocomplete="email"></div>
-          <div><label for="o-tel">Telefoon *</label><input id="o-tel" required type="tel" autocomplete="tel"></div>
+          <div><label for="o-mail">E-mail *</label><input id="o-mail" name="email" required type="email" autocomplete="email"></div>
+          <div><label for="o-tel">Telefoon *</label><input id="o-tel" name="telefoon" required type="tel" autocomplete="tel"></div>
         </div>
         <div class="frow" style="margin-top:14px">
           <div><label for="o-type">Productgroep *</label>
-            <select id="o-type" required>
+            <select id="o-type" name="productgroep" required>
               <option value="">Maak een keuze…</option>
               <option>Lagers &amp; lagergereedschap</option>
               <option>Afdichtingstechniek</option>
@@ -384,9 +387,9 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
               <option>Anders / weet ik nog niet</option>
             </select>
           </div>
-          <div><label for="o-aantal">Aantal / frequentie</label><input id="o-aantal" type="text" placeholder="bijv. 10 stuks, maandelijks…"></div>
+          <div><label for="o-aantal">Aantal / frequentie</label><input id="o-aantal" name="aantal_of_frequentie" type="text" placeholder="bijv. 10 stuks, maandelijks…"></div>
         </div>
-        <div style="margin-top:14px"><label for="o-msg">Uw aanvraag *</label><textarea id="o-msg" required placeholder="Welk product zoekt u? Type, afmetingen, merkvoorkeur, gewenste levertijd…"></textarea></div>
+        <div style="margin-top:14px"><label for="o-msg">Uw aanvraag *</label><textarea id="o-msg" name="aanvraag" required placeholder="Welk product zoekt u? Type, afmetingen, merkvoorkeur, gewenste levertijd…"></textarea></div>
         <button class="fsubmit" type="submit">Offerte aanvragen</button>
         <p class="small-note">Liever direct contact? Bel <a href="tel:+31104264354">010 426 43 54</a> of mail <a href="mailto:info@ebele-schiedam.nl">info@ebele-schiedam.nl</a>.</p>
       </form>
