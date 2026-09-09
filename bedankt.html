@@ -3,9 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bedankt voor uw aanvraag — Ebele Schiedam</title>
-<meta name="description" content="Uw aanvraag is ontvangen door Ebele Schiedam.">
-<style>body{font-family:Arial,sans-serif;background:#f5f6f9;color:#04052f;display:grid;place-items:center;min-height:100vh;margin:0;padding:24px;text-align:center}.box{background:#fff;border:1px solid #dfe2ea;border-radius:14px;padding:40px;max-width:560px}a{display:inline-block;margin-top:20px;background:#00b7f3;color:#04052f;padding:12px 20px;border-radius:9px;text-decoration:none;font-weight:700}</style>
+<title>Offerteaanvraag ontvangen — Ebele Schiedam</title>
+<meta name="description" content="Uw offerteaanvraag is ontvangen door Ebele Schiedam.">
+<link rel="icon" type="image/png" sizes="50x50" href="img/favicon-50.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#04052f;--blue:#0057da;--cyan:#00b7f3;--bg:#f5f6f9;--line:#dfe2ea;--muted:#5c6079}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Montserrat,system-ui,sans-serif;color:#282c47;background:linear-gradient(135deg,#eef4fb,#f8f9fc);display:grid;place-items:center;padding:24px}.card{width:min(680px,100%);background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(30px,6vw,62px);box-shadow:0 24px 70px rgba(4,5,47,.12);text-align:center}.brand{height:54px;width:auto;margin:0 auto 28px}.check{width:70px;height:70px;margin:0 auto 24px;border-radius:50%;display:grid;place-items:center;background:#e5f9ff;color:#007da8;font-size:2rem;font-weight:800}.eyebrow{color:var(--blue);font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}h1{color:var(--navy);font-size:clamp(1.65rem,4vw,2.35rem);line-height:1.2;margin:0 0 16px}p{line-height:1.7;margin:0 auto;color:var(--muted);max-width:500px}.order{margin:28px auto;padding:18px 22px;border:1px solid #bfeefa;border-radius:14px;background:#f1fcff}.order small{display:block;color:var(--muted);font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:5px}.order strong{color:var(--navy);font-size:1.35rem;letter-spacing:.04em}.note{font-size:.86rem;margin-top:18px}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}a{display:inline-block;text-decoration:none;border-radius:11px;padding:13px 22px;font-weight:700}.primary{background:var(--cyan);color:var(--navy)}.secondary{border:1px solid var(--line);color:var(--navy);background:#fff}@media(max-width:480px){.card{padding:30px 20px}}
+</style>
 </head>
-<body><main class="box"><h1>Bedankt voor uw aanvraag</h1><p>Uw aanvraag is verzonden. Ebele Schiedam neemt zo snel mogelijk contact met u op.</p><a href="index.html">Terug naar de website</a></main></body>
-</html>
+<body><main class="card">
+<img class="brand" src="img/logo-ebele.png" alt="Ebele Schiedam">
+<div class="check" aria-hidden="true">✓</div>
+<p class="eyebrow">Aanvraag ontvangen</p>
+<h1>Bedankt voor uw offerteaanvraag</h1>
+<p>Uw aanvraag is goed verzonden naar Ebele Schiedam. We bekijken uw aanvraag en nemen zo snel mogelijk contact met u op.</p>
+<div class="order"><small>Uw ordernummer</small><strong id="ordernummer">Wordt geladen…</strong></div>
+<p class="note">U ontvangt een bevestiging op het e-mailadres dat u bij uw aanvraag heeft ingevuld. Bewaar uw ordernummer voor contact over deze aanvraag.</p>
+<div class="actions"><a class="primary" href="index.html">Terug naar de homepage</a><a class="secondary" href="offerte.html">Nieuwe offerte aanvragen</a></div>
+</main>
+<script>const p=new URLSearchParams(location.search);document.getElementById('ordernummer').textContent=p.get('order')||'Wordt per e-mail bevestigd';</script>
+</body></html>

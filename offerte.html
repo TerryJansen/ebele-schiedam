@@ -362,11 +362,12 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
       <p>Velden met * zijn verplicht. Herkomst van uw gegevens: wij gebruiken ze uitsluitend om uw aanvraag te beantwoorden.</p>
       <form action="https://formsubmit.co/info@ebele-schiedam.nl" method="POST" aria-label="Offerteaanvraag">
         <input type="hidden" name="_subject" value="Nieuwe offerteaanvraag via Ebele Schiedam">
-        <input type="hidden" name="_autoresponse" value="Bedankt voor je offerteaanvraag aan Ebele Schiedam. We hebben je aanvraag ontvangen en nemen zo snel mogelijk contact met je op.">
+        <input type="hidden" name="_autoresponse" value="Bedankt voor je offerteaanvraag aan Ebele Schiedam. Je aanvraag en ordernummer staan in deze bevestiging. We nemen zo snel mogelijk contact met je op.">
         <input type="hidden" name="_next" value="https://terryjansen.github.io/ebele-schiedam/bedankt.html">
         <input type="hidden" name="_captcha" value="true">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_url" value="https://terryjansen.github.io/ebele-schiedam/offerte.html">
+        <input type="hidden" name="ordernummer" id="order-number">
         <div class="frow">
           <div><label for="o-naam">Naam *</label><input id="o-naam" name="naam" required type="text" autocomplete="name"></div>
           <div><label for="o-bedrijf">Bedrijf</label><input id="o-bedrijf" name="bedrijf" type="text" autocomplete="organization"></div>
@@ -399,6 +400,20 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     </div>
   </div>
 </section>
+<script>
+(function(){
+  const input=document.getElementById('order-number');
+  if(input){
+    const now=new Date();
+    const pad=n=>String(n).padStart(2,'0');
+    const order='EB-'+now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate())+'-'+Math.random().toString(36).slice(2,7).toUpperCase();
+    input.value=order;
+    const form=input.form;
+    const next=form.querySelector('input[name="_next"]');
+    if(next) next.value='https://terryjansen.github.io/ebele-schiedam/bedankt.html?order='+encodeURIComponent(order);
+  }
+})();
+</script>
 
 <footer>
   <div class="footer-main">
