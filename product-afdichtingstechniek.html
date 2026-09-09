@@ -286,6 +286,13 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .logo-text{height:35px;width:auto}
 @media(prefers-reduced-motion:reduce){.logo-bearing-spin{animation:none}}
 .dd-menu a:not(:last-child){border-bottom:1px solid var(--bg) !important;border-radius:0 !important}
+
+/* Uitgelichte afdichtingenbrochure */
+.brochure-highlight{margin-top:30px;padding:24px 26px;background:linear-gradient(135deg,#04052f 0%,#071b55 100%);border:1px solid rgba(0,183,243,.38);border-radius:16px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden;box-shadow:0 14px 34px rgba(4,5,47,.14)}
+.brochure-highlight:after{content:"";position:absolute;width:180px;height:180px;right:-55px;top:-70px;border:1px solid rgba(0,183,243,.22);border-radius:50%;box-shadow:0 0 0 18px rgba(0,183,243,.05),0 0 0 36px rgba(0,183,243,.035);pointer-events:none}
+.brochure-highlight .bh-copy{position:relative;z-index:1;max-width:560px}.brochure-highlight .bh-label{margin:0 0 6px;color:#00b7f3;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.brochure-highlight h3{margin:0 0 7px;color:#fff;font-size:1.18rem}.brochure-highlight p{margin:0;color:#c8d2f0;font-size:.9rem;line-height:1.55}.brochure-highlight .bh-btn{position:relative;z-index:1;flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;padding:12px 17px;border-radius:10px;background:#00b7f3;color:#04052f;text-decoration:none;font-weight:700;font-size:.88rem;transition:transform .18s ease,filter .18s ease}.brochure-highlight .bh-btn:hover{transform:scale(1.06);filter:brightness(1.16)}.brochure-highlight .bh-btn svg{width:17px;height:17px}
+@media(max-width:650px){.brochure-highlight{align-items:flex-start;flex-direction:column;padding:21px}.brochure-highlight .bh-btn{width:100%;justify-content:center}}
+
 </style>
 </head>
 <body>
@@ -360,6 +367,18 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
           <li>Assortimentsdozen voor de meest voorkomende maten</li>
           <li>Maatwerk via Seal Jet, ook in kleine aantallen</li>
         </ul>
+        <div class="brochure-highlight">
+          <div class="bh-copy">
+            <p class="bh-label">Praktische productinformatie</p>
+            <h3>Bekijk de afdichtingenbrochure</h3>
+            <p>Ontdek de verschillende O-ringen, oliekeerringen, V-ringen en materialen in één overzichtelijke brochure.</p>
+          </div>
+          <a class="bh-btn" href="https://www.ebele-schiedam.nl/wp-content/uploads/2019/12/Brochure-Ebele-Afdichtingen.pdf" target="_blank" rel="noopener">
+            Brochure bekijken
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+          </a>
+        </div>
+
       </div>
     </div>
   </div>
