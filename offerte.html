@@ -372,12 +372,11 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
       <p>Velden met * zijn verplicht. Herkomst van uw gegevens: wij gebruiken ze uitsluitend om uw aanvraag te beantwoorden.</p>
       <form action="/api/contact" method="POST" aria-label="Offerteaanvraag">
         <input type="hidden" name="_subject" value="Nieuwe offerteaanvraag via Ebele Schiedam">
-        <input type="hidden" name="_autoresponse" value="Bedankt voor je offerteaanvraag aan Ebele Schiedam. Je aanvraag en ordernummer staan in deze bevestiging. We nemen zo snel mogelijk contact met je op.">
+        <input type="hidden" name="_autoresponse" value="Bedankt voor je offerteaanvraag aan Ebele Schiedam. Je ontvangt op dit e-mailadres een bevestiging van de aangevraagde offerte. We nemen zo snel mogelijk contact met je op.">
         <input type="hidden" name="_next" value="https://terryjansen.github.io/ebele-schiedam/bedankt.html">
         <input type="hidden" name="_captcha" value="true">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_url" value="https://terryjansen.github.io/ebele-schiedam/offerte.html">
-        <input type="hidden" name="ordernummer" id="order-number">
         <div class="frow">
           <div><label for="o-naam">Naam *</label><input id="o-naam" name="naam" required type="text" autocomplete="name"></div>
           <div><label for="o-bedrijf">Bedrijf</label><input id="o-bedrijf" name="bedrijf" type="text" autocomplete="organization"></div>
@@ -400,8 +399,8 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
               <label class="product-option"><input type="checkbox" name="productgroepen" value="Anders / weet ik nog niet"> Anders / nog niet bekend</label>
             </div>
           </div>
-          <div style="grid-column:1/-1"><label>Aantal en frequentie per productgroep</label>
-            <div id="product-details" class="product-details"><p class="details-hint">Selecteer hierboven één of meer productgroepen. Daarna kunt u per groep het aantal en de frequentie invullen.</p></div>
+          <div style="grid-column:1/-1"><label>Aantal per productgroep</label>
+            <div id="product-details" class="product-details"><p class="details-hint">Selecteer hierboven één of meer productgroepen. Daarna kunt u per groep het aantal invullen.</p></div>
           </div>
         </div>
         <div style="margin-top:14px"><label for="o-msg">Uw aanvraag *</label><textarea id="o-msg" name="aanvraag" required placeholder="Welk product zoekt u? Type, afmetingen, merkvoorkeur, gewenste levertijd…"></textarea></div>
@@ -417,7 +416,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   const details=document.getElementById('product-details');
   const updateProductDetails=()=>{
     const selected=productChecks.filter(c=>c.checked);
-    details.innerHTML=selected.length?selected.map((c,i)=>`<div class="product-detail"><strong>${c.value}</strong><input name="aantal_${i+1}" type="text" placeholder="Aantal"><select name="frequentie_${i+1}"><option value="Eenmalig">Eenmalig</option><option value="Wekelijks">Wekelijks</option><option value="Maandelijks">Maandelijks</option><option value="Per kwartaal">Per kwartaal</option><option value="Jaarlijks">Jaarlijks</option></select><input type="hidden" name="product_detail_${i+1}" value="${c.value}"></div>`).join(''): '<p class="details-hint">Selecteer hierboven één of meer productgroepen. Daarna kunt u per groep het aantal en de frequentie invullen.</p>';
+    details.innerHTML=selected.length?selected.map((c,i)=>`<div class="product-detail"><strong>${c.value}</strong><input name="aantal_${i+1}" type="text" placeholder="Aantal"><input type="hidden" name="product_detail_${i+1}" value="${c.value}"></div>`).join(''): '<p class="details-hint">Selecteer hierboven één of meer productgroepen. Daarna kunt u per groep het aantal invullen.</p>';
   };
   const updateProductValidity=()=>{
     const message=productChecks.some(c=>c.checked)?'':'Kies minimaal één productgroep.';
@@ -426,16 +425,6 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   };
   productChecks.forEach(c=>c.addEventListener('change',updateProductValidity));
   updateProductValidity();
-  const input=document.getElementById('order-number');
-  if(input){
-    const now=new Date();
-    const pad=n=>String(n).padStart(2,'0');
-    const order='EB-'+now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate())+'-'+Math.random().toString(36).slice(2,7).toUpperCase();
-    input.value=order;
-    const form=input.form;
-    const next=form.querySelector('input[name="_next"]');
-    if(next) next.value='https://terryjansen.github.io/ebele-schiedam/bedankt.html?order='+encodeURIComponent(order);
-  }
 })();
 </script>
 
