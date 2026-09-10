@@ -402,7 +402,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 </header>
 
 <main class="wrap sds-main"><div class="sds-grid"><article class="sds-card"><div class="doc-ic"><img src="img/loctite-logo.png" alt="Henkel Loctite" style="max-width:80%;max-height:34px;object-fit:contain"></div><h2>Henkel / Loctite</h2><p>Officiële SDS- en MSDS-database voor Adhesive Technologies en Loctite-producten.</p><a class="btn" href="https://mysds.henkel.com/index.html?&amp;sap-ui-language=NL" target="_blank" rel="noopener">Bekijk SDS/MSDS</a></article><article class="sds-card"><div class="doc-ic"><img src="img/skf.png" alt="SKF" style="max-width:80%;max-height:34px;object-fit:contain"></div><h2>SKF</h2><p>Officiële website van SKF voor lagers, afdichtingen, smeersystemen en technische oplossingen.</p><a class="btn" href="https://www.skf.com/nl" target="_blank" rel="noopener">Bekijk SKF</a></article><article class="sds-card"><div class="doc-ic"><img src="img/ina-fag-logo.png" alt="INA FAG Schaeffler" style="max-width:80%;max-height:34px;object-fit:contain"></div><h2>INA FAG / Schaeffler</h2><p>Officiële Schaeffler MEDIAS-catalogus voor INA- en FAG-producten en technische documentatie.</p><a class="btn" href="https://www.schaeffler.nl/nl/products-and-solutions/industry/medias-product-catalog/" target="_blank" rel="noopener">Bekijk Schaeffler</a></article></div>
-<div class="brochure-popup open" id="sdsHelpPopup" role="dialog" aria-label="Hulp bij veiligheidsinformatie">
+<div class="brochure-popup" id="sdsHelpPopup" role="dialog" aria-label="Hulp bij veiligheidsinformatie">
   <button class="bc-close" onclick="closeSdsHelp()" aria-label="Sluiten">&times;</button>
   <div class="bp-head">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
@@ -414,7 +414,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     <a class="bc-btn" href="mailto:info@ebele-schiedam.nl?subject=Aanvraag%20veiligheidsinformatie">Vraag informatie aan</a>
   </div>
 </div>
-<script>function closeSdsHelp(){document.getElementById('sdsHelpPopup').classList.remove('open')}</script>
+<script>setTimeout(()=>document.getElementById('sdsHelpPopup').classList.add('open'),5000);function closeSdsHelp(){document.getElementById('sdsHelpPopup').classList.remove('open')}</script>
 </main>
 
 <footer>
