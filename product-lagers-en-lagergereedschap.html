@@ -199,6 +199,7 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 .detail{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:start}
 .detail .photo{border-radius:16px;overflow:hidden;box-shadow:0 16px 36px rgba(4,5,47,.14)}
 .detail .photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.detail .photo.photo-uncropped img{aspect-ratio:35/17;object-fit:contain;background:#fff}
 .detail h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:12px}
 .detail p{color:var(--muted);margin-bottom:14px}
 .detail ul{margin:0 0 20px;padding-left:0;list-style:none}
@@ -441,7 +442,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   <div class="wrap">
     <div class="detail">
       <div>
-        <div class="photo"><img src="img/lagers.jpg" alt="Assortiment lagers" loading="lazy"></div>
+        <div class="photo photo-uncropped"><img src="img/lagers-assortiment.png" alt="Lagers en lagergereedschap" loading="lazy" width="700" height="340"></div>
         <div class="side-card">
           <h3>Binnen 24 uur geleverd</h3>
           <p>Door uitgekiende voorraden en korte lijnen met de fabrikanten staat uw lager vrijwel altijd binnen één werkdag op de werkplaats.</p>
