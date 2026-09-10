@@ -457,7 +457,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
         <p>Naast de lagers zelf leveren wij het gereedschap om ze vakkundig te monteren en te demonteren, plus vet en monitorsystemen om uitval te voorkomen.</p>
         <ul>
           <li>Kogellagers, rollagers, glijlagers, kegel-, ton- en cilinderlagers</li>
-          <li>Taats-, wentel- en naaldlagers, lagerblokken en RVS-lagers</li>
+          <li>Taats- en naaldlagers, lagerblokken en RVS-lagers</li>
           <li>Merken: FAG, INA, SKF, NTN, SNR, Timken, NSK, ZEN en meer</li>
           <li>Inductieverwarmers en montage- en demontagesets (SKF, FAG, KUKKO)</li>
           <li>Lagervet en monitorsystemen zoals de FAG SmartCheck</li>
@@ -507,11 +507,6 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
         <img src="img/br-taats.png" alt="Taatslagers" loading="lazy" onerror="this.src='img/lager-kogel.png'">
         <h3>Taatslagers</h3>
         <button class="type-btn" onclick="openLagerInfo('taats')">Meer info</button>
-      </div>
-      <div class="typecard">
-        <img src="img/br-ton.png" alt="Wentellagers" loading="lazy" onerror="this.src='img/lager-kogel.png'">
-        <h3>Wentellagers</h3>
-        <button class="type-btn" onclick="openLagerInfo('wentel')">Meer info</button>
       </div>
       <div class="typecard">
         <img src="img/br-naald.png" alt="Naaldlagers" loading="lazy" onerror="this.src='img/lager-kogel.png'">
@@ -625,8 +620,6 @@ const LAGERINFO = {
     s:["Enkelrijig en dubbelrijig","Volrollen voor maximale draagkracht","Scheidbaar ontwerp: ring en rollenbak apart montagebaar","Merken: SKF, FAG, NTN, Timken"]},
   taats:{n:"Taatslagers",img:"img/br-taats.png",d:"Axiaallagers die zuiver axiale belasting opvangen bij lage tot middelhoge snelheid — zoals in taaskoppen en verticale assen.",
     s:["Vlakke taatslagers (511/512/513/514-serie)","Combinaties met radiële lagers mogelijk","Compact ontwerp, eenvoudige montage","Merken: SKF, FAG, INA"]},
-  wentel:{n:"Wentellagers",img:"img/br-ton.png",d:"Pendelrollagers voor zware toepassingen: tonvormige rollen in een gebogen loopbaan, zelfrichtend en zeer draagkrachtig.",
-    s:["231/232/233-series in zware uitvoeringen","Zelfrichtend, geschikt voor schokbelasting","Ook uitvoeringen met conische boring (K)","Merken: SKF, FAG, NTN"]},
   naald:{n:"Naaldlagers",img:"img/br-cilinder.png",d:"Compacte lagers met dunne naaldrollen: maximale draagkracht in minimale bouwruimte. Standaard in HK- en NA-series.",
     s:["Naaldbussen HK/BK en naaldkooien K/KBK","Zeer compact en licht","Ook met ingebouwde naaldslagerringen (NA, RNA)","Merken: INA, SKF, Koyo"]},
   rvs:{n:"RVS lagers",img:"img/br-kogel.png",d:"Roestvrijstalen lagers voor vochtige of agressieve omgevingen: voedingsmiddelenindustrie, waterbehandeling en buitenopstellingen.",
