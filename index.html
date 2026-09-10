@@ -127,10 +127,14 @@ h2.title{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:800;letter-spacing:-.02e
 .assort-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
 .assort p{color:#a8aed2;font-size:.94rem;margin-bottom:18px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:6px 14px;font-size:.8rem;color:#dfe2f5}
-.assort-side{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:24px}
-.assort-side h3{color:#fff;font-size:.95rem;margin-bottom:10px}
-.assort-side p{font-size:.87rem;margin:0}
+.chip{border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:6px 14px;font-size:.8rem;color:#dfe2f5;background:transparent;font:inherit;cursor:pointer;transition:border-color .18s,background .18s,color .18s}
+.chip:hover,.chip.active{border-color:var(--cyan);background:rgba(0,183,243,.16);color:#fff}
+.assort-side{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:18px}
+.assort-side h3{color:#fff;font-size:.92rem;margin-bottom:8px}
+.assort-side p{font-size:.82rem;margin:0 0 8px}
+.bearing-info{border-top:1px solid rgba(255,255,255,.14);margin-top:14px;padding-top:14px;min-height:90px}.bearing-info h4{color:var(--cyan);font-size:.9rem;margin:0 0 5px}.bearing-info p{color:#a8aed2}
+.assort-side .btn-row{gap:8px}.assort-side .btn{padding:10px 15px;font-size:.82rem}
+@media(max-width:760px){.assort{padding:30px 24px}.assort-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.assort{padding:30px 24px}.assort-grid{grid-template-columns:1fr}}
 
 /* ——— CONTACT ——— */
@@ -416,16 +420,17 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
           <h2 class="title">Ook voor niet-standaard lagers</h2>
           <p>Lukt het niet uit eigen voorraad, dan putten wij uit de wereldwijde voorraden van onze fabrikanten en schakelen we zo nodig direct met hun technici. Ook moeilijke uitvoeringen leveren wij zo — tegen een scherpe, eerlijke prijs.</p>
           <div class="chips">
-            <span class="chip">Kogellagers</span><span class="chip">Rollagers</span><span class="chip">Glijlagers</span>
-            <span class="chip">Kegellagers</span><span class="chip">Tonlagers</span><span class="chip">Cilinderlagers</span>
-            <span class="chip">Taatslagers</span><span class="chip">Wentellagers</span><span class="chip">Naaldlagers</span>
-            <span class="chip">RVS lagers</span><span class="chip">Lagerblokken</span>
+            <button class="chip" type="button" data-bearing="Kogellagers">Kogellagers</button><button class="chip" type="button" data-bearing="Rollagers">Rollagers</button><button class="chip" type="button" data-bearing="Glijlagers">Glijlagers</button>
+                        <button class="chip" type="button" data-bearing="Kegellagers">Kegellagers</button><button class="chip" type="button" data-bearing="Tonlagers">Tonlagers</button><button class="chip" type="button" data-bearing="Cilinderlagers">Cilinderlagers</button>
+                        <button class="chip" type="button" data-bearing="Taatslagers">Taatslagers</button><button class="chip" type="button" data-bearing="Wentellagers">Wentellagers</button><button class="chip" type="button" data-bearing="Naaldlagers">Naaldlagers</button>
+                        <button class="chip" type="button" data-bearing="RVS lagers">RVS lagers</button><button class="chip" type="button" data-bearing="Lagerblokken">Lagerblokken</button>
           </div>
         </div>
         <div class="assort-side">
           <h3>Montage, onderhoud en preventie</h3>
           <p>Voor het monteren en demonteren leveren wij inductieverwarmers en lagermontagesets. Met lagervet en monitorsystemen zoals de FAG SmartCheck voorkomt u onverwachte uitval en schade aan uw lagers.</p>
           <p>Van standaard kogellagers tot speciale uitvoeringen: wij helpen u met het juiste type, merk en de passende montageoplossing.</p>
+          <div class="bearing-info" id="bearing-info" aria-live="polite"><h4>Kies een lagertype</h4><p>Klik links op een type lager voor productinformatie.</p></div>
           <div class="btn-row" style="margin-top:24px">
             <a class="btn btn-primary" href="product-lagers-en-lagergereedschap.html">Bekijk alle lagers</a>
             <a class="btn btn-ghost" href="offerte.html">Vraag een offerte</a>
@@ -536,6 +541,12 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 </footer>
 
 <script>
+(function(){
+  const info=document.getElementById('bearing-info');
+  const details={Kogellagers:'Lagers voor hoge toerentallen en algemene toepassingen.',Rollagers:'Geschikt voor hogere radiale belastingen in industriële machines.',Glijlagers:'Onderhoudsarme lageroplossingen voor rustige, gelijkmatige bewegingen.',Kegellagers:'Voor gecombineerde radiale en axiale belastingen.',Tonlagers:'Zelfinstellende lagers voor zware belastingen en uitlijnfouten.',Cilinderlagers:'Hoge radiale draagkracht bij compacte constructies.',Taatslagers:'Voor axiale belastingen en verticale toepassingen.',Wentellagers:'Betrouwbare lageroplossingen met rollende elementen.',Naaldlagers:'Veel draagvermogen bij beperkte inbouwruimte.','RVS lagers':'Corrosiebestendige lagers voor vochtige of hygiënische omgevingen.',Lagerblokken:'Complete lagerunits voor snelle en praktische montage.'};
+  document.querySelectorAll('[data-bearing]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-bearing]').forEach(b=>b.classList.remove('active'));button.classList.add('active');info.innerHTML='<h4>'+button.dataset.bearing+'</h4><p>'+details[button.dataset.bearing]+'</p>';}));
+})();
+
 // Fade-in-up bij scroll (zoals jgmobility)
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
