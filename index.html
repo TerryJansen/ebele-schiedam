@@ -171,8 +171,9 @@ footer{background:var(--navy);color:#8d92bd;padding:34px 20px;font-size:.84rem;b
 
 .pnum{display:block;font-size:.78rem;font-weight:600;color:var(--blue);letter-spacing:.08em;margin:14px 20px 0}
 .pcard .ph{border-radius:0}
-.grid-3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.grid-3{grid-template-columns:1fr}}
+.grid-3{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1100px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.grid-3{grid-template-columns:1fr}}
 /* ——— Industrial look (Smulders-referentie, eigen kleuren) ——— */
 .pcard{border-radius:0;border:1px solid var(--line);box-shadow:none}
 .pcard:hover{transform:none;border-color:var(--blue);box-shadow:inset 4px 0 0 var(--blue)}
@@ -365,7 +366,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   <div class="wrap">
     <p class="kicker">Uitgelicht</p>
     <h2 class="title">Uitgelichte producten</h2>
-    <p class="lead">De drie productgroepen die wij het vaakst leveren. Het volledige assortiment vindt u op de productenpagina.</p>
+    <p class="lead">Vier productgroepen die wij vaak leveren. Het volledige assortiment vindt u op de productenpagina.</p>
     <div class="grid grid-3">
       <article class="pcard"><span class="pnum">01</span>
         <div class="ph"><img src="img/lagers.jpg" alt="" loading="lazy" width="400" height="300"></div>
@@ -390,8 +391,16 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
                   <p>Betrouwbare aandrijfriemen en schijven van sterke merken voor industriële toepassingen.</p>
                 </div>
                 <a class="stretched" href="product-v-snaren-en-v-snaarschijven.html" aria-label="Meer over V-snaren en V-snaarschijven"></a>
-      </article>
-    </div>
+                </article>
+                <article class="pcard"><span class="pnum">04</span>
+                <div class="ph"><img src="img/loctite.jpg" alt="Loctite lijmen en afdichtingsmiddelen" loading="lazy" width="400" height="300"></div>
+                <div class="body">
+                  <h3>Loctite</h3>
+                  <p>Professionele lijmen, afdichtingsmiddelen en borgmiddelen voor duurzame technische verbindingen.</p>
+                </div>
+                <a class="stretched" href="product-lijmen-en-afdichtingsmiddelen.html" aria-label="Meer over Loctite lijmen en afdichtingsmiddelen"></a>
+                </article>
+                </div>
     <div class="btn-row" style="margin-top:32px">
       <a class="btn btn-primary" href="producten.html">Bekijk alle producten</a>
     </div>
