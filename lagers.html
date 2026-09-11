@@ -109,7 +109,7 @@ h2.title{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:800;letter-spacing:-.02e
 @media(max-width:520px){.grid{grid-template-columns:1fr}}
 
 /* ——— LAGERS (donkere band) ——— */
-.assort{background:var(--navy);border-radius:20px;padding:48px 44px;color:#fff}
+.assort{width:100vw;margin-left:50%;transform:translateX(-50%);background:var(--navy);border-radius:0;padding:48px max(44px,calc((100vw - 1120px)/2 + 44px));color:#fff;box-sizing:border-box}
 .assort .kicker{color:var(--cyan)}
 .assort h2.title{color:#fff}
 .assort-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
