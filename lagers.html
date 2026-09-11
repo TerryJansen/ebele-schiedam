@@ -348,32 +348,6 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   </div>
 </header>
 
-<section>
-  <div class="wrap">
-    <div class="assort">
-      <div class="assort-grid">
-        <div>
-          <p class="kicker">Lagertypes</p>
-          <h2 class="title">Ons lager-assortiment</h2>
-          <p>Lukt het niet uit eigen voorraad, dan schakelen we direct met de technici van de fabrikant. Zo leveren wij vrijwel elk type lager binnen één werkdag — tegen een scherpe, eerlijke prijs.</p>
-          
-          <div class="chips" role="tablist" aria-label="Lagertypes">
-            <button class="chip" data-t="kogel">Kogellagers</button><button class="chip" data-t="rol">Rollagers</button><button class="chip" data-t="glij">Glijlagers</button>
-            <button class="chip" data-t="kegel">Kegellagers</button><button class="chip" data-t="ton">Tonlagers</button><button class="chip" data-t="cilinder">Cilinderlagers</button>
-            <button class="chip" data-t="taats">Taatslagers</button><button class="chip" data-t="naald">Naaldlagers</button>
-            <button class="chip" data-t="rvs">RVS lagers</button><button class="chip" data-t="blok">Lagerblokken</button>
-          </div>
-          <div class="linfo" id="linfo" role="tabpanel"></div></div>
-        </div>
-        <div class="assort-side">
-          <h3>Montage, onderhoud en preventie</h3>
-          <p>Voor het monteren en demonteren leveren wij inductieverwarmers en lagermontagesets van SKF, FAG en KUKKO. Met lagervet en monitorsystemen zoals de FAG SmartCheck voorkomt u onverwachte uitval en schade aan uw lagers.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section style="padding-top:0">
   <div class="wrap">
     <div class="assort-grid">
@@ -435,50 +409,6 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     <span><a href="tel:+31104264354" style="color:#c3c7e2">010 426 43 54</a> · <a href="mailto:info@ebele-schiedam.nl" style="color:#c3c7e2">info@ebele-schiedam.nl</a></span>
   </div>
 </footer>
-
-<script>
-// mobiel: dropdown openen bij tik
-if(innerWidth<=820){document.querySelectorAll('.dd-toggle').forEach(t=>t.addEventListener('click',e=>{if(location.pathname.split('/').pop()!=='producten.html'){return}}))}
-const LAGERS = {
-  kogel:{img:"img/lager-kogel.png",n:"Kogellagers",d:"Het meest gebruikte lagertype: neemt radiale en axiale belasting op en draait licht. Standaard uitvoeringen direct uit voorraad, ook afgedicht (2RS) of met stalen sluitplaat.",
-    s:["Serie 6000 t/m 6900 series","Alle merken: o.a. SKF, FAG, INA, NTN, NSK","Alle uitvoeringen: o.a. 2Z, 2RS1, C3","Verkrijgbaar in RVS en met keramische kogels"]},
-  rol:{img:"img/lager-rol.png",n:"Rollagers",d:"Rollagers nemen hoge radiale belasting op dankzij het lijncontact tussen rollen en loopbanen. Ideaal bij zware belasting en hogere toerentallen.",
-    s:["Type NU, N, NJ, NUP en NN-serie","Hoge radiale draagkracht, demontabel","Merken: SKF, FAG, NTN, Timken","Ook uitvoeringen met randgeleiding en volrollen"]},
-  glij:{img:"img/glijlagers.png",n:"Glijlagers",d:"Lagers die op een glijdende film draaien in plaats van op rollende elementen: stil, compact en geschikt voor schokbelasting en trillingen.",
-    s:["Met of zonder lip (PAF/PAP)","Verkrijgbaar in metaal (brons), kunststof of composiet","Hoge belasting bij langzame draaisnelheid","Onderhoudsvrij of met vetsmering"]},
-  kegel:{img:"img/lager-kegel.png",n:"Kegellagers",d:"Tapered roller bearings nemen gelijktijdig hoge radiale én axiale belasting op. Standaard in de automotive en zware industrie.",
-    s:["Enkel-, dubbel- en viervoudige rijen","Alle merken: o.a. SKF, FAG, INA, NTN, NSK","Stelbare speling – ideaal bij combinatiebelasting","Inch- en metrische maten leverbaar"]},
-  ton:{img:"img/tonlagers.png",n:"Tonlagers",d:"Zelfrichtende lagers met tonvormige rollen die hoekverkeerdstelling van de as opvangen — bijvoorbeeld bij doorbuiging of montagetoleranties.",
-    s:["Alle beschikbare series: o.a. 213, 222 en 232","Alle merken: o.a. SKF, FAG, INA, NTN, NSK","Zelfrichtend tot enkele graden hoekafwijking","Hoge radiale belasting, ook zware uitvoeringen (E)"]},
-  cilinder:{img:"img/cilinderlagers.png",n:"Cilinderlagers",d:"Cilinderlagers met hoge radiale draagkracht en een demontabel ontwerp voor industriële toepassingen.",
-    s:["NU, N, NJ, NUP en NN-serie","Hoge radiale draagkracht, demontabel","Alle merken: o.a. SKF, FAG, INA, NTN, NSK","Ook uitvoeringen met randgeleiding en volrollen (SL-series)"]},
-  taats:{img:"img/lager-taats.png",n:"Taatslagers",d:"Axiaallagers die zuiver axiale belasting opvangen bij lage tot middelhoge snelheid — zoals in taaskoppen en verticale assen.",
-    s:["Vlakke taatslagers (511/512/513/514-serie)","Alle merken: o.a. SKF, FAG, INA, NTN, NSK","Combinaties met radiale lagers mogelijk","Compact ontwerp, eenvoudige montage"]},
-  naald:{img:"img/br-naald.png",n:"Naaldlagers",d:"Compacte lagers met dunne naaldrollen: maximale draagkracht in minimale bouwruimte. Standaard inHK- en NA-series.",
-    s:["Naaldbussen HK/BK en naaldkooien K/KBK","Alle merken: o.a. SKF, FAG, INA, NTN, NSK","Zeer compact en licht","Ook met ingebouwde naaldlagerringen (NA, RNA)"]},
-  rvs:{img:"img/lager-kogel.png",n:"RVS lagers",d:"Roestvrijstalen lagers voor vochtige of agressieve omgevingen: voedingsmiddelenindustrie, waterbehandeling en buitenopstellingen.",
-    s:["Materiaal AISI 440C of 304","Bestand tegen water, vocht en veel chemicaliën","Ook hittebestendige uitvoeringen tot ± 300 °C","Alle merken: o.a. SKF, FAG, INA, NTN, NSK"]},
-  blok:{img:"img/lagerblokken-transparant.png",n:"Lagerblokken",d:"Complete lagerunits: zelfrichtend bolvormig lager in gietijzeren of kunststof huis. Gereed voor montage, met vetsmering voor de levensduur.",
-    s:["UC/UCP/UCF/UCT/UCFC-series","Gietijzer, RVS of kunststof huis","Bolvormig lager compenseert uitlijningsfouten","Alle merken: o.a. SKF, FAG, INA, NTN, NSK"]},
-};
-function specItems(t){
-  const a=[...t.s], bi=a.findIndex(x=>/^((Alle )?merken):/i.test(x));
-  const first=a[0], brand=bi>=0?a[bi].replace(/^((Alle )?merken):\s*/i,''):'Diverse merken leverbaar op aanvraag', rest=a.filter((x,i)=>i!==0&&i!==bi);
-  return [{label:'Type',text:first},{label:'Merken',text:brand},...rest.map((x,i)=>({label:i===0?'Eigenschappen':i===1?'Uitvoeringen':'Aanvullend',text:x}))];
-}
-const panel = document.getElementById('linfo');
-document.querySelectorAll('.chip').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const on = btn.classList.contains('on');
-    document.querySelectorAll('.chip').forEach(b => b.classList.remove('on'));
-    if (on) { panel.classList.remove('show'); return; }  // nogmaals klikken sluit
-    btn.classList.add('on');
-    const t = LAGERS[btn.dataset.t];
-    panel.innerHTML = '<div class="linfo-flex"><div><h3>'+t.n+'</h3><p>'+t.d+'</p><ul class="specs">'+specItems(t).map(x=>'<li><strong>'+x.label+':</strong> '+x.text+'</li>').join('')+'</ul><p style="margin:14px 0 0">Op zoek naar dit type? <a href="contact.html">Vraag een offerte aan</a> of bel 010 426 43 54.</p></div><div class="lviewer"><img src="'+t.img+'" alt="'+t.n+'" style="max-width:230px;width:100%;height:auto;border-radius:8px;background:#fff;padding:8px"></div></div>';
-    panel.classList.remove('show'); void panel.offsetWidth; panel.classList.add('show');
-  });
-});
-</script>
 
 <script>
 // Fade-in-up bij scroll (zoals jgmobility)
