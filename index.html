@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Ebele Schiedam — Lagers, afdichtingen en aandrijftechniek sinds 1994</title>
-<meta name="description" content="Lagers kopen in Schiedam? Ebele levert kogellagers, rollagers, afdichtingen en aandrijftechniek aan de industrie. Snel advies, scherpe offerte en levering uit voorraad.">
+<meta name="description" content="Lagers kopen in Schiedam? Ebele levert kogellagers, afdichtingen en aandrijftechniek aan de industrie. Snel advies, scherpe offerte en levering uit voorraad.">
 <meta name="google-site-verification" content="pG02canQe_IXVis2PpZcpZfR3uJ9TH8KKC5z5tNpWAk" />
 <link rel="canonical" href="https://terryjansen.github.io/ebele-schiedam/">
 <meta property="og:type" content="website">
@@ -413,7 +413,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
           <h2 class="title">Ook voor niet-standaard lagers</h2>
           <p>Lukt het niet uit eigen voorraad, dan putten wij uit de wereldwijde voorraden van onze fabrikanten en schakelen we zo nodig direct met hun technici. Ook moeilijke uitvoeringen leveren wij zo — tegen een scherpe, eerlijke prijs.</p>
           <div class="chips">
-            <button class="chip" type="button" data-bearing="Kogellagers">Kogellagers</button><button class="chip" type="button" data-bearing="Rollagers">Rollagers</button><button class="chip" type="button" data-bearing="Glijlagers">Glijlagers</button>
+            <button class="chip" type="button" data-bearing="Kogellagers">Kogellagers</button><button class="chip" type="button" data-bearing="Glijlagers">Glijlagers</button>
                         <button class="chip" type="button" data-bearing="Kegellagers">Kegellagers</button><button class="chip" type="button" data-bearing="Tonlagers">Tonlagers</button><button class="chip" type="button" data-bearing="Cilinderlagers">Cilinderlagers</button>
                         <button class="chip" type="button" data-bearing="Taatslagers">Taatslagers</button><button class="chip" type="button" data-bearing="Naaldlagers">Naaldlagers</button>
                         <button class="chip" type="button" data-bearing="RVS lagers">RVS lagers</button><button class="chip" type="button" data-bearing="Lagerblokken">Lagerblokken</button>
@@ -537,7 +537,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 <script>
 (function(){
   const info=document.getElementById('bearing-info');
-  const details={Kogellagers:'Lagers voor hoge toerentallen en algemene toepassingen.',Rollagers:'Geschikt voor hogere radiale belastingen in industriële machines.',Glijlagers:'Onderhoudsarme lageroplossingen voor rustige, gelijkmatige bewegingen.',Kegellagers:'Voor gecombineerde radiale en axiale belastingen.',Tonlagers:'Zelfinstellende lagers voor zware belastingen en uitlijnfouten.',Cilinderlagers:'NU, N, NJ, NUP en NN-serie; hoge radiale draagkracht en demontabel.',Taatslagers:'Voor axiale belastingen en verticale toepassingen.',Naaldlagers:'Veel draagvermogen bij beperkte inbouwruimte.','RVS lagers':'Corrosiebestendige lagers voor vochtige of hygiënische omgevingen.',Lagerblokken:'Complete lagerunits voor snelle en praktische montage.'};
+  const details={Kogellagers:'Lagers voor hoge toerentallen en algemene toepassingen.',Glijlagers:'Onderhoudsarme lageroplossingen voor rustige, gelijkmatige bewegingen.',Kegellagers:'Voor gecombineerde radiale en axiale belastingen.',Tonlagers:'Zelfinstellende lagers voor zware belastingen en uitlijnfouten.',Cilinderlagers:'NU, N, NJ, NUP en NN-serie; hoge radiale draagkracht en demontabel.',Taatslagers:'Voor axiale belastingen en verticale toepassingen.',Naaldlagers:'Veel draagvermogen bij beperkte inbouwruimte.','RVS lagers':'Corrosiebestendige lagers voor vochtige of hygiënische omgevingen.',Lagerblokken:'Complete lagerunits voor snelle en praktische montage.'};
   document.querySelectorAll('[data-bearing]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-bearing]').forEach(b=>b.classList.remove('active'));button.classList.add('active');info.innerHTML='<h4>'+button.dataset.bearing+'</h4><p>'+details[button.dataset.bearing]+'</p>';}));
 })();
 
