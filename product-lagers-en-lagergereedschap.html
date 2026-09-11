@@ -631,10 +631,15 @@ const LAGERINFO = {
 };
 </script>
 <script>
+function specItems(t){
+  const a=[...t.s], bi=a.findIndex(x=>/^((Alle )?merken):/i.test(x));
+  const first=a[0], brand=bi>=0?a[bi].replace(/^((Alle )?merken):\s*/i,''):'Diverse merken leverbaar op aanvraag', rest=a.filter((x,i)=>i!==0&&i!==bi);
+  return [{label:'Type',text:first},{label:'Merken',text:brand},...rest.map((x,i)=>({label:i===0?'Eigenschappen':i===1?'Uitvoeringen':'Aanvullend',text:x}))];
+}
 function openLagerInfo(t){
   const d = LAGERINFO[t];
   const c = document.getElementById('liContent');
-  c.innerHTML = '<img src="'+d.img+'" alt="'+d.n+'" style="max-width:100%;max-height:190px;object-fit:contain;display:block;margin:0 auto 16px;background:#fff;border-radius:10px;padding:8px;border:1px solid var(--line)"><h3 style="color:var(--navy);font-size:1.2rem;margin-bottom:8px">'+d.n+'</h3><p style="color:var(--muted);font-size:.9rem;line-height:1.6;margin-bottom:14px">'+d.d+'</p><ul class="li-specs">'+d.s.map(x=>'<li>'+x+'</li>').join('')+'</ul><div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><a href="offerte.html" class="btn btn-primary" style="text-decoration:none">Offerte aanvragen</a><a href="contact.html" class="btn btn-ghost" style="text-decoration:none">Contact</a></div>';
+  c.innerHTML = '<img src="'+d.img+'" alt="'+d.n+'" style="max-width:100%;max-height:190px;object-fit:contain;display:block;margin:0 auto 16px;background:#fff;border-radius:10px;padding:8px;border:1px solid var(--line)"><h3 style="color:var(--navy);font-size:1.2rem;margin-bottom:8px">'+d.n+'</h3><p style="color:var(--muted);font-size:.9rem;line-height:1.6;margin-bottom:14px">'+d.d+'</p><ul class="li-specs">'+specItems(d).map(x=>'<li><strong>'+x.label+':</strong> '+x.text+'</li>').join('')+'</ul><div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><a href="offerte.html" class="btn btn-primary" style="text-decoration:none">Offerte aanvragen</a><a href="contact.html" class="btn btn-ghost" style="text-decoration:none">Contact</a></div>';
   document.getElementById('liOverlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
