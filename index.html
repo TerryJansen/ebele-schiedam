@@ -111,6 +111,8 @@ h2.title{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:800;letter-spacing:-.02e
 .pcard:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(4,5,47,.1)}
 .pcard .ph{aspect-ratio:4/3;overflow:hidden;background:#e9ecf3}
 .pcard .ph img{width:100%;height:100%;object-fit:cover}
+.pcard .ph.ph-uncropped{background:#fff}
+.pcard .ph.ph-uncropped img{object-fit:contain}
 .pcard .body{padding:16px 20px 20px}
 .pcard h3{font-size:.98rem;margin-bottom:5px}
 .pcard p{font-size:.84rem;color:var(--muted)}
@@ -223,6 +225,7 @@ h2.title,h1{font-weight:700}
 .chip.on{transform:translateY(-1px) scale(1.04);box-shadow:0 6px 18px rgba(0,183,243,.35)}
 .pcard .ph img{transition:transform .45s cubic-bezier(.2,.7,.3,1)}
 .pcard:hover .ph img{transform:scale(1.06) rotate(.6deg)}
+.pcard:hover .ph.ph-uncropped img{transform:none}
 .pcard:hover{border-color:var(--blue);box-shadow:inset 4px 0 0 var(--blue), 0 10px 26px rgba(4,5,47,.10)}
 .pnum{transition:color .2s,letter-spacing .25s}
 .pcard:hover .pnum{letter-spacing:.22em}
@@ -364,7 +367,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     <p class="lead">Vier productgroepen die wij vaak leveren. Het volledige assortiment vindt u op de productenpagina.</p>
     <div class="grid grid-3">
       <article class="pcard"><span class="pnum">01</span>
-        <div class="ph"><img src="img/lagers.jpg" alt="" loading="lazy" width="400" height="300"></div>
+        <div class="ph ph-uncropped"><img src="img/lagers.jpg" alt="Lagers en lagergereedschap" loading="lazy" width="400" height="300"></div>
         <div class="body">
           <h3>Lagers &amp; lagergereedschap</h3>
           <p>Vrijwel alle lagertypes van FAG, SKF, INA, NTN en meer — plus het gereedschap om ze te monteren.</p>
