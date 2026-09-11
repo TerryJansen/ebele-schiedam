@@ -288,31 +288,25 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 /* Logo: roterend lagertje + statische tekst */
 .logo{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
 .logo b{font-size:.95rem;font-weight:600;color:var(--navy)}
-.logo-mark{display:inline-flex;flex-direction:column;align-items:stretch;gap:0;margin-top:0}
-.logo-bearing-spin{height:24px;width:auto;animation:logoSpin 45s linear infinite;will-change:transform;transform-origin:50% 50%}
+.logo-mark{display:inline-flex;flex-direction:column;align-items:center;gap:0;margin-top:8px}
+.logo-bearing-spin{height:24px;width:auto;animation:logoSpin 60s linear infinite;will-change:transform;transform-origin:50% 50%}
 @keyframes logoSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .logo-text{height:35px;width:auto}
-.logo-top{display:flex;align-items:flex-end;width:100%;gap:6px}
-.logo-bar{flex:1 1 auto;height:2px;background:#0070b7;display:block;min-width:12px;margin-bottom:5px}
 @media(prefers-reduced-motion:reduce){.logo-bearing-spin{animation:none}}
 .dd-menu a:not(:last-child){border-bottom:1px solid var(--bg) !important;border-radius:0 !important}
 
 /* Desktop logo sizing: larger without entering the blue hero area */
-@media(min-width:821px){.nav-in{height:124px}.logo-mark{margin-top:0;align-items:stretch}.logo-bearing-spin{height:42px!important}.logo-text{height:35px!important;width:auto!important}.logo-bar{height:3px;margin-bottom:8px}.foot-logo{height:88px}}
-@media(max-width:820px){.logo-mark{align-items:stretch}.logo-bearing-spin{height:21px!important}.logo-text{height:35px!important;width:auto!important}.foot-logo{height:54px}}
+@media(min-width:821px){.nav-in{height:124px}.logo img{height:110px}.logo-bearing-spin{height:42px!important}.foot-logo{height:88px}}
+@media(max-width:820px){.logo img{height:56px}.foot-logo{height:54px}}
 </style>
 </head>
 <body>
 <nav class="nav" aria-label="Hoofdnavigatie">
   <div class="nav-in">
     <a class="logo" href="index.html" aria-label="Ebele Schiedam — naar boven">
-            <span class="logo-mark">
-          <span class="logo-top" aria-hidden="true">
-            <span class="logo-bar"></span>
-            <img class="logo-bearing-spin" src="img/logo-bearing.png" alt="" aria-hidden="true" style="height:21px;width:auto">
-            <span class="logo-bar"></span>
-          </span>
-          <img class="logo-text" src="img/logo-text.png" alt="Ebele Schiedam" style="height:35px;width:auto">
+      <span class="logo-mark">
+          <img class="logo-bearing-spin" src="img/logo-bearing.png" alt="" aria-hidden="true" style="height:21px;width:auto">
+          <img class="logo-text" src="img/logo-text.png" alt="Ebele Schiedam" style="height:35px;width:auto">>
         </span>
     </a>
     <button class="burger" aria-label="Menu openen of sluiten" aria-expanded="false" onclick="var l=document.querySelector('.nav-links');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">
@@ -365,8 +359,8 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
           
           <div class="chips" role="tablist" aria-label="Lagertypes">
             <button class="chip" data-t="kogel">Kogellagers</button><button class="chip" data-t="rol">Rollagers</button><button class="chip" data-t="glij">Glijlagers</button>
-            <button class="chip" data-t="kegel">Kegellagers</button><button class="chip" data-t="ton">Tonlagers</button><button class="chip" data-t="cilinder">Cilinderlagers</button>
-            <button class="chip" data-t="taats">Taatslagers</button><button class="chip" data-t="naald">Naaldlagers</button>
+            <button class="chip" data-t="kegel">Kegellagers</button><button class="chip" data-t="ton">Tonlagers</button>
+            <button class="chip" data-t="taats">Taatslagers</button><button class="chip" data-t="wentel">Wentellagers</button><button class="chip" data-t="naald">Naaldlagers</button>
             <button class="chip" data-t="rvs">RVS lagers</button><button class="chip" data-t="blok">Lagerblokken</button>
           </div>
           <div class="linfo" id="linfo" role="tabpanel"></div></div>
@@ -448,7 +442,7 @@ if(innerWidth<=820){document.querySelectorAll('.dd-toggle').forEach(t=>t.addEven
 const LAGERS = {
   kogel:{img:"img/lager-kogel.png",n:"Kogellagers",d:"Het meest gebruikte lagertype: neemt radiale en axiale belasting op en draait licht. Standaard uitvoeringen direct uit voorraad, ook afgedicht (2RS) of met stalen sluitplaat.",
     s:["Type 6200–6230 en 618/619-series","Uitvoeringen: open, Z, 2RS, E2 (energiebesparend)","Merken: SKF, FAG, INA, NTN, NSK, ZEN","Verkrijgbaar in RVS en met keramische kogels"]},
-  rol:{img:"img/lager-rol.png",n:"Rollagers",d:"Cilinderrollagers nemen hoge radiale belasting op dankzij het lijncontact tussen rollen en loopbanen. Ideaal bij zware belasting en hogere toerentallen.",
+  rol:{img:"img/lager-rol.png",n:"Rollagers",d:"Rollagers nemen hoge radiale belasting op dankzij het lijncontact tussen rollen en loopbanen. Ideaal bij zware belasting en hogere toerentallen.",
     s:["Type NU, N, NJ, NUP en NN-serie","Hoge radiale draagkracht, demontabel","Merken: SKF, FAG, NTN, Timken","Ook uitvoeringen met randgeleiding en volrollen"]},
   glij:{img:"img/lager-glij.png",n:"Glijlagers",d:"Lagers die op een glijdende film draaien in plaats van op rollende elementen: stil, compact en geschikt voor schokbelasting en trillingen.",
     s:["Sinterbronzen en composiet-bussen (bijv. DX/DU)","Onderhoudsvrij of met vetsmering","Hoge belasting bij langzame draaisnelheid","Maatwerk bussen leverbaar"]},
@@ -456,10 +450,10 @@ const LAGERS = {
     s:["Enkel-, dubbel- en viervoudige rijen","Stelbaar speling — ideaal bij combinatiebelasting","Merken: Timken, SKF, FAG, NTN","Inch- en metrische maten leverbaar"]},
   ton:{img:"img/lager-wentel.png",n:"Tonlagers",d:"Zelfrichtende lagers met tonvormige rollen die hoekverkeerdstelling van de as opvangen — bijvoorbeeld bij doorbuiging of montagetoleranties.",
     s:["Type 222xx, 223xx en 231xx-serie","Zelfrichtend tot enkele graden hoekafwijking","Hoge radiale belasting, ook zware uitvoeringen (E)","Merken: SKF, FAG, NTN"]},
-  cilinder:{img:"img/lager-rol.png",n:"Cilinderlagers",d:"Een ander woord voor cilinderrollagers: lijncontact maakt hoge radiale belasting mogelijk bij beperkte bouwruimte.",
-    s:["Enkelrijig en dubbelrijig","Volrollen voor maximale draagkracht","Scheidbaar ontwerp: ring en rollenbak apart montagebaar","Merken: SKF, FAG, NTN, Timken"]},
   taats:{img:"img/lager-taats.png",n:"Taatslagers",d:"Axiaallagers die zuiver axiale belasting opvangen bij lage tot middelhoge snelheid — zoals in taaskoppen en verticale assen.",
     s:["Vlakke taatslagers (511/512/513/514-serie)","Combinaties met radiële lagers mogelijk","Compact ontwerp, eenvoudige montage","Merken: SKF, FAG, INA"]},
+  wentel:{img:"img/lager-wentel.png",n:"Wentellagers",d:"Pendelrollagers voor zware toepassingen: tonvormige rollen in een gebogen loopbaan, zelfrichtend en zeer draagkrachtig.",
+    s:["231/232/233-series in zware uitvoeringen","Zelfrichtend, geschikt voor schokbelasting","Ook uitvoeringen met conische boring (K)","Merken: SKF, FAG, NTN"]},
   naald:{img:"img/lager-rol.png",n:"Naaldlagers",d:"Compacte lagers met dunne naaldrollen: maximale draagkracht in minimale bouwruimte. Standaard inHK- en NA-series.",
     s:["Naaldbussen HK/BK en naaldkooien K/KBK","Zeer compact en licht","Ook met ingebouwde naaldslagerringen (NA, RNA)","Merken: INA, SKF, Koyo"]},
   rvs:{img:"img/lager-kogel.png",n:"RVS lagers",d:"Roestvrijstalen lagers voor vochtige of agressieve omgevingen: voedingsmiddelenindustrie, waterbehandeling en buitenopstellingen.",
