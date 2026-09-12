@@ -427,7 +427,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 </script>
 
 <!-- Brochure popup -->
-<div class="brochure-popup" id="afdichtingBrochureOverlay" role="dialog" aria-label="Afdichtingen brochure">
+<div class="brochure-popup" id="afdichtingBrochureOverlay" role="dialog" aria-label="Afdichtingen brochure" aria-hidden="true">
   <span class="bp-tag">NIEUW</span>
   <button class="bc-close" onclick="closeAfdichtingBrochure()" aria-label="Sluiten">&times;</button>
   <div class="bp-head">
@@ -444,26 +444,24 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
   </div>
 </div>
 <script>
-// popup na 2.5 sec tonen — elke keer bij bezoek van de homepagina
+// popup na 2.5 sec tonen — elke keer bij bezoek van de afdichtingspagina
 (function(){
+  const popup = document.getElementById('afdichtingBrochureOverlay');
+  if(!popup) return;
   setTimeout(function(){
-    document.getElementById('afdichtingBrochureOverlay').classList.add('open');
+    popup.classList.add('open');
+    popup.setAttribute('aria-hidden','false');
   }, 2500);
-  window.closeBrochure = function(){
-    document.getElementById('oRingBrochureOverlay').classList.remove('open');
+  window.closeAfdichtingBrochure = function(){
+    popup.classList.remove('open');
+    popup.setAttribute('aria-hidden','true');
   };
-  document.getElementById('oRingBrochureOverlay').addEventListener('click', function(e){
-    if(e.target === this) closeORingBrochure();
+  popup.addEventListener('click', function(e){
+    if(e.target === popup) closeAfdichtingBrochure();
   });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeORingBrochure(); });
-})();
-</script>
-<script>
-(function(){
-  setTimeout(function(){
-    var popup=document.getElementById('oRingBrochureOverlay');
-    if(popup) popup.classList.add('open');
-  },2500);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeAfdichtingBrochure();
+  });
 })();
 </script>
 
