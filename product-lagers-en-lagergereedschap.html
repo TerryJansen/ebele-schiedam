@@ -383,6 +383,19 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 @media(max-width:520px){.type-grid{grid-template-columns:1fr}.li-panel{padding:26px 20px}}
 
 
+/* Brochure popup: dezelfde compacte stijl als de andere brochure */
+.brochure-popup{position:fixed;right:16px;bottom:16px;z-index:1000;width:290px;background:#fff;border-radius:12px;box-shadow:0 14px 38px rgba(4,5,47,.3);display:none;overflow:hidden;animation:bpIn .45s cubic-bezier(.34,1.56,.64,1);border:1px solid var(--line)}
+.brochure-popup.open{display:block}
+@keyframes bpIn{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:none}}
+.bp-head{background:var(--navy);color:#fff;padding:10px 36px 10px 14px;font-size:.82rem;font-weight:600;position:relative}
+.brochure-popup .bc-close{position:absolute;top:5px;right:8px;background:none;border:none;font-size:1.35rem;color:#fff;cursor:pointer;line-height:1;padding:3px;z-index:2}
+.bp-body{padding:14px}
+.bp-body h3{color:var(--navy);font-size:.95rem;margin-bottom:5px}
+.bp-body p{color:var(--muted);font-size:.8rem;line-height:1.45;margin-bottom:12px}
+.bp-body .bc-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:0;text-decoration:none;font-weight:600;font-size:.8rem;background:var(--blue);color:#fff;transition:transform .18s ease,filter .18s ease}
+.bp-body .bc-btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
+@media(max-width:480px){.brochure-popup{right:10px;bottom:10px;left:10px;width:auto}}
+@media(prefers-reduced-motion:reduce){.brochure-popup{animation:none}}
 </style>
 </head>
 <body>
@@ -641,6 +654,33 @@ function closeLagerInfo(){
   document.body.style.overflow='';
 }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLagerInfo(); });
+</script>
+<!-- Brochure popup: bij ieder bezoek aan deze productcategorie -->
+<div class="brochure-popup" id="lagerBrochureOverlay" role="dialog" aria-labelledby="lagerBrochureTitle" aria-hidden="true">
+  <div class="bp-head">Ebele lagers en lagergereedschap
+    <button class="bc-close" type="button" aria-label="Brochure sluiten">&times;</button>
+  </div>
+  <div class="bp-body">
+    <h3 id="lagerBrochureTitle">Ontdek onze brochure</h3>
+    <p>Meer informatie over ons assortiment lagers en lagergereedschap.</p>
+    <a class="bc-btn" href="brochure.pdf" target="_blank" rel="noopener">Brochure bekijken</a>
+  </div>
+</div>
+<script>
+(function(){
+  const popup = document.getElementById('lagerBrochureOverlay');
+  const timer = setTimeout(function(){
+    popup.classList.add('open');
+    popup.setAttribute('aria-hidden', 'false');
+  }, 2500);
+  function close(){
+    clearTimeout(timer);
+    popup.classList.remove('open');
+    popup.setAttribute('aria-hidden', 'true');
+  }
+  popup.querySelector('.bc-close').addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+})();
 </script>
 </body>
 </html>
