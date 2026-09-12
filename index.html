@@ -289,6 +289,24 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 /* Desktop logo sizing: larger without entering the blue hero area */
 @media(min-width:821px){.nav-in{height:124px}.logo-mark{margin-top:0;align-items:stretch}.logo-bearing-spin{height:42px!important}.logo-text{height:35px!important;width:auto!important}.logo-bar{height:3px;margin-bottom:8px}.foot-logo{height:88px}}
 @media(max-width:820px){.logo-mark{align-items:stretch}.logo-bearing-spin{height:21px!important}.logo-text{height:35px!important;width:auto!important}.foot-logo{height:54px}}
+
+/* Brochure popup op de homepage */
+.brochure-popup{position:fixed;right:16px;bottom:16px;z-index:1000;width:290px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 38px rgba(4,5,47,.3);display:none;overflow:hidden;animation:bpIn .45s cubic-bezier(.34,1.56,.64,1)}
+.brochure-popup.open{display:block}
+@keyframes bpIn{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:none}}
+.bp-head{background:var(--navy);color:#fff;padding:10px 36px 10px 14px;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:8px;position:relative}
+.bp-head svg{width:15px;height:15px;stroke:var(--cyan);flex-shrink:0}
+.brochure-popup .bc-close{position:absolute;top:6px;right:8px;background:none;border:0;font-size:1.2rem;color:#8d92bd;cursor:pointer;line-height:1;padding:3px;z-index:2}
+.brochure-popup .bc-close:hover{color:#fff}
+.bp-body{padding:14px}
+.bp-body h3{color:var(--navy);font-size:.95rem;margin-bottom:5px}
+.bp-body p{color:var(--muted);font-size:.8rem;line-height:1.45;margin-bottom:12px}
+.bp-body .bc-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;text-decoration:none;font-weight:600;font-size:.8rem;background:var(--blue);color:#fff;transition:transform .18s ease,filter .18s ease}
+.bp-body .bc-btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
+.bp-body .bc-btn svg{width:13px;height:13px}
+.bp-tag{position:absolute;top:10px;right:36px;background:var(--cyan);color:var(--navy);font-size:.62rem;font-weight:700;padding:3px 8px;border-radius:99px;letter-spacing:.04em;z-index:2}
+@media(max-width:480px){.brochure-popup{right:10px;bottom:10px;left:10px;width:auto}}
+@media(prefers-reduced-motion:reduce){.brochure-popup{animation:none}}
 </style>
 </head>
 <body>
