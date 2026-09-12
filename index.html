@@ -567,5 +567,38 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 })();
 </script>
 
+<!-- Brochure popup -->
+<div class="brochure-popup" id="brochureOverlay" role="dialog" aria-label="Onze brochure">
+  <span class="bp-tag">NIEUW</span>
+  <button class="bc-close" onclick="closeBrochure()" aria-label="Sluiten">&times;</button>
+  <div class="bp-head">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
+    Ebele Schiedam
+  </div>
+  <div class="bp-body">
+    <h3>Ontdek onze brochure</h3>
+    <p>Het complete assortiment, onze werkwijze en alle merken — in één document.</p>
+    <a class="bc-btn" href="brochure.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      Brochure bekijken
+    </a>
+  </div>
+</div>
+<script>
+// popup na 2.5 sec tonen — elke keer bij bezoek van de homepagina
+(function(){
+  setTimeout(function(){
+    document.getElementById('brochureOverlay').classList.add('open');
+  }, 2500);
+  window.closeBrochure = function(){
+    document.getElementById('brochureOverlay').classList.remove('open');
+  };
+  document.getElementById('brochureOverlay').addEventListener('click', function(e){
+    if(e.target === this) closeBrochure();
+  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeBrochure(); });
+})();
+</script>
+
 </body>
 </html>
