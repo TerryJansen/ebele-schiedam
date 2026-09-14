@@ -33,9 +33,14 @@ export default async function handler(request) {
     const fields = await getFields(request);
     const email = String(fields.email || "").trim();
     const name = String(fields.naam || "").trim();
+    const formType = String(fields.form_type || "contact").trim().toLowerCase();
+    const isVacancyAlert = formType === "vacancy-alert";
 
-    if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return new Response("Naam en een geldig e-mailadres zijn verplicht", { status: 400 });
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return new Response("Een geldig e-mailadres is verplicht", { status: 400 });
+    }
+    if (!isVacancyAlert && !name) {
+      return new Response("Naam is verplicht", { status: 400 });
     }
 
     const subject = String(fields._subject || "Nieuwe aanvraag via Ebele Schiedam");
@@ -64,7 +69,7 @@ export default async function handler(request) {
       return new Response("E-mail kon niet worden verzonden", { status: 502 });
     }
 
-    return Response.redirect(`${SITE_URL}/bedankt.html`, 303);
+    return Response.redirect(`${SITE_URL}/${isVacancyAlert ? "vacature-bedankt.html" : "bedankt.html"}`, 303);
   } catch (error) {
     console.error("Form error", error);
     return new Response("Ongeldige aanvraag", { status: 400 });

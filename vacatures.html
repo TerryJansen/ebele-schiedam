@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Vacatures — Ebele Schiedam</title>
 <meta name="description" content="Werken bij Ebele Schiedam in Schiedam. Momenteel geen open vacatures — meld je aan en ontvang een bericht zodra er een functie vrijkomt.">
-<html lang="nl">
   <link rel="icon" type="image/png" sizes="50x50" href="img/favicon-50.png">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -453,6 +452,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
       <h3>Bericht zodra er een vacature vrijkomt</h3>
       <p>Laat je e-mailadres achter. We mailen je één keer zodra er een nieuwe functie op de site staat — verder niets.</p>
       <form class="alert-form" action="/api/contact" method="POST">
+        <input type="hidden" name="form_type" value="vacancy-alert">
         <input type="hidden" name="_subject" value="Aanmelden vacature-alert">
         <input type="hidden" name="_autoresponse" value="Bedankt voor je aanmelding bij Ebele Schiedam. We houden je op de hoogte zodra er een vacature vrijkomt.">
         <input type="hidden" name="_next" value="https://terryjansen.github.io/ebele-schiedam/vacature-bedankt.html">
