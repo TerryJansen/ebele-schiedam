@@ -79,7 +79,7 @@ function isRateLimited(request) {
   return false;
 }
 
-export default async function handler(request) {
+async function processRequest(request) {
   if (request.method !== "POST") {
     return new Response("Methode niet toegestaan", {
       status: 405,
@@ -173,5 +173,44 @@ export default async function handler(request) {
   } catch (error) {
     console.error("Form error", error);
     return new Response("Ongeldige aanvraag", { status: 400 });
+  }
+}
+
+async function readNodeBody(request) {
+  const chunks = [];
+  let size = 0;
+  for await (const chunk of request) {
+    const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+    size += buffer.length;
+    chunks.push(buffer);
+    if (size > MAX_BODY_BYTES) break;
+  }
+  return Buffer.concat(chunks);
+}
+
+export default async function handler(request, response) {
+  if (!response || typeof response.setHeader !== "function") {
+    return processRequest(request);
+  }
+
+  try {
+    const body = request.method === "GET" || request.method === "HEAD" ? undefined : await readNodeBody(request);
+    const headers = Object.fromEntries(Object.entries(request.headers || {}).map(([key, value]) => [key, Array.isArray(value) ? value.join(", ") : String(value)]));
+    const protocol = headers["x-forwarded-proto"] || "https";
+    const host = headers.host || "localhost";
+    const webRequest = new Request(`${protocol}://${host}${request.url || "/"}`, {
+      method: request.method,
+      headers,
+      body,
+      duplex: body ? "half" : undefined,
+    });
+    const webResponse = await processRequest(webRequest);
+    response.statusCode = webResponse.status;
+    webResponse.headers.forEach((value, key) => response.setHeader(key, value));
+    response.end(await webResponse.text());
+  } catch (error) {
+    console.error("Node adapter error", error);
+    response.statusCode = 500;
+    response.end("Interne serverfout");
   }
 }
