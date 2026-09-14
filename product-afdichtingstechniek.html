@@ -321,6 +321,8 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 @media(min-width:821px){.nav-in{height:124px}.logo-mark{margin-top:0;align-items:stretch}.logo-bearing-spin{height:42px!important}.logo-text{height:35px!important;width:auto!important}.logo-bar{height:3px;margin-bottom:8px}.foot-logo{height:88px}}
 @media(max-width:820px){.logo-mark{align-items:stretch}.logo-bearing-spin{height:21px!important}.logo-text{height:35px!important;width:auto!important}.foot-logo{height:54px}}
 </style>
+<link rel="stylesheet" href="mobile-fixes.css">
+<script src="mobile-fixes.js" defer></script>
 </head>
 <body>
 <nav class="nav" aria-label="Hoofdnavigatie">
@@ -443,28 +445,6 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
     </a>
   </div>
 </div>
-<script>
-// popup na 2.5 sec tonen — elke keer bij bezoek van de afdichtingspagina
-(function(){
-  const popup = document.getElementById('afdichtingBrochureOverlay');
-  if(!popup) return;
-  setTimeout(function(){
-    popup.classList.add('open');
-    popup.setAttribute('aria-hidden','false');
-  }, 2500);
-  window.closeAfdichtingBrochure = function(){
-    popup.classList.remove('open');
-    popup.setAttribute('aria-hidden','true');
-  };
-  popup.addEventListener('click', function(e){
-    if(e.target === popup) closeAfdichtingBrochure();
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeAfdichtingBrochure();
-  });
-})();
-</script>
-
 <footer>
   <div class="footer-main">
     <div class="foot-grid">

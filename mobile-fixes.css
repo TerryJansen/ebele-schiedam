@@ -1,0 +1,121 @@
+@media (max-width: 820px) {
+  .burger {
+    min-width: 44px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .page-datasheets .page-hero h1 {
+    font-size: clamp(1.35rem, 6.2vw, 1.7rem);
+    line-height: 1.16;
+    overflow-wrap: anywhere;
+  }
+
+  .brochure-popup .bc-close {
+    top: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+  }
+
+  .brochure-popup {
+    left: auto;
+    right: 10px;
+    width: min(320px, calc(100vw - 20px));
+    max-height: calc(100vh - 20px);
+    max-height: calc(100dvh - 20px);
+    overflow: auto;
+  }
+
+  .lt-table,
+  .lt-table tbody,
+  .lt-table tr,
+  .lt-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .lt-table tr {
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(255,255,255,.14);
+  }
+
+  .lt-table td {
+    padding: 3px 0;
+    border-bottom: 0;
+  }
+
+  .lt-table td:last-child {
+    text-align: left;
+  }
+
+  .nav-item-dd {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    align-items: start;
+  }
+
+  .nav-item-dd > .dd-toggle {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .nav-item-dd > .dd-toggle > svg {
+    display: none;
+  }
+
+  .dd-mobile-toggle {
+    display: inline-grid;
+    grid-column: 2;
+    grid-row: 1;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--navy, #04052f);
+    cursor: pointer;
+  }
+
+  .dd-mobile-toggle svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    transition: transform .2s ease;
+  }
+
+  .nav-item-dd.open .dd-mobile-toggle svg {
+    transform: rotate(180deg);
+  }
+
+  .nav-item-dd > .dd-menu {
+    grid-column: 1 / -1;
+  }
+
+  .nav-item-dd > .dd-menu a {
+    color: var(--navy, #04052f) !important;
+  }
+
+  .nav-item-dd > .dd-menu a:hover,
+  .nav-item-dd > .dd-menu a:focus-visible {
+    color: var(--blue, #0070b7) !important;
+  }
+
+  .nav-item-dd.open > .dd-menu,
+  .nav-item-dd:focus-within > .dd-menu,
+  .nav-item-dd:hover > .dd-menu {
+    transform: none;
+  }
+}
+
+@media (min-width: 821px) {
+  .dd-mobile-toggle {
+    display: none;
+  }
+}
