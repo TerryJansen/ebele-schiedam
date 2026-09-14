@@ -1,6 +1,36 @@
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
+import { isIP } from "node:net";
+
 const SITE_URL = "https://ebele-schiedam-1j21.vercel.app";
 const DESTINATION = "info@ebele-schiedam.nl";
+const MAX_BODY_BYTES = 32 * 1024;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const RATE_LIMIT_MAX_KEYS = 1000;
+const rateLimit = new Map();
+const ALLOWED_FORM_TYPES = new Set(["contact", "vacancy-alert"]);
+const FIELD_LIMITS = {
+  naam: 120,
+  email: 254,
+  telefoon: 40,
+  bedrijf: 160,
+  postcode: 20,
+  woonplaats: 120,
+  aanvraag: 5000,
+  productgroepen: 1000,
+};
+const DYNAMIC_FIELD_PATTERN = /^(aantal|product_detail)_([1-9][0-9]*)$/;
+
+function getFieldLimit(field) {
+  if (Object.prototype.hasOwnProperty.call(FIELD_LIMITS, field)) return FIELD_LIMITS[field];
+  const dynamicField = DYNAMIC_FIELD_PATTERN.exec(field);
+  if (!dynamicField) return null;
+  return dynamicField[1] === "aantal" ? 80 : 240;
+}
+
+function isAllowedField(field) {
+  return getFieldLimit(field) !== null;
+}
 
 function escapeHtml(value = "") {
   return String(value)
@@ -14,7 +44,39 @@ function escapeHtml(value = "") {
 function getFields(request) {
   const contentType = request.headers.get("content-type") || "";
   if (contentType.includes("application/json")) return request.json();
-  return request.formData().then((form) => Object.fromEntries(form.entries()));
+  return request.formData().then((form) => {
+    const fields = Object.fromEntries(form.entries());
+    const productGroups = form.getAll("productgroepen").map((value) => String(value).trim()).filter(Boolean);
+    if (productGroups.length) fields.productgroepen = productGroups.join(", ");
+    return fields;
+  });
+}
+
+function getClientIp(request) {
+  const raw = request.headers.get("x-real-ip") || request.headers.get("x-forwarded-for") || "";
+  const candidate = raw.split(",")[0].trim();
+  return isIP(candidate) ? candidate : "unknown";
+}
+
+function isRateLimited(request) {
+  const now = Date.now();
+  for (const [key, timestamps] of rateLimit) {
+    const active = timestamps.filter((timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS);
+    if (active.length) rateLimit.set(key, active);
+    else rateLimit.delete(key);
+  }
+  const key = getClientIp(request);
+  const recent = rateLimit.get(key) || [];
+  if (!rateLimit.has(key) && rateLimit.size >= RATE_LIMIT_MAX_KEYS) {
+    rateLimit.delete(rateLimit.keys().next().value);
+  }
+  if (recent.length >= RATE_LIMIT_MAX_REQUESTS) {
+    rateLimit.set(key, recent);
+    return true;
+  }
+  recent.push(now);
+  rateLimit.set(key, recent);
+  return false;
 }
 
 export default async function handler(request) {
@@ -25,16 +87,42 @@ export default async function handler(request) {
     });
   }
 
+  const contentLength = Number(request.headers.get("content-length") || 0);
+  if (contentLength > MAX_BODY_BYTES) {
+    return new Response("Aanvraag is te groot", { status: 413 });
+  }
+
   if (!process.env.RESEND_API_KEY) {
     return new Response("E-mailservice is niet geconfigureerd", { status: 500 });
   }
 
   try {
+    const body = await request.clone().arrayBuffer();
+    if (body.byteLength > MAX_BODY_BYTES) {
+      return new Response("Aanvraag is te groot", { status: 413 });
+    }
+
     const fields = await getFields(request);
     const email = String(fields.email || "").trim();
     const name = String(fields.naam || "").trim();
     const formType = String(fields.form_type || "contact").trim().toLowerCase();
     const isVacancyAlert = formType === "vacancy-alert";
+
+    if (!ALLOWED_FORM_TYPES.has(formType)) {
+      return new Response("Onbekend formuliertype", { status: 400 });
+    }
+
+    for (const [field, limit] of Object.entries(FIELD_LIMITS)) {
+      if (String(fields[field] || "").length > limit) {
+        return new Response(`Veld ${field} is te lang`, { status: 400 });
+      }
+    }
+    for (const [field, value] of Object.entries(fields)) {
+      const limit = getFieldLimit(field);
+      if (limit !== null && String(value || "").length > limit) {
+        return new Response(`Veld ${field} is te lang`, { status: 400 });
+      }
+    }
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return new Response("Een geldig e-mailadres is verplicht", { status: 400 });
@@ -43,9 +131,21 @@ export default async function handler(request) {
       return new Response("Naam is verplicht", { status: 400 });
     }
 
-    const subject = String(fields._subject || "Nieuwe aanvraag via Ebele Schiedam");
+    const rawSubject = String(fields._subject || "");
+    if (/[\r\n]/.test(rawSubject) || rawSubject.length > 160) {
+      return new Response("Ongeldig onderwerp", { status: 400 });
+    }
+    const subject = rawSubject.trim() || "Nieuwe aanvraag via Ebele Schiedam";
+
+    if (isRateLimited(request)) {
+      return new Response("Te veel aanvragen. Probeer het later opnieuw.", {
+        status: 429,
+        headers: { "Retry-After": "600" },
+      });
+    }
+
     const rows = Object.entries(fields)
-      .filter(([key, value]) => value && !key.startsWith("_"))
+      .filter(([key, value]) => value && isAllowedField(key))
       .map(([key, value]) => `<tr><th align="left">${escapeHtml(key)}</th><td>${escapeHtml(value)}</td></tr>`)
       .join("");
 
