@@ -307,6 +307,12 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 .bp-tag{position:absolute;top:10px;right:36px;background:var(--cyan);color:var(--navy);font-size:.62rem;font-weight:700;padding:3px 8px;border-radius:99px;letter-spacing:.04em;z-index:2}
 @media(max-width:480px){.brochure-popup{right:10px;bottom:10px;left:10px;width:auto}}
 @media(prefers-reduced-motion:reduce){.brochure-popup{animation:none}}
+
+/* Accessibility: voldoende contrast voor ghost-CTA's */
+.btn-ghost{color:var(--navy);background:var(--bg);border-color:var(--navy)}
+.btn-ghost:hover,.btn-ghost:focus-visible{color:var(--navy);background:#dfe2ea;border-color:var(--navy)}
+.hero .btn-ghost,.assort .btn-ghost,.side-card .btn-ghost,.cta-band .btn-ghost{color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.78)}
+.hero .btn-ghost:hover,.hero .btn-ghost:focus-visible,.assort .btn-ghost:hover,.assort .btn-ghost:focus-visible,.side-card .btn-ghost:hover,.side-card .btn-ghost:focus-visible,.cta-band .btn-ghost:hover,.cta-band .btn-ghost:focus-visible{color:#fff;background:rgba(0,183,243,.28)}
 </style>
 <link rel="stylesheet" href="mobile-fixes.css">
 <script src="mobile-fixes.js" defer></script>

@@ -293,6 +293,12 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 /* Desktop logo sizing: larger without entering the blue hero area */
 @media(min-width:821px){.nav-in{height:124px}.logo-mark{margin-top:0;align-items:stretch}.logo-bearing-spin{height:42px!important}.logo-text{height:35px!important;width:auto!important}.logo-bar{height:3px;margin-bottom:8px}.foot-logo{height:88px}}
 @media(max-width:820px){.logo-mark{align-items:stretch}.logo-bearing-spin{height:21px!important}.logo-text{height:35px!important;width:auto!important}.foot-logo{height:54px}}
+
+/* Accessibility: voldoende contrast voor ghost-CTA's */
+.btn-ghost{color:var(--navy);background:var(--bg);border-color:var(--navy)}
+.btn-ghost:hover,.btn-ghost:focus-visible{color:var(--navy);background:#dfe2ea;border-color:var(--navy)}
+.hero .btn-ghost,.assort .btn-ghost,.side-card .btn-ghost,.cta-band .btn-ghost{color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.78)}
+.hero .btn-ghost:hover,.hero .btn-ghost:focus-visible,.assort .btn-ghost:hover,.assort .btn-ghost:focus-visible,.side-card .btn-ghost:hover,.side-card .btn-ghost:focus-visible,.cta-band .btn-ghost:hover,.cta-band .btn-ghost:focus-visible{color:#fff;background:rgba(0,183,243,.28)}
 </style>
 <link rel="stylesheet" href="mobile-fixes.css">
 <script src="mobile-fixes.js" defer></script>
