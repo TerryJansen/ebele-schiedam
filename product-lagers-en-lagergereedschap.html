@@ -614,7 +614,7 @@ footer{background:var(--navy);color:#8d92bd;font-size:.86rem}
 <script>
 const LAGERINFO = {
   kogel:{n:"Kogellagers",img:"img/br-kogel.png",d:"Het meest gebruikte lagertype: neemt radiale en axiale belasting op en draait licht. Standaard uitvoeringen direct uit voorraad. Ook rubber (2RS) of staal (2Z) afgedicht.",
-    s:["o.a. serie 6000 t/m 6900","Alle merken: o.a. SKF, FAG, INA, NTN, NSK","Verkrijgbaar in: o.a. 2Z, 2RS1, C3"]},
+    s:["o.a. serie 6000 t/m 6900","Alle merken: o.a. SKF, FAG, INA, NTN, NSK","Verkrijgbaar in: o.a. 2Z, 2RS1, C3","Rubber (2RS) en staal (2Z); ook verkrijgbaar in RVS en met keramische kogels"]},
   glij:{n:"Glijlagers",img:"img/glijlagers.png",d:"Lagers die op een glijdende film draaien in plaats van op rollende elementen: stil, compact en geschikt voor schokbelasting en trillingen.",
     s:["Met (PAF/EGF) of zonder (PAP/EGB) flens","Verkrijgbaar in metaal (brons), kunststof of composiet","Hoge belasting bij langzame draaisnelheid","Onderhoudsvrij of met vetsmering"]},
   kegel:{n:"Kegellagers",img:"img/br-kegel.png",d:"Tapered roller bearings nemen gelijktijdig hoge radiale én axiale belasting op. Standaard in de automotive en zware industrie.",
@@ -637,7 +637,7 @@ const LAGERINFO = {
 function specItems(t){
   const a=[...t.s], bi=a.findIndex(x=>/^((Alle )?merken):/i.test(x));
   const first=a[0], brand=bi>=0?a[bi].replace(/^((Alle )?merken):\s*/i,''):'Diverse merken leverbaar op aanvraag', rest=a.filter((x,i)=>i!==0&&i!==bi);
-  return [{label:'Type',text:first},{label:'Merken',text:brand},...rest.map((x,i)=>({label:i===0?'Eigenschappen':i===1?'Uitvoeringen':'Aanvullend',text:x}))];
+  return [{label:'Type',text:first},{label:'Merken',text:brand},...rest.map((x,i)=>({label:i===0?'Eigenschappen':i===1?'Ook verkrijgbaar in':'Aanvullend',text:x}))];
 }
 function openLagerInfo(t){
   const d = LAGERINFO[t];
