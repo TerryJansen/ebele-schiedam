@@ -198,17 +198,28 @@ async function processRequest(request) {
       });
     }
 
-    const responses = await Promise.all(messages.map((message) => fetch(RESEND_ENDPOINT, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(message),
-    })));
+    const responses = [];
+    const sendErrors = [];
+    for (const [index, message] of messages.entries()) {
+      if (index > 0) await new Promise((resolve) => setTimeout(resolve, 600));
+      try {
+        responses.push(await fetch(RESEND_ENDPOINT, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(message),
+        }));
+      } catch (error) {
+        responses.push(null);
+        sendErrors.push(error);
+      }
+    }
 
-    if (responses.some((response) => !response.ok)) {
-      console.error("Resend error", await Promise.all(responses.map((response) => response.ok ? "ok" : response.text())));
+    if (sendErrors.length || responses.some((response) => !response || !response.ok)) {
+      const responseErrors = await Promise.all(responses.map((response) => response ? (response.ok ? "ok" : response.text()) : "transport error"));
+      console.error("Resend error", responseErrors, sendErrors.map((error) => error?.message || String(error)));
       return new Response("E-mail kon niet worden verzonden", { status: 502 });
     }
 
