@@ -637,7 +637,7 @@ const LAGERINFO = {
 function specItems(t){
   const a=[...t.s], bi=a.findIndex(x=>/^((Alle )?merken):/i.test(x));
   const first=a[0], brand=bi>=0?a[bi].replace(/^((Alle )?merken):\s*/i,''):'Diverse merken leverbaar op aanvraag', rest=a.filter((x,i)=>i!==0&&i!==bi);
-  return [{label:'Type',text:first},{label:'Merken',text:brand},...rest.map((x,i)=>({label:i===0?'Eigenschappen':i===1?'Ook verkrijgbaar in':'Aanvullend',text:x}))];
+  return [{label:'Type',text:first},{label:'Merken',text:brand},...rest.map((x,i)=>({label:i===0?'Eigenschappen':i===1?'Uitvoeringen':'Aanvullend',text:x}))];
 }
 function openLagerInfo(t){
   const d = LAGERINFO[t];
