@@ -32,6 +32,26 @@ function isAllowedField(field) {
   return getFieldLimit(field) !== null;
 }
 
+const FIELD_LABELS = {
+  naam: "Naam",
+  email: "E-mailadres",
+  telefoon: "Telefoonnummer",
+  bedrijf: "Bedrijf",
+  postcode: "Postcode",
+  woonplaats: "Woonplaats",
+  aanvraag: "Uw aanvraag",
+  productgroepen: "Productgroepen",
+};
+
+function getFieldLabel(field) {
+  if (FIELD_LABELS[field]) return FIELD_LABELS[field];
+  const dynamicField = DYNAMIC_FIELD_PATTERN.exec(field);
+  if (!dynamicField) return field;
+  return dynamicField[1] === "aantal"
+    ? `Aantal productgroep ${dynamicField[2]}`
+    : `Productgroep ${dynamicField[2]}`;
+}
+
 function escapeHtml(value = "") {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -146,26 +166,49 @@ async function processRequest(request) {
 
     const rows = Object.entries(fields)
       .filter(([key, value]) => value && isAllowedField(key))
-      .map(([key, value]) => `<tr><th align="left">${escapeHtml(key)}</th><td>${escapeHtml(value)}</td></tr>`)
+      .map(([key, value]) => `<tr><th align="left">${escapeHtml(getFieldLabel(key))}</th><td>${escapeHtml(value)}</td></tr>`)
       .join("");
+    const receivedAt = new Date();
+    const receivedDate = new Intl.DateTimeFormat("nl-NL", { timeZone: "Europe/Amsterdam", dateStyle: "long" }).format(receivedAt);
+    const receivedTime = new Intl.DateTimeFormat("nl-NL", { timeZone: "Europe/Amsterdam", timeStyle: "short" }).format(receivedAt);
+    const confirmationHtml = `<p>Beste ${escapeHtml(name || "klant")},</p>
+      <p>Bedankt voor uw offerteaanvraag bij Ebele Schiedam. Wij hebben uw aanvraag goed ontvangen en nemen zo snel mogelijk contact met u op.</p>
+      <table cellpadding="8" cellspacing="0" border="1">
+        <tr><th align="left">Datum</th><td>${escapeHtml(receivedDate)}</td></tr>
+        <tr><th align="left">Tijdstip</th><td>${escapeHtml(receivedTime)} uur</td></tr>
+      </table>
+      <h3>Uw aanvraag</h3>
+      <table cellpadding="8" cellspacing="0" border="1">${rows}</table>
+      <p>Heeft u nog aanvullende informatie? Beantwoord dan deze e-mail of neem contact met ons op.</p>
+      <p>Met vriendelijke groet,<br>Ebele Schiedam</p>`;
 
-    const response = await fetch(RESEND_ENDPOINT, {
+    const messages = [{
+      from: "Ebele website <website@ebele-schiedam.nl>",
+      to: [DESTINATION],
+      reply_to: email,
+      subject,
+      html: `<h2>${escapeHtml(subject)}</h2><table cellpadding="8" cellspacing="0" border="1">${rows}</table>`,
+    }];
+    if (!isVacancyAlert) {
+      messages.push({
+        from: "Ebele Schiedam <website@ebele-schiedam.nl>",
+        to: [email],
+        subject: "Offerteaanvraag ontvangen — Ebele Schiedam",
+        html: confirmationHtml,
+      });
+    }
+
+    const responses = await Promise.all(messages.map((message) => fetch(RESEND_ENDPOINT, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        from: "Ebele website <website@ebele-schiedam.nl>",
-        to: [DESTINATION],
-        reply_to: email,
-        subject,
-        html: `<h2>${escapeHtml(subject)}</h2><table cellpadding="8" cellspacing="0" border="1">${rows}</table>`,
-      }),
-    });
+      body: JSON.stringify(message),
+    })));
 
-    if (!response.ok) {
-      console.error("Resend error", await response.text());
+    if (responses.some((response) => !response.ok)) {
+      console.error("Resend error", await Promise.all(responses.map((response) => response.ok ? "ok" : response.text())));
       return new Response("E-mail kon niet worden verzonden", { status: 502 });
     }
 
