@@ -123,6 +123,11 @@ async function processRequest(request) {
     }
 
     const fields = await getFields(request);
+    // Honeypot: echte bezoekers zien of vullen dit veld niet in.
+    // Bots krijgen stilzwijgend dezelfde bedankredirect en proberen niet opnieuw te mailen.
+    if (String(fields.website || "").trim()) {
+      return Response.redirect(`${SITE_URL}/bedankt.html`, 303);
+    }
     const email = String(fields.email || "").trim();
     const name = String(fields.naam || "").trim();
     const formType = String(fields.form_type || "contact").trim().toLowerCase();
@@ -168,58 +173,31 @@ async function processRequest(request) {
       .filter(([key, value]) => value && isAllowedField(key))
       .map(([key, value]) => `<tr><th align="left">${escapeHtml(getFieldLabel(key))}</th><td>${escapeHtml(value)}</td></tr>`)
       .join("");
-    const receivedAt = new Date();
-    const receivedDate = new Intl.DateTimeFormat("nl-NL", { timeZone: "Europe/Amsterdam", dateStyle: "long" }).format(receivedAt);
-    const receivedTime = new Intl.DateTimeFormat("nl-NL", { timeZone: "Europe/Amsterdam", timeStyle: "short" }).format(receivedAt);
-    const confirmationHtml = `<p>Beste ${escapeHtml(name || "klant")},</p>
-      <p>Bedankt voor uw offerteaanvraag bij Ebele Schiedam. Wij hebben uw aanvraag goed ontvangen en nemen zo snel mogelijk contact met u op.</p>
-      <table cellpadding="8" cellspacing="0" border="1">
-        <tr><th align="left">Datum</th><td>${escapeHtml(receivedDate)}</td></tr>
-        <tr><th align="left">Tijdstip</th><td>${escapeHtml(receivedTime)} uur</td></tr>
-      </table>
-      <h3>Uw aanvraag</h3>
-      <table cellpadding="8" cellspacing="0" border="1">${rows}</table>
-      <p>Heeft u nog aanvullende informatie? Beantwoord dan deze e-mail of neem contact met ons op.</p>
-      <p>Met vriendelijke groet,<br>Ebele Schiedam</p>`;
-
-    const messages = [{
+    const message = {
       from: "Ebele website <website@ebele-schiedam.nl>",
       to: [DESTINATION],
       reply_to: email,
       subject,
       html: `<h2>${escapeHtml(subject)}</h2><table cellpadding="8" cellspacing="0" border="1">${rows}</table>`,
-    }];
-    if (!isVacancyAlert) {
-      messages.push({
-        from: "Ebele Schiedam <website@ebele-schiedam.nl>",
-        to: [email],
-        subject: "Offerteaanvraag ontvangen — Ebele Schiedam",
-        html: confirmationHtml,
+    };
+
+    let mailResponse;
+    try {
+      mailResponse = await fetch(RESEND_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(message),
       });
+    } catch (error) {
+      console.error("Resend transport error", error?.message || String(error));
+      return new Response("E-mail kon niet worden verzonden", { status: 502 });
     }
 
-    const responses = [];
-    const sendErrors = [];
-    for (const [index, message] of messages.entries()) {
-      if (index > 0) await new Promise((resolve) => setTimeout(resolve, 600));
-      try {
-        responses.push(await fetch(RESEND_ENDPOINT, {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(message),
-        }));
-      } catch (error) {
-        responses.push(null);
-        sendErrors.push(error);
-      }
-    }
-
-    if (sendErrors.length || responses.some((response) => !response || !response.ok)) {
-      const responseErrors = await Promise.all(responses.map((response) => response ? (response.ok ? "ok" : response.text()) : "transport error"));
-      console.error("Resend error", responseErrors, sendErrors.map((error) => error?.message || String(error)));
+    if (!mailResponse.ok) {
+      console.error("Resend error", await mailResponse.text());
       return new Response("E-mail kon niet worden verzonden", { status: 502 });
     }
 
