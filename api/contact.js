@@ -1,4 +1,5 @@
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
+const TURNSTILE_VERIFY_ENDPOINT = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 import { isIP } from "node:net";
 
 const SITE_URL = "https://ebele-schiedam-1j21.vercel.app";
@@ -72,6 +73,33 @@ function getFields(request) {
   });
 }
 
+async function verifyTurnstile(token, request) {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) {
+    console.error("Turnstile secret ontbreekt (TURNSTILE_SECRET_KEY)");
+    return false;
+  }
+  if (!token) return false;
+
+  const payload = new URLSearchParams({ secret, response: token });
+  const ip = getClientIp(request);
+  if (ip !== "unknown") payload.set("remoteip", ip);
+
+  try {
+    const verifyResponse = await fetch(TURNSTILE_VERIFY_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: payload,
+    });
+    if (!verifyResponse.ok) return false;
+    const result = await verifyResponse.json();
+    return result.success === true;
+  } catch (error) {
+    console.error("Turnstile verify error", error?.message || String(error));
+    return false;
+  }
+}
+
 function getClientIp(request) {
   const raw = request.headers.get("x-real-ip") || request.headers.get("x-forwarded-for") || "";
   const candidate = raw.split(",")[0].trim();
@@ -128,6 +156,13 @@ async function processRequest(request) {
     if (String(fields.website || "").trim()) {
       return Response.redirect(`${SITE_URL}/bedankt.html`, 303);
     }
+
+    const turnstileToken = String(fields["cf-turnstile-response"] || "").trim();
+    const turnstileOk = await verifyTurnstile(turnstileToken, request);
+    if (!turnstileOk) {
+      return new Response("Verificatie mislukt. Vink de beveiligingscheck aan en probeer opnieuw.", { status: 403 });
+    }
+
     const email = String(fields.email || "").trim();
     const name = String(fields.naam || "").trim();
     const formType = String(fields.form_type || "contact").trim().toLowerCase();
