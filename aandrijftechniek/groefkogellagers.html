@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html lang="nl-NL"><head>
+<script>
+let text = `{Groefkogellagers bestellen}[Bekijk ons aanbod en bestel uw producten]
+<h1>Groefkogellagers</h1>
+<p>Groefkogellagers behoren tot de meest gebruikte lagers in de industrie en staan bekend om hun veelzijdigheid, hoge snelheid en lage wrijving. Of het nu gaat om lichte of middelzware belastingen, groefkogellagers zorgen voor een soepele en efficiënte werking van uw machines en installaties. Ebele Schiedam biedt een breed assortiment groefkogellagers aan voor diverse toepassingen.</p>
+<h2>Wat is een groefkogellager?</h2>
+<p>Een groefkogellager is een type <a href="https://www.ebele-schiedam.nl/aandrijftechniek/kogellagers.html">kogellager</a> waarbij de loopbanen in de binnen- en buitenring diepe groeven bevatten. Deze groeven zorgen ervoor dat de kogels optimaal worden geleid en zowel radiale als beperkte axiale krachten kunnen opnemen. Door deze constructie zijn groefkogellagers bijzonder geschikt voor toepassingen waarbij snelheid, betrouwbaarheid en een lange levensduur belangrijk zijn. Ze worden vaak toegepast in elektromotoren, pompen en andere draaiende systemen. In bepaalde toepassingen worden groefkogellagers gecombineerd met <a href="https://www.ebele-schiedam.nl/aandrijftechniek/hoekcontactlagers.html">hoekcontactlagers</a> om zowel radiale als hogere axiale krachten op te vangen.</p>
+<h2>Afmetingen van groefkogellagers</h2>
+<p>Groefkogellagers zijn bij onze <a href="https://www.ebele-schiedam.nl/aandrijftechniek/index.html">technische groothandel</a> verkrijgbaar in verschillende afmetingen en uitvoeringen, zodat er altijd een passende <a href="https://www.ebele-schiedam.nl/aandrijftechniek/lagers.html">lager</a> beschikbaar is voor uw toepassing. Het kiezen van de juiste afmetingen is belangrijk voor een optimale werking en levensduur van het lager. De belangrijkste afmetingen van een groefkogellager zijn de binnendiameter, buitendiameter en breedte. Deze maten bepalen of het lager geschikt is voor uw as en behuizing. Daarnaast zijn er variaties in toleranties en speling, afhankelijk van de toepassing en belasting. </p>
+<h2>Open of dichte groefkogellagers</h2>
+<p>Er zijn verschillende uitvoeringen van groefkogellagers, waaronder open en dichte varianten. Open groefkogellagers hebben geen afdichting en zijn geschikt voor toepassingen waarbij smering eenvoudig kan worden aangebracht en onderhoud mogelijk is. Dichte groefkogellagers zijn voorzien van <a href="https://www.ebele-schiedam.nl/aandrijftechniek/leverancier-afdichtingen.html">afdichtingen</a> of beschermplaten (bijvoorbeeld met rubber of metaal) en zijn beter beschermd tegen vuil, stof en vocht. Deze zijn ideaal voor toepassingen waarbij onderhoud beperkt is en een langere levensduur gewenst is. Voor extra afdichting en bescherming tegen vuil worden in sommige toepassingen ook <a href="https://www.ebele-schiedam.nl/aandrijftechniek/o-ringen.html">O-ringen</a> toegepast.</p>
+<h3>Vraag direct een offerte aan</h3>
+<p>Bent u benieuwd naar de beste oplossing voor uw toepassing? Onze <a href="https://www.ebele-schiedam.nl/index.html">specialisten</a> helpen u graag met deskundig advies en denken met u mee over de juiste groefkogellagers. Neem contact met ons op of vraag direct een offerte aan en ontvang snel een passend voorstel voor uw producten.</p>`;
+// Titel tussen {} uithalen
+const title = (text.match(/\{([^}]*)\}/) || ['', ''])[1];
+// Inhoud tussen []
+const block1 = (text.match(/\[([^\]]*)\]/) || ['', ''])[1];
+// {} en [] verwijderen uit de tekst
+text = text
+    .replace(/\{[^}]*\}/, '')
+    .replace(/\[[^\]]*\]/, '');
+// Teksten opsplitsen, lege paragrafen weglaten
+const splitText = text.split('</p>').filter(p =>
+    p.replace(/<[^>]*>|&nbsp;/g, '').trim() !== ''
+);
+document.title = title;
+const ogTitle = document.querySelector('meta[property="og:title"]');
+if (ogTitle) {
+    ogTitle.setAttribute('content', title);
+}
+let count = splitText.length;
+</script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="format-detection" content="telephone=yes">
+<title><script>
+document.title = title + " - Ebele Schiedam";
+</script>
+</title>
+<meta property="og:title" content="Groefkogellagers | Ebele Schiedam" />
+<meta name="description" content="Ontdek hoogwaardige groefkogellagers voor diverse toepassingen. Duurzaam, betrouwbaar en direct leverbaar. Bekijk ons ruime assortiment online." />
+<meta property="og:description" content="Ontdek hoogwaardige groefkogellagers voor diverse toepassingen. Duurzaam, betrouwbaar en direct leverbaar. Bekijk ons ruime assortiment online." />
+<meta name="google-site-verification" content="pG02canQe_IXVis2PpZcpZfR3uJ9TH8KKC5z5tNpWAk">
+<link rel="canonical" href="https://www.ebele-schiedam.nl/aandrijftechniek/groefkogellagers.html" />
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ebele-schiedam.nl/aandrijftechniek/groefkogellagers.html" />
+<meta property="og:image" content="https://www.ebele-schiedam.nl/img/logo-ebele.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://www.ebele-schiedam.nl/#bedrijf","name":"Ebele Schiedam","description":"Technische groothandel in lagers, afdichtingen en aandrijftechniek.","url":"https://www.ebele-schiedam.nl/","logo":"https://www.ebele-schiedam.nl/img/logo-ebele.png","telephone":"+31104264354","email":"info@ebele-schiedam.nl","address":{"@type":"PostalAddress","streetAddress":"Minervaweg 27","postalCode":"3113 AP","addressLocality":"Schiedam","addressCountry":"NL"},"areaServed":"Nederland","openingHours":"Mo-Fr 08:00-17:00"}
+</script>
+  <link rel="icon" type="image/png" sizes="180x180" href="https://www.ebele-schiedam.nl/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="https://www.ebele-schiedam.nl/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://www.ebele-schiedam.nl/mobile-fixes.css">
+<link rel="stylesheet" type="text/css" href="assets/style.css" media="all" /> 
+<script src="https://www.ebele-schiedam.nl/mobile-fixes.js" defer=""></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PKBZGJK');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body cz-shortcut-listen="true">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKBZGJK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="nav" aria-label="Hoofdnavigatie">
+  <div class="nav-in">
+    <a class="logo" href="https://www.ebele-schiedam.nl/#" aria-label="Ebele Schiedam â€” naar boven">
+            <span class="logo-mark anim in">
+          <span class="logo-top anim in" aria-hidden="true">
+            <span class="logo-bar anim in"></span>
+            <img class="logo-bearing-spin" src="https://www.ebele-schiedam.nl/img/logo-bearing.png" alt="" aria-hidden="true" style="height:21px;width:auto">
+            <span class="logo-bar anim in"></span>
+          </span>
+          <img class="logo-text" src="https://www.ebele-schiedam.nl/img/logo-text.png" alt="Ebele Schiedam" style="height:35px;width:auto">
+        </span>
+    </a>
+    <button class="burger" aria-label="Menu openen of sluiten" aria-expanded="false" onclick="var l=document.querySelector('.nav-links');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+    </button>
+    <div class="nav-links">
+      <div class="nav-item-dd">
+        <a class="dd-toggle" href="https://www.ebele-schiedam.nl/producten.html">Producten
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        </a>
+        <button type="button" class="dd-mobile-toggle" aria-label="Productgroepen tonen" aria-controls="mobile-product-menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><div class="dd-menu" id="mobile-product-menu">
+        <a href="https://www.ebele-schiedam.nl/product-lagers-en-lagergereedschap.html">Lagers &amp; lagergereedschap</a>
+        <a href="https://www.ebele-schiedam.nl/product-afdichtingstechniek.html">Afdichtingstechniek</a>
+        <a href="https://www.ebele-schiedam.nl/product-v-snaren-en-v-snaarschijven.html">V-snaren &amp; -schijven</a>
+        <a href="https://www.ebele-schiedam.nl/product-kettingen-en-kettingwielen.html">Kettingen &amp; kettingwielen</a>
+        <a href="https://www.ebele-schiedam.nl/product-gereedschap.html">Gereedschap</a>
+        <a href="https://www.ebele-schiedam.nl/product-lijmen-en-afdichtingsmiddelen.html">Lijmen &amp; afdichten</a>
+        <a href="https://www.ebele-schiedam.nl/product-transportwielen.html">Transportwielen</a>
+        <a href="https://www.ebele-schiedam.nl/product-hijs-en-hefwerktuigen.html">Hijs- &amp; hefwerktuigen</a>
+        </div>
+      </div>
+      <a href="https://www.ebele-schiedam.nl/merken.html">Merken</a>
+      <a href="https://www.ebele-schiedam.nl/over-ons.html">Over ons</a>
+      <a href="https://www.ebele-schiedam.nl/vacatures.html">Vacatures</a>
+      <a href="https://www.ebele-schiedam.nl/service.html">Service</a>
+      <a href="https://www.ebele-schiedam.nl/documentatie.html">Documentatie</a>
+        <a href="https://www.ebele-schiedam.nl/datasheets.html">Datasheets</a>
+      <a href="https://www.ebele-schiedam.nl/contact.html">Contact</a>
+      <a class="cta" href="https://www.ebele-schiedam.nl/offerte.html">Offerte aanvragen</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-bg" role="img" aria-label="Kogellagers uit de voorraad van Ebele Schiedam"></div>
+  <div class="hero-in grizzly-hero">
+    <div>
+      <div class="breadcr">
+  <ul itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="https://www.ebele-schiedam.nl/"><span itemprop="name">Home</span></a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="https://www.ebele-schiedam.nl/aandrijftechniek/"><span itemprop="name">Aandrijftechniek</span></a>
+      <meta itemprop="position" content="2" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <p itemprop="item" href="https://www.ebele-schiedam.nl/aandrijftechniek/groefkogellagers.html"><span itemprop="name">Groefkogellagers</span></p>
+      <meta itemprop="position" content="3" />
+    </li>
+  </ul>
+</div>
+<span data-par-1=""></span> <script>document.querySelector("[data-par-1]").innerHTML = splitText[0] || ''</script>
+<p class="grizzly-cta"><script>document.write(block1);</script></p>
+      <div class="btn-row anim in" style="transition-delay: 0.18s;">
+        <a class="btn btn-primary anim in grizzly-but" href="https://www.ebele-schiedam.nl/offerte.html">Offerte aanvragen</a>
+        <a class="btn btn-ghost anim in" href="tel:+31104264354">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"></path></svg>
+          010 426 43 54
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+
+<div class="facts" aria-label="Kengetallen">
+    <div class="fact anim in grizzly-usp" style="transition-delay: 0.14s;"><b>&#x2713; 80.000 producten op voorraad</b></div>
+  <div class="fact anim in grizzly-usp" style="transition-delay: 0s;"><b>&#x2713; 1 werkdag levertijd</b></div>
+  <div class="fact anim in grizzly-usp" style="transition-delay: 0.07s;"><b>&#x2713; Producten van kwaliteitsmerken</b></div>
+
+</div>
+
+<section id="producten">
+  <div class="wrap">
+    <p class="kicker anim in">Uitgelicht</p>
+    <h2 class="title anim in">Uitgelichte producten</h2>
+    <p class="lead anim in">Vier productgroepen die wij vaak leveren. Het volledige assortiment vindt u op de productenpagina.</p>
+    <div class="grid grid-3">
+      <article class="pcard anim in" style="transition-delay: 0s;"><span class="pnum anim in">01</span>
+        <div class="ph ph-uncropped"><img src="https://www.ebele-schiedam.nl/img/lagers.jpg" alt="Lagers en lagergereedschap" loading="lazy" width="400" height="300"></div>
+        <div class="body anim in">
+          <h3 class="anim in">Lagers &amp; lagergereedschap</h3>
+          <p class="anim in">Vrijwel alle lagertypes van FAG, SKF, INA, NTN en meer - plus het gereedschap om ze te monteren.</p>
+        </div>
+        <a class="stretched" href="https://www.ebele-schiedam.nl/product-lagers-en-lagergereedschap.html" aria-label="Meer over lagers"></a>
+      </article>
+      <article class="pcard anim in" style="transition-delay: 0.07s;"><span class="pnum anim in">02</span>
+        <div class="ph"><img src="https://www.ebele-schiedam.nl/img/afdichtingen.jpg" alt="afdichting" loading="lazy" width="400" height="300"></div>
+        <div class="body anim in">
+          <h3 class="anim in">Afdichtingstechniek</h3>
+          <p class="anim in">O-ringen, oliekeerringen en manchetten in alle materialen - ook maatwerk via Seal Jet.</p>
+        </div>
+        <a class="stretched" href="https://www.ebele-schiedam.nl/product-afdichtingstechniek.html" aria-label="Meer over afdichtingen"></a>
+      </article>
+      <article class="pcard anim in" style="transition-delay: 0.14s;"><span class="pnum anim in">03</span>
+        <div class="ph"><img src="https://www.ebele-schiedam.nl/img/v-snaren.jpg" alt="V-snaren en V-snaarschijven" loading="lazy" width="400" height="300"></div>
+                <div class="body anim in">
+                  <h3 class="anim in">V-snaren &amp; V-snaarschijven</h3>
+                  <p class="anim in">Betrouwbare aandrijfriemen en schijven van sterke merken voor industri&euml;le toepassingen.</p>
+                </div>
+                <a class="stretched" href="https://www.ebele-schiedam.nl/product-v-snaren-en-v-snaarschijven.html" aria-label="Meer over V-snaren en V-snaarschijven"></a>
+                </article>
+                <article class="pcard anim in" style="transition-delay: 0.21s;"><span class="pnum anim in">04</span>
+                <div class="ph"><img src="https://www.ebele-schiedam.nl/img/loctite.jpg" alt="Loctite lijmen en afdichtingsmiddelen" loading="lazy" width="400" height="300"></div>
+                <div class="body anim in">
+                  <h3 class="anim in">Loctite</h3>
+                  <p class="anim in">Professionele lijmen, afdichtingsmiddelen en borgmiddelen voor duurzame technische verbindingen.</p>
+                </div>
+                <a class="stretched" href="https://www.ebele-schiedam.nl/product-lijmen-en-afdichtingsmiddelen.html" aria-label="Meer over Loctite lijmen en afdichtingsmiddelen"></a>
+                </article>
+                </div>
+    <div class="btn-row anim in" style="margin-top:32px">
+      <a class="btn btn-primary anim in" href="https://www.ebele-schiedam.nl/producten.html">Bekijk alle producten</a>
+    </div>
+  </div>
+</section>
+
+<section id="lagers" style="padding-top:0">
+  <div class="wrap">
+    <div class="assort anim in">
+      <div class="grizzly-blue">
+        <div>
+<span data-par-2=""></span> <script>document.querySelector("[data-par-2]").innerHTML = splitText[1] || ''</script>
+<p><script>
+// ... je bestaande code ...
+
+// Voorbeeld: in een element zetten
+document.querySelector('#mijn-element').innerHTML = block1;
+
+// Of controleren in de console
+console.log(block1);
+</script></p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="merken" style="padding-top:0">
+  <div class="wrap">
+    <p class="kicker anim in">Merken</p>
+    <h2 class="title anim in">Merken die wij leveren</h2>
+    <div class="marquee" aria-label="Merken die wij leveren, rij 1"><div class="marquee-track"><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/skf.png" alt="SKF" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/ina-fag-logo.png" alt="INA FAG" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/ntn-snr.png" alt="NTN SNR" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/timken.webp" alt="Timken" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/nsk.png" alt="NSK" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/zen-logo.jpg" alt="ZEN" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/mitsuboshi.webp" alt="Mitsuboshi" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/loctite-logo.png" alt="Loctite" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/skf.png" alt="SKF" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/ina-fag-logo.png" alt="INA FAG" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/ntn-snr.png" alt="NTN SNR" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/timken.webp" alt="Timken" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/nsk.png" alt="NSK" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/zen-logo.jpg" alt="ZEN" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/mitsuboshi.webp" alt="Mitsuboshi" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/loctite-logo.png" alt="Loctite" loading="lazy"></div></div></div>
+    <div class="marquee rev" aria-label="Merken rij 2" style="margin-top:14px"><div class="marquee-track"><div class="bcard anim"><img src="img/beta-tools.svg" alt="BETA Tools" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/knipex.svg" alt="KNIPEX" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/rema-logo.png" alt="REMA" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/kukko.png" alt="KUKKO" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/freudenberg.png" alt="Freudenberg" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/optibelt.png" alt="Optibelt" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/dunlop.svg" alt="Dunlop" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/gmt.jpg" alt="GMT" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/beta-tools.svg" alt="BETA Tools" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/knipex.svg" alt="KNIPEX" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/rema-logo.png" alt="REMA" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/kukko.png" alt="KUKKO" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/freudenberg.png" alt="Freudenberg" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/optibelt.png" alt="Optibelt" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/dunlop.svg" alt="Dunlop" loading="lazy"></div><div class="bcard anim in"><img src="https://www.ebele-schiedam.nl/img/gmt.jpg" alt="GMT" loading="lazy"></div><div class="bcard anim"><img src="https://www.ebele-schiedam.nl/img/swr-europe.jpg" alt="SWR Europe" loading="lazy"></div></div></div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="grizzly-normal">
+ <span data-par-3=""></span> <script>document.querySelector("[data-par-3]").innerHTML = splitText[2] || ''</script>
+  <span data-par-4=""></span> <script>document.querySelector("[data-par-4]").innerHTML = splitText[3] || ''</script>
+    </div>
+
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="cinfo anim in" style="transition-delay: 0s;">
+        <h2 class="anim in">Ebele Schiedam bv</h2>
+        <div class="crow anim in">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span class="anim in">Minervaweg 27<br>3113 AP Schiedam
+            <small class="anim in"><a href="https://www.google.com/maps/search/?api=1&amp;query=Minervaweg+27,+3113+AP+Schiedam" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;color:var(--cyan)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Bekijk op Google Maps</a></small>
+          </span>
+        </div>
+        <div class="crow anim in">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"></path></svg>
+          <span class="anim in"><a href="tel:+31104264354">010 426 43 54</a></span>
+        </div>
+        <div class="crow anim in">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m2 7 10 6 10-6"></path></svg>
+          <a href="mailto:info@ebele-schiedam.nl">info@ebele-schiedam.nl</a>
+        </div>
+        <div class="crow anim in">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 9h10M7 13h10M7 17h6"></path></svg>
+          <span class="anim in">KVK 24249833<small class="anim in">BTW NL8030 418 09 B01</small></span>
+        </div>
+      </div>
+      <div class="hours-card anim in" style="transition-delay: 0.07s;">
+        <h2 class="anim in">Bereikbaarheid</h2>
+        <table class="hours anim in">
+          <tbody><tr><td class="anim in">Maandag</td><td class="anim in">08.00 - 17.00</td></tr>
+          <tr><td class="anim in">Dinsdag</td><td class="anim in">08.00 - 17.00</td></tr>
+          <tr><td class="anim in">Woensdag</td><td class="anim in">08.00 - 17.00</td></tr>
+          <tr><td class="anim in">Donderdag</td><td class="anim in">08.00 - 17.00</td></tr>
+          <tr><td class="anim in">Vrijdag</td><td class="anim in">08.00 - 17.00</td></tr>
+          <tr class="closed"><td class="anim in">Zaterdag</td><td class="anim in">Gesloten</td></tr>
+          <tr class="closed"><td class="anim in">Zondag</td><td class="anim in">Gesloten</td></tr>
+        </tbody></table>
+        <div class="hours-foot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M3 11 12 3l9 8M5 10v10h14V10"></path></svg>
+          <span class="anim in">Voor een passende offerte gaat u naar de <a href="offerte.html">offertepagina</a>.</span>
+        </div>
+      </div>
+  </div>
+</div>
+  </div>
+</section>
+<section>
+	  <span data-par-5=""></span> <script>document.querySelector("[data-par-5]").innerHTML = splitText[4] || ''</script>
+	    <span data-par-6=""></span> <script>document.querySelector("[data-par-6]").innerHTML = splitText[5] || ''</script>
+		  <span data-par-7=""></span> <script>document.querySelector("[data-par-7]").innerHTML = splitText[6] || ''</script>
+</section>
+
+</main>
+<footer>
+  <div class="footer-main">
+    <div class="foot-grid">
+      <div class="foot-col anim in" style="transition-delay: 0s;">
+        <img class="foot-logo" src="https://www.ebele-schiedam.nl/img/logo-ebele.png" alt="Logo Ebele Schiedam">
+        <p class="foot-about anim in">Technische groothandel in lagers, afdichtingen en aandrijftechniek. Persoonlijk, snel en betrouwbaar - vanuit Schiedam, sinds 1994.</p>
+      </div>
+      <div class="foot-col anim in" style="transition-delay: 0.07s;">
+        <h2 class="anim in">Navigatie</h2>
+        <a href="https://www.ebele-schiedam.nl/index.html">Home</a>
+        <a href="https://www.ebele-schiedam.nl/producten.html">Producten</a>
+        <a href="https://www.ebele-schiedam.nl/merken.html">Merken</a>
+        <a href="https://www.ebele-schiedam.nl/over-ons.html">Over ons</a>
+        <a href="https://www.ebele-schiedam.nl/vacatures.html">Vacatures</a>
+        <a href="https://www.ebele-schiedam.nl/service.html">Service</a>
+        <a href="https://www.ebele-schiedam.nl/service.html">Service &amp; leveringen</a>
+        <a href="https://www.ebele-schiedam.nl/documentatie.html">Documentatie</a>
+        <a href="https://www.ebele-schiedam.nl/datasheets.html">Datasheets</a>
+        <a href="https://www.ebele-schiedam.nl/contact.html">Contact</a>
+      </div>
+      <div class="foot-col anim in" style="transition-delay: 0.14s;">
+        <h2 class="anim in">Contact</h2>
+        <p class="anim in"><span class="fi anim in"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>Minervaweg 27<br>3113 AP Schiedam</p>
+        <p class="anim in"><span class="fi anim in"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m2 7 10 6 10-6"></path></svg></span><a href="mailto:info@ebele-schiedam.nl">info@ebele-schiedam.nl</a></p>
+        <p class="anim in"><span class="fi anim in"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"></path></svg></span><a href="tel:+31104264354">010 426 43 54</a></p>
+      </div>
+      <div class="foot-col anim in" style="transition-delay: 0.21s;">
+        <h2 class="anim in">Openingstijden</h2>
+        <p class="anim in"><span class="fi anim in"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span>Ma t/m vr&nbsp; 08.00 â€“ 17.00</p>
+        <p style="padding-left:30px" class="anim in"></p>
+        <p style="padding-left:30px;color:#8d92bd" class="anim in"></p>
+      </div>
+    </div>
+    <div class="foot-map">
+      <iframe src="https://www.google.com/maps?q=Minervaweg+27,+3113+AP+Schiedam&amp;output=embed" width="100%" height="260" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Locatie Ebele Schiedam op Google Maps"></iframe>
+    </div>
+  </div>
+  <div class="foot-in" style="border-top:1px solid rgba(255,255,255,.1)">
+    <span class="anim in">&copy; <b>Ebele Schiedam bv</b> . KVK 24249833</span>
+    <span class="anim in"><a href="tel:+31104264354" style="color:#c3c7e2">010 426 43 54</a> . <a href="mailto:info@ebele-schiedam.nl" style="color:#c3c7e2">info@ebele-schiedam.nl</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const info=document.getElementById('bearing-info');
+  const details={Kogellagers:'Lagers voor hoge toerentallen en algemene toepassingen.',Glijlagers:'Onderhoudsarme lageroplossingen voor rustige, gelijkmatige bewegingen.',Kegellagers:'Voor gecombineerde radiale en axiale belastingen.',Tonlagers:'Zelfinstellende lagers voor zware belastingen en uitlijnfouten.',Cilinderlagers:'NU, N, NJ, NUP en NN-serie; hoge radiale draagkracht en demontabel.',Taatslagers:'Voor axiale belastingen en verticale toepassingen.',Naaldlagers:'Veel draagvermogen bij beperkte inbouwruimte.','RVS lagers':'Corrosiebestendige lagers voor vochtige of hygiÃ«nische omgevingen.',Lagerblokken:'Complete lagerunits voor snelle en praktische montage.'};
+  document.querySelectorAll('[data-bearing]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-bearing]').forEach(b=>b.classList.remove('active'));button.classList.add('active');info.innerHTML='<h3>'+button.dataset.bearing+'</h3><p>'+details[button.dataset.bearing]+'</p>';}));
+})();
+
+// Fade-in-up bij scroll (zoals jgmobility)
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const targets = document.querySelectorAll('h1,h2,h3,h4,p,li,span,small,strong,em,label,td,blockquote,.btn,.pcard,.bcard,.chip,.fact,.val,.crow,.step,.why-item,.lg-item,.hours-card,.cinfo,form,.detail,.story,.assort,.assort-side,.side-card,.empty-state,.alert-box,.os-text,.os-img,.lead,.kicker,.chips,.btn-row,.body,.foot-col,.hours');
+  targets.forEach(el=>el.classList.add('anim'));
+
+  // staggered delay binnen ouderblokken (JG-stijl): kinderen van hetzelfde blok volgen elkaar op
+  document.querySelectorAll('ul,ol,.grid,.foot-grid,.chips,.assort-grid,.contact-grid,.steps,.why,.usp-grid,.facts').forEach(parent=>{
+    [...parent.children].forEach((child,i)=>{ if(child.classList.contains('anim')) child.style.transitionDelay = Math.min(i*0.07,0.5)+'s'; });
+  });
+  const io = new IntersectionObserver(es=>{
+    es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.anim').forEach(el=>io.observe(el));
+  // hero-elementen direct na load (staggered)
+  const revealHero=()=>{
+    document.querySelectorAll('.hero-in h1,.hero-in p,.hero-in .btn-row,.page-hero .ph-in > *').forEach((el,i)=>{
+      el.style.transitionDelay=(i*0.09)+'s';
+      setTimeout(()=>el.classList.add('in'),30+i*90);
+    });
+  };
+  if(document.readyState==='complete') revealHero();
+  else window.addEventListener('load',revealHero);
+})();
+</script>
+
+<!-- Brochure popup -->
+
+
+
+<script type="text/javascript" src="chrome-extension://cjfdbemmaeeohgibnhdhlakiahifjjcf/injected.js"></script><div data-lastpass-root="" style="position: absolute !important; top: 0px !important; left: 0px !important; height: 0px !important; width: 0px !important; display: initial !important;"></div><script type="text/javascript" language="JavaScript" src="https://ebele-schiedam.nl/aandrijftechniek/ebeleschiedam.js"></script></body></html>

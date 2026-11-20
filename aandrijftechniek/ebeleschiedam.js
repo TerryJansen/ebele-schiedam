@@ -1,0 +1,25 @@
+//<!-- TK 9.10.2026 -->
+campagneId1 = '200018700A';
+key = 'D1E04F6D09177CA8E6B5367E219903468769D534';
+folder = 'https://website2.skl1142601.interip.nl/';
+ip = '';
+bt = navigator.appName;
+bv = navigator.appVersion;
+bc = navigator.appCodeName;
+ua = navigator.userAgent;
+ref = escape(document.referrer);
+pa = escape(window.location);
+pp = '';
+pl = navigator.platform;
+jt = navigator.javaEnabled();
+sr = screen.width + 'x' + screen.height;
+sc = screen.colorDepth;
+url = folder + 'teller.aspx?campagneId=' + campagneId1 + '&pa=' + pa + '&bt=' + bt + '&bv=' + bv + '&ip=' + ip + '&ua=' + ua + '&ref=' + ref;
+ifrm = document.createElement('IFRAME');
+ifrm.setAttribute('src', url);
+ifrm.setAttribute('id', 'ifrm');
+ifrm.setAttribute('frameBorder', '0');
+ifrm.style.width = 0+'px';
+ifrm.style.height = 0+'px';
+ifrm.style.display = 'none';
+document.body.appendChild(ifrm);
